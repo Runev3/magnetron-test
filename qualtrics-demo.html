@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qualtrics-simulatie</title>
+<style>
+  body{margin:0;background:#f3f4f6;font-family:system-ui,"Segoe UI",Roboto,sans-serif;color:#1d1f22}
+  main{max-width:960px;margin:0 auto;padding:16px}
+  .q{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  iframe{width:100%;height:620px;border:0;border-radius:8px;background:#e4e0da}
+  select,button{font-size:14px;padding:6px 10px;border-radius:6px;border:1px solid #ccd}
+  #next{background:#1f6feb;color:#fff;border:0;float:right}
+  #next[disabled]{background:#9aa3ad}
+  pre{background:#111;color:#9f9;padding:10px;border-radius:8px;font-size:12px;white-space:pre-wrap;min-height:60px}
+</style>
+</head>
+<body>
+<main>
+  <p>Simuleert een Qualtrics-vraag: het iframe stuurt het resultaat naar deze pagina, net zoals naar Qualtrics.</p>
+  <p>
+    <select id="ui"><option>oud</option><option>standaard</option><option selected>herontwerp</option></select>
+    <select id="task"><option>t1</option><option>t2</option><option>t3</option></select>
+    <button id="load">Laad</button>
+  </p>
+  <div class="q">
+    <iframe id="f" src="index.html?ui=herontwerp&task=t1" allow="autoplay"></iframe>
+    <p><button id="next" disabled>Volgende →</button>&nbsp;</p>
+  </div>
+  <h3>Ontvangen Embedded Data</h3>
+  <pre id="out">(nog niets)</pre>
+</main>
+<script>
+  const f=document.getElementById('f'), next=document.getElementById('next'), out=document.getElementById('out');
+  document.getElementById('load').onclick=()=>{ next.disabled=true; out.textContent='(nog niets)';
+    f.src='index.html?ui='+document.getElementById('ui').value+'&task='+document.getElementById('task').value; };
+  window.addEventListener('message',e=>{ const d=e.data; if(!d||d.source!=='magnetron-test') return;
+    const p=d.id+'_';
+    out.textContent=[['success',d.success],['gaveup',d.gaveUp],['time',d.timeMs],['first',d.firstActionMs],['actions',d.actions],
+      ['errors',d.errors],['resets',d.resets],['final',d.finalMode+'|'+d.finalValue+'|'+d.finalTime],['path',d.path]]
+      .map(([k,v])=>p+k+' = '+v).join('\n');
+    next.disabled=false; });
+</script>
+</body>
+</html>

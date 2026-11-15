@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Microgolf UX-test</title>
+<style>
+  :root{--ink:#1d1f22;--muted:#5b6170;--accent:#1f6feb;--card:#fff}
+  html,body{margin:0;height:100%;background:#e4e0da;font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);overflow:hidden}
+  #c{display:block;width:100%;height:100%;touch-action:none;outline:none}
+  .overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(20,22,26,.55);z-index:20;padding:16px;box-sizing:border-box}
+  .hidden{display:none!important}
+  .card{background:var(--card);border-radius:14px;padding:22px 26px;max-width:480px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.3);box-sizing:border-box}
+  .card h2{margin:0 0 10px;font-size:20px}
+  .card p{margin:0 0 14px;line-height:1.5;font-size:15px}
+  .card .small{font-size:13px;color:var(--muted)}
+  button.main{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:11px 20px;font-size:15px;font-weight:600;cursor:pointer}
+  button.main:hover{filter:brightness(1.08)}
+  #hud{position:fixed;left:12px;top:12px;right:12px;display:flex;justify-content:space-between;gap:10px;pointer-events:none;z-index:5}
+  #task{background:rgba(255,255,255,.93);border-radius:10px;padding:9px 13px;font-size:14px;line-height:1.4;max-width:560px;box-shadow:0 2px 10px rgba(0,0,0,.12);pointer-events:auto}
+  #tools{position:fixed;left:12px;bottom:12px;display:flex;gap:6px;z-index:5}
+  #tools button,#giveup{background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.12);border-radius:8px;padding:7px 11px;font-size:13px;cursor:pointer;color:var(--ink)}
+  #giveup{position:fixed;right:12px;bottom:12px;z-index:5}
+  #giveup.armed{background:#c8373b;color:#fff;border-color:#c8373b}
+  #hint{position:fixed;left:50%;bottom:54px;transform:translateX(-50%);font-size:12px;color:#555;background:rgba(255,255,255,.75);padding:4px 10px;border-radius:20px;z-index:4;transition:opacity 1s;pointer-events:none;white-space:nowrap}
+  #debug{position:fixed;right:12px;top:12px;max-width:340px;max-height:60vh;overflow:auto;background:rgba(0,0,0,.78);color:#9f9;font:11px/1.4 Consolas,monospace;padding:8px 10px;border-radius:8px;z-index:30;white-space:pre-wrap}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0 14px}
+  .grid button{padding:10px 6px;border-radius:9px;border:1px solid #ccd;background:#f5f6f8;cursor:pointer;font-size:13px}
+  .grid button.sel{background:var(--accent);color:#fff;border-color:var(--accent)}
+  label.row{display:block;font-size:13px;font-weight:600;margin-top:6px}
+  @media (max-width:520px){#task{font-size:12.5px}#hint{display:none}}
+</style>
+</head>
+<body>
+<canvas id="c" tabindex="0"></canvas>
+
+<div id="hud" class="hidden"><div id="task"></div></div>
+<div id="tools" class="hidden">
+  <button id="vFull" title="Toon het hele toestel">⟲ Volledig</button>
+  <button id="vPanel" title="Zoom in op het bedieningspaneel">🔍 Paneel</button>
+</div>
+<button id="giveup" class="hidden">Lukt niet / overslaan</button>
+<div id="hint" class="hidden">Klik op knoppen · draai knoppen door te slepen · sleep ernaast om het toestel te draaien · scroll om te zoomen</div>
+<pre id="debug" class="hidden"></pre>
+
+<div id="intro" class="overlay hidden">
+  <div class="card">
+    <h2 id="introTitle">Taak</h2>
+    <p id="introText"></p>
+    <p class="small">Werk zo snel en correct mogelijk. De tijd start wanneer je op “Begin taak” klikt.</p>
+    <button class="main" id="beginBtn">Begin taak</button>
+  </div>
+</div>
+
+<div id="done" class="overlay hidden">
+  <div class="card">
+    <h2 id="doneTitle">Taak afgerond</h2>
+    <p id="doneText"></p>
+    <button class="main hidden" id="againBtn">Opnieuw</button>
+  </div>
+</div>
+
+<div id="chooser" class="overlay hidden">
+  <div class="card">
+    <h2>Microgolf UX-test · preview</h2>
+    <p class="small">Deze pagina wordt normaal in Qualtrics geladen met URL-parameters (<code>?ui=…&amp;task=…</code>). Kies hier een combinatie om te testen.</p>
+    <label class="row">Interface</label>
+    <div class="grid" id="chUi">
+      <button data-v="oud">Oud (knoppen)</button>
+      <button data-v="standaard">Standaard digitaal</button>
+      <button data-v="herontwerp">Herontwerp</button>
+    </div>
+    <label class="row">Taak</label>
+    <div class="grid" id="chTask">
+      <button data-v="t1">T1 · Hetelucht 200 °C, 10 min</button>
+      <button data-v="t2">T2 · Micro 600 W, 2:30</button>
+      <button data-v="t3">T3 · Grill 15 min</button>
+    </div>
+    <div class="grid" style="grid-template-columns:1fr"><button data-v="free" id="chFree">Vrij verkennen (zonder taak)</button></div>
+    <button class="main" id="chGo">Open</button>
+    <label style="font-size:13px;margin-left:12px"><input type="checkbox" id="chDebug"> debug-paneel</label>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+'use strict';
+
+/* ================================================================
+   1. Parameters & taken
+   ================================================================ */
+const P = new URLSearchParams(location.search);
+const UI_ALIAS = {oud:'oud',old:'oud','1':'oud',knoppen:'oud',
+                  standaard:'standaard',normaal:'standaard',normal:'standaard','2':'standaard',digitaal:'standaard',
+                  herontwerp:'herontwerp',redesign:'herontwerp',nieuw:'herontwerp','3':'herontwerp'};
+const UI = UI_ALIAS[(P.get('ui')||'').toLowerCase()] || null;
+const TASKS = {
+  t1:{mode:'oven', temp:200, time:600, text:'Stel de microgolf in op <b>hetelucht 200 °C</b> voor <b>10 minuten</b> en start hem.'},
+  t2:{mode:'micro', power:600, time:150, text:'Warm een kom soep op in de <b>microgolfstand op 600 W</b> gedurende <b>2 minuten 30 seconden</b> en start.'},
+  t3:{mode:'grill', time:900, text:'Gebruik de <b>grill</b> gedurende <b>15 minuten</b> en start.'},
+  free:{text:'Verken de microgolf vrij. Er wordt niets geregistreerd.'}
+};
+let TASK_ID = (P.get('task')||'free').toLowerCase();
+if (P.get('mode')) { // eigen taak via URL: &mode=oven&temp=200&time=600&text=...
+  TASK_ID = P.get('task') || 'custom';
+  TASKS[TASK_ID] = {mode:P.get('mode'), temp:P.has('temp')?+P.get('temp'):undefined,
+    power:P.has('power')?+P.get('power'):undefined, time:+(P.get('time')||0),
+    text:P.get('text')||'Voer de taak uit.'};
+}
+const TASK = TASKS[TASK_ID] || TASKS.free;
+const IS_FREE = !TASK.mode;
+const ID = P.get('id') || (UI+'_'+TASK_ID);
+const DEBUG = P.get('debug')==='1';
+const SOUND = P.get('sound')!=='0';
+const TIME_TOL = +(P.get('tol')||0); // toegestane afwijking in seconden
+let EMBEDDED = false; try { EMBEDDED = window.self !== window.top; } catch(e){ EMBEDDED = true; }
+
+/* ---------- preview-kiezer als er geen ui gekozen is ---------- */
+if (!UI) {
+  const ch = document.getElementById('chooser'); ch.classList.remove('hidden');
+  let selUi='herontwerp', selTask='t1';
+  const mark = () => {
+    ch.querySelectorAll('#chUi button').forEach(b=>b.classList.toggle('sel',b.dataset.v===selUi));
+    ch.querySelectorAll('#chTask button, #chFree').forEach(b=>b.classList.toggle('sel',b.dataset.v===selTask));
+  };
+  ch.querySelectorAll('#chUi button').forEach(b=>b.onclick=()=>{selUi=b.dataset.v;mark();});
+  ch.querySelectorAll('#chTask button, #chFree').forEach(b=>b.onclick=()=>{selTask=b.dataset.v;mark();});
+  document.getElementById('chGo').onclick=()=>{
+    location.search='?ui='+selUi+'&task='+selTask+(document.getElementById('chDebug').checked?'&debug=1':'');
+  };
+  mark();
+  return;
+}
+
+/* ================================================================
+   2. Helpers (canvas, tekst, iconen, geluid)
+   ================================================================ */
+const FONT = 'system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif';
+const TEX_S = 6;                         // canvas-pixels per paneel-eenheid
+function makeCanvas(wu,hu,s=TEX_S){
+  const c=document.createElement('canvas'); c.width=Math.max(2,Math.round(wu*s)); c.height=Math.max(2,Math.round(hu*s));
+  const ctx=c.getContext('2d'); ctx.scale(c.width/wu,c.height/hu); return {cv:c,ctx};
+}
+function rr(ctx,x,y,w,h,r){ r=Math.min(r,w/2,h/2); ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+function txt(ctx,s,x,y,size,color,align='center',weight='600',font=FONT){
+  ctx.font=`${weight} ${size}px ${font}`; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='middle'; ctx.fillText(s,x,y);
+}
+function fmtTime(sec){ sec=Math.max(0,Math.round(sec)); const m=Math.floor(sec/60), s=sec%60; return m+':'+String(s).padStart(2,'0'); }
+function iconWaves(ctx,cx,cy,s,col){
+  ctx.strokeStyle=col; ctx.lineWidth=s*0.11; ctx.lineCap='round';
+  for(let i=-1;i<=1;i++){ ctx.beginPath(); const y=cy+i*s*0.3;
+    for(let k=0;k<=24;k++){ const x=cx-s*0.48+k*s*0.96/24, yy=y+Math.sin(k/24*Math.PI*2)*s*0.09; k?ctx.lineTo(x,yy):ctx.moveTo(x,yy); }
+    ctx.stroke(); }
+}
+function iconFan(ctx,cx,cy,s,col){
+  ctx.strokeStyle=col; ctx.fillStyle=col; ctx.lineWidth=s*0.08;
+  ctx.beginPath(); ctx.arc(cx,cy,s*0.48,0,Math.PI*2); ctx.stroke();
+  for(let i=0;i<3;i++){ ctx.save(); ctx.translate(cx,cy); ctx.rotate(i*Math.PI*2/3);
+    ctx.beginPath(); ctx.ellipse(s*0.06,-s*0.2,s*0.1,s*0.2,0.55,0,Math.PI*2); ctx.fill(); ctx.restore(); }
+  ctx.beginPath(); ctx.arc(cx,cy,s*0.07,0,Math.PI*2); ctx.fill();
+}
+function iconGrill(ctx,cx,cy,s,col){
+  ctx.strokeStyle=col; ctx.lineWidth=s*0.1; ctx.lineCap='round'; ctx.lineJoin='round';
+  ctx.beginPath(); ctx.moveTo(cx-s*0.48,cy-s*0.42); ctx.lineTo(cx+s*0.48,cy-s*0.42); ctx.stroke();
+  ctx.beginPath(); for(let k=0;k<=6;k++){ const x=cx-s*0.42+k*s*0.84/6, y=cy-s*0.22+(k%2?s*0.16:0); k?ctx.lineTo(x,y):ctx.moveTo(x,y);} ctx.stroke();
+  ctx.lineWidth=s*0.08;
+  for(let i=-1;i<=1;i++){ const x=cx+i*s*0.3; ctx.beginPath(); ctx.moveTo(x,cy+s*0.08); ctx.quadraticCurveTo(x+s*0.1,cy+s*0.25,x,cy+s*0.46); ctx.stroke(); }
+}
+const ICONS={micro:iconWaves,oven:iconFan,grill:iconGrill};
+const MODE_NAME={micro:'Microgolf',oven:'Hetelucht',grill:'Grill',combi:'Combi',defrost:'Ontdooien'};
+
+let AC=null;
+function ensureAudio(){ if(SOUND && !AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(AC&&AC.state==='suspended') AC.resume(); }
+function beep(f=2200,d=0.07,v=0.05,type='square',delay=0){
+  if(!AC) return; const o=AC.createOscillator(), g=AC.createGain(); o.type=type; o.frequency.value=f;
+  const t=AC.currentTime+delay; g.gain.setValueAtTime(v,t); g.gain.exponentialRampToValueAtTime(0.0001,t+d);
+  o.connect(g); g.connect(AC.destination); o.start(t); o.stop(t+d+0.03);
+}
+const SND={
+  tick:()=>beep(1500,0.012,0.04,'triangle'),
+  thunk:()=>beep(180,0.08,0.12,'sine'),
+  digi:()=>beep(2700,0.07,0.035,'square'),
+  soft:()=>beep(1760,0.06,0.05,'sine'),
+  err:()=>{beep(420,0.12,0.06,'square');beep(420,0.12,0.06,'square',0.16);},
+  end:()=>{for(let i=0;i<3;i++) beep(2400,0.18,0.05,'square',i*0.32);}
+};
+
+/* ================================================================
+   3. Interfaces
+   Elk interface levert: controls[], display?, drawPanel(ctx),
+   press(id) -> 'start'|'reset'|'error'|undefined, knob(id,idx),
+   getState(), canRun(), setRemaining(sec|null), reject()
+   Paneelcoördinaten: 180 × 340 eenheden, oorsprong linksboven.
+   ================================================================ */
+const PANEL_W=180, PANEL_H=340;
+
+/* ---------------- 3a. OUD: mechanische draaiknoppen ---------------- */
+function makeOud(){
+  const FUNC=[{v:'off',l:'UIT'},{v:'micro',l:'MICRO'},{v:'grill',l:'GRILL'},{v:'oven',l:'HETELUCHT'}];
+  const FUNC_ANG=[-90,-30,30,90];
+  const PW=[100,180,360,450,600,800,900,1000], TC=[100,120,140,160,180,200,220,240];
+  const PT_ANG=PW.map((_,i)=>-135+i*270/7);
+  const TIMES=[]; for(let s=0;s<=300;s+=30) TIMES.push(s); for(let m=6;m<=30;m++) TIMES.push(m*60);
+  const T_ANG=TIMES.map((_,i)=>-150+i*300/(TIMES.length-1));
+  const knobStyle={depth:0.16, body:0xc9ccd0, fin:0x1b1d20};
+  const K={
+    functie:{id:'functie',type:'knob',cx:90,cy:62,r:24,detents:FUNC_ANG,value:0,style:knobStyle,label:i=>FUNC[i].l},
+    vermogen:{id:'vermogen',type:'knob',cx:90,cy:166,r:24,detents:PT_ANG,value:0,style:knobStyle,label:i=>PW[i]+'W/'+TC[i]+'°'},
+    timer:{id:'timer',type:'knob',cx:90,cy:262,r:26,detents:T_ANG,value:0,style:knobStyle,label:i=>fmtTime(TIMES[i])}
+  };
+  let runRem=null;
+  const startBtn={id:'start',type:'button',x:45,y:306,w:90,h:24,
+    style:{depth:0.06,radius:5,side:0x8d9196},
+    face(ctx,w,h){ const g=ctx.createLinearGradient(0,0,0,h); g.addColorStop(0,'#e1e3e6'); g.addColorStop(1,'#b9bdc2'); ctx.fillStyle=g; ctx.fillRect(0,0,w,h); txt(ctx,'START',w/2,h/2+0.5,9,'#202226','800'); }};
+  function drawPanel(ctx){
+    ctx.fillStyle='#2a2d32'; ctx.fillRect(0,0,PANEL_W,PANEL_H);
+    const lab='#e8e8e8', orange='#ff9d45';
+    // functieknop
+    txt(ctx,'FUNCTIE',8,12,6,'#9aa0a8','left','700');
+    FUNC_ANG.forEach((a,i)=>{ const rad=a*Math.PI/180, R=K.functie.r+14;
+      tickAt(ctx,K.functie,a,3,7,lab,0.9);
+      const side=i===0?'right':i===3?'left':'center', rr2=side==='center'?R:K.functie.r+10;
+      txt(ctx,FUNC[i].l,K.functie.cx+Math.sin(rad)*rr2,K.functie.cy-Math.cos(rad)*rr2,6,lab,side,'700'); });
+    // vermogen / temperatuur (dubbele schaal)
+    txt(ctx,'W / °C',8,114,6,'#9aa0a8','left','700');
+    PT_ANG.forEach((a,i)=>{ const rad=a*Math.PI/180, k=K.vermogen;
+      tickAt(ctx,k,a,2,5,lab,0.8);
+      txt(ctx,String(PW[i]),k.cx+Math.sin(rad)*(k.r+11),k.cy-Math.cos(rad)*(k.r+11),5.2,lab,'center','600');
+      txt(ctx,TC[i]+'°',k.cx+Math.sin(rad)*(k.r+23),k.cy-Math.cos(rad)*(k.r+23),5.6,orange,'center','700'); });
+    txt(ctx,'W',K.vermogen.cx-8,K.vermogen.cy+K.vermogen.r+12,5.5,lab,'center','700');
+    txt(ctx,'°C',K.vermogen.cx+8,K.vermogen.cy+K.vermogen.r+12,5.5,orange,'center','700');
+    // timer
+    txt(ctx,'MIN',8,214,6,'#9aa0a8','left','700');
+    const major={0:'0',60:'1',120:'2',180:'3',240:'4',300:'5',600:'10',900:'15',1200:'20',1500:'25',1800:'30'};
+    T_ANG.forEach((a,i)=>{ const t=TIMES[i], k=K.timer, isMaj=major[t]!==undefined;
+      tickAt(ctx,k,a,2,isMaj?7:4,lab,isMaj?0.9:0.5);
+      if(isMaj){ const rad=a*Math.PI/180; txt(ctx,major[t],k.cx+Math.sin(rad)*(k.r+13),k.cy-Math.cos(rad)*(k.r+13),5.6,lab,'center','700'); } });
+  }
+  function tickAt(ctx,k,a,r0,r1,col,lw){ const rad=a*Math.PI/180; ctx.strokeStyle=col; ctx.lineWidth=lw;
+    ctx.beginPath(); ctx.moveTo(k.cx+Math.sin(rad)*(k.r+r0),k.cy-Math.cos(rad)*(k.r+r0)); ctx.lineTo(k.cx+Math.sin(rad)*(k.r+r1),k.cy-Math.cos(rad)*(k.r+r1)); ctx.stroke(); }
+  return {
+    name:'oud', controls:[K.functie,K.vermogen,K.timer,startBtn], drawPanel,
+    knobSound:SND.tick, pressSound:SND.thunk,
+    knob(id,idx){ K[id].value=idx; },
+    press(id){ if(id==='start') return 'start'; },
+    getState(){ const f=FUNC[K.functie.value].v, p=K.vermogen.value;
+      return {mode:f, power:f==='micro'?PW[p]:undefined, temp:f==='oven'?TC[p]:undefined, time:TIMES[K.timer.value]}; },
+    canRun(){ const s=this.getState(); return s.mode!=='off' && s.time>0; },
+    setRemaining(sec){ runRem=sec; if(sec==null) return; let idx=0; for(let i=0;i<TIMES.length;i++) if(TIMES[i]<=sec) idx=i; K.timer.value=idx; },
+    reject(){}
+  };
+}
+
+/* ---------------- 3b. STANDAARD: typisch digitaal membraanpaneel ---------------- */
+function makeStandaard(){
+  const POW=[900,800,600,450,360,180,100], TMP=[160,180,200,220,240,100,120,140];
+  const st={mode:null,pi:0,ti:0,ci:0,digits:'',msg:null,msgUntil:0,rem:null,ended:false};
+  const style={depth:0.014,radius:2.5,bevel:0.003,side:0x3c4045,rough:0.75};
+  const face=(label,size=6.5)=>(ctx,w,h)=>{ ctx.fillStyle='#4b4f55'; ctx.fillRect(0,0,w,h);
+    ctx.strokeStyle='rgba(255,255,255,.06)'; ctx.lineWidth=0.6; rr(ctx,0.8,0.8,w-1.6,h-1.6,2); ctx.stroke();
+    const lines=label.split('\n'); lines.forEach((l,i)=>txt(ctx,l,w/2,h/2+(i-(lines.length-1)/2)*size*1.1,size,'#aab0b7','600')); };
+  const C=[];
+  const add=(id,x,y,w,h,label,size)=>C.push({id,type:'button',x,y,w,h,style,face:face(label,size)});
+  add('micro',15,72,72,24,'MICRO');   add('grill',93,72,72,24,'GRILL');
+  add('oven',15,101,72,24,'HETELUCHT'); add('combi',93,101,72,24,'COMBI');
+  const keys=[['1','2','3'],['4','5','6'],['7','8','9'],['klok','0','ontdooi']];
+  keys.forEach((row,r)=>row.forEach((k,cI)=>{ const lbl=k==='klok'?'KLOK':k==='ontdooi'?'ONTDOOI':k; add('k_'+k,15+cI*51,138+r*34,48,29,lbl,/\d/.test(k)?10:5.6); }));
+  add('stop',15,284,72,40,'STOP\nWISSEN',6.5); add('start',93,284,72,40,'START\n+30s',6.5);
+  const display={x:15,y:14,w:150,h:46, draw(ctx,w,h){
+    ctx.fillStyle='#0a0f0b'; ctx.fillRect(0,0,w,h);
+    const col='#86ffb5', dim='rgba(134,255,181,.12)';
+    [['MICRO','micro'],['GRILL','grill'],['OVEN','oven'],['COMBI','combi'],['DEF','defrost']].forEach(([l,m],i)=>txt(ctx,l,15+i*30,8,5.2,st.mode===m?col:dim,'center','700'));
+    let s;
+    const now=performance.now();
+    if(st.rem!=null) s=fmtTime(st.rem);
+    else if(st.ended) s='End';
+    else if(st.msg && now<st.msgUntil) s=st.msg;
+    else if(st.digits) s=fmtDigits(st.digits);
+    else if(st.mode==='micro') s=POW[st.pi]+'W';
+    else if(st.mode==='oven') s=TMP[st.ti]+'°C';
+    else if(st.mode==='grill') s='GrIL';
+    else if(st.mode==='combi') s='C-'+(st.ci+1);
+    else if(st.mode==='defrost') s='dEF';
+    else s='12:00';
+    ctx.save(); ctx.shadowColor=col; ctx.shadowBlur=3; txt(ctx,s,w/2,h*0.62,25,col,'center','700','Consolas,"Courier New",monospace'); ctx.restore();
+  }};
+  function fmtDigits(d){ const p=d.padStart(4,'0'); return (+p.slice(0,2))+':'+p.slice(2); }
+  function digitsSec(d){ if(!d) return 0; const p=d.padStart(4,'0'); return (+p.slice(0,2))*60+(+p.slice(2)); }
+  function flash(m,ms=1200){ st.msg=m; st.msgUntil=performance.now()+ms; }
+  function drawPanel(ctx){ ctx.fillStyle='#2a2d32'; ctx.fillRect(0,0,PANEL_W,PANEL_H);
+    ctx.fillStyle='#16181b'; rr(ctx,11,10,158,54,4); ctx.fill(); }
+  return {
+    name:'standaard', controls:C, display, drawPanel, pressSound:SND.digi,
+    press(id){ st.ended=false;
+      if(id==='micro'){ if(st.mode==='micro') st.pi=(st.pi+1)%POW.length; else {st.mode='micro';st.pi=0;} }
+      else if(id==='oven'){ if(st.mode==='oven') st.ti=(st.ti+1)%TMP.length; else {st.mode='oven';st.ti=0;} }
+      else if(id==='grill'){ st.mode='grill'; }
+      else if(id==='combi'){ if(st.mode==='combi') st.ci=(st.ci+1)%3; else {st.mode='combi';st.ci=0;} }
+      else if(id==='k_ontdooi'){ st.mode='defrost'; }
+      else if(id==='k_klok'){ flash('--:--'); }
+      else if(id.startsWith('k_')){ if(st.digits.length<4) st.digits=(st.digits+id.slice(2)).replace(/^0+/,''); }
+      else if(id==='stop'){ const had=st.mode||st.digits; st.mode=null; st.digits=''; st.pi=st.ti=st.ci=0; if(had) return 'reset'; }
+      else if(id==='start'){ return 'start'; }
+    },
+    getState(){ // zonder functie + tijd = microgolf 900 W; zonder alles = snelstart 30 s
+      if(!st.mode && !st.digits) return {mode:'micro',power:900,time:30};
+      const m=st.mode||'micro';
+      return {mode:m, power:m==='micro'?POW[st.pi]:undefined, temp:m==='oven'?TMP[st.ti]:undefined, time:digitsSec(st.digits)};
+    },
+    canRun(){ return this.getState().time>0; },
+    setRemaining(sec,end){ st.rem=sec; if(end) st.ended=true; },
+    reject(){ flash('0:00',900); }
+  };
+}
+
+/* ---------------- 3c. HERONTWERP: duidelijke affordances & feedforward ---------------- */
+function makeHerontwerp(){
+  const PWR=[100,180,360,450,600,800,900,1000];
+  const st={mode:null,temp:180,pi:5,time:0,rem:null,ended:false,warn:null,warnUntil:0};
+  const ACC='#1f6feb', DARK='#1d2430';
+  const bigStyle={depth:0.075,radius:7,bevel:0.014,side:0x9ea7b2,rough:0.5};
+  const ready=()=>!!st.mode && st.time>0;
+  const adjustable=()=>st.mode==='micro'||st.mode==='oven';
+  const lightFace=(label,size=11,sub)=>(ctx,w,h)=>{ const g=ctx.createLinearGradient(0,0,0,h); g.addColorStop(0,'#f7f8fa'); g.addColorStop(1,'#dfe3e8'); ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
+    txt(ctx,label,w/2,h/2+(sub?-3:0.5),size,DARK,'center','800'); if(sub) txt(ctx,sub,w/2,h/2+8,5.6,'#56606e','center','600'); };
+  const modeFace=(m)=>(ctx,w,h)=>{ const on=st.mode===m;
+    if(on){ ctx.fillStyle=ACC; ctx.fillRect(0,0,w,h); } else { const g=ctx.createLinearGradient(0,0,0,h); g.addColorStop(0,'#f7f8fa'); g.addColorStop(1,'#dde2e8'); ctx.fillStyle=g; ctx.fillRect(0,0,w,h); }
+    ICONS[m](ctx,w/2,h*0.4,17,on?'#fff':DARK);
+    txt(ctx,MODE_NAME[m],w/2,h*0.8,7.2,on?'#fff':DARK,'center','700');
+    ctx.fillStyle=on?'#8dffb8':'rgba(0,0,0,.18)'; ctx.beginPath(); ctx.arc(w-6,6,2.2,0,Math.PI*2); ctx.fill(); };
+  const adjFace=(sym)=>(ctx,w,h)=>{ const en=adjustable();
+    if(en){ const g=ctx.createLinearGradient(0,0,0,h); g.addColorStop(0,'#f7f8fa'); g.addColorStop(1,'#dfe3e8'); ctx.fillStyle=g; } else ctx.fillStyle='#4a5059';
+    ctx.fillRect(0,0,w,h); txt(ctx,sym,w/2,h/2+0.5,22,en?DARK:'#7c838d','center','700');
+    const unit=st.mode==='micro'?(sym==='−'?'minder W':'meer W'):(sym==='−'?'−10 °C':'+10 °C'); if(en) txt(ctx,unit,sym==='−'?w*0.78:w*0.78,h/2+0.5,5.6,'#56606e','center','600'); };
+  const C=[
+    {id:'m_micro',type:'button',x:10,y:100,w:50,h:50,style:bigStyle,face:modeFace('micro'),dynamic:true},
+    {id:'m_oven', type:'button',x:65,y:100,w:50,h:50,style:bigStyle,face:modeFace('oven'),dynamic:true},
+    {id:'m_grill',type:'button',x:120,y:100,w:50,h:50,style:bigStyle,face:modeFace('grill'),dynamic:true},
+    {id:'min', type:'button',x:10,y:172,w:78,h:30,style:bigStyle,face:adjFace('−'),dynamic:true,repeat:true},
+    {id:'plus',type:'button',x:92,y:172,w:78,h:30,style:bigStyle,face:adjFace('+'),dynamic:true,repeat:true},
+    {id:'t10m',type:'button',x:10,y:220,w:78,h:30,style:bigStyle,face:lightFace('+10 min',10.5),repeat:true},
+    {id:'t1m', type:'button',x:92,y:220,w:78,h:30,style:bigStyle,face:lightFace('+1 min',10.5),repeat:true},
+    {id:'t30s',type:'button',x:10,y:254,w:78,h:30,style:bigStyle,face:lightFace('+30 sec',10.5),repeat:true},
+    {id:'tclr',type:'button',x:92,y:254,w:78,h:30,style:bigStyle,face:lightFace('Tijd wissen',8.5)},
+    {id:'stop',type:'button',x:10,y:294,w:60,h:38,style:{...bigStyle,side:0x8c2427},face(ctx,w,h){ ctx.fillStyle='#c8373b'; ctx.fillRect(0,0,w,h); ctx.fillStyle='#fff'; ctx.fillRect(w/2-17,h/2-9,7,7); txt(ctx,'STOP',w/2+5,h/2-5.5,8.5,'#fff','left','800'); txt(ctx,'wist alles',w/2,h/2+8,5.6,'#ffd9da','center','600'); }},
+    {id:'start',type:'button',x:76,y:294,w:94,h:38,style:{...bigStyle,side:0x3b4048},dynamic:true,glow:()=>ready()?0x1fa35a:null,
+      face(ctx,w,h){ const r=ready(); ctx.fillStyle=r?'#1fa35a':'#535a63'; ctx.fillRect(0,0,w,h);
+        ctx.fillStyle=r?'#fff':'#8c939c'; ctx.beginPath(); ctx.moveTo(w/2-24,h/2-8); ctx.lineTo(w/2-12,h/2); ctx.lineTo(w/2-24,h/2+8); ctx.closePath(); ctx.fill();
+        txt(ctx,'START',w/2+8,h/2+0.5,13,r?'#fff':'#8c939c','center','800'); }}
+  ];
+  const display={x:10,y:12,w:160,h:78, draw(ctx,w,h){
+    ctx.fillStyle='#0d1520'; ctx.fillRect(0,0,w,h);
+    const now=performance.now(), warn=st.warn&&now<st.warnUntil?st.warn:null, blink=Math.floor(now/400)%2===0;
+    // kopregel
+    if(st.mode){ ICONS[st.mode](ctx,10,9,9,'#cfe3ff'); txt(ctx,MODE_NAME[st.mode],18,9.5,8,'#e8f1ff','left','700'); }
+    else txt(ctx,'Kies een functie hieronder',6,9.5,7.5,(warn==='mode'&&blink)?'#ffb347':'#ffcf7a','left','700');
+    if(st.rem!=null) txt(ctx,'● bezig',w-6,9.5,7,'#7dffb0','right','700');
+    else if(st.ended) txt(ctx,'klaar',w-6,9.5,7,'#7dffb0','right','700');
+    // velden
+    const field=(x,label,val,active,dimmed,note)=>{ ctx.fillStyle=active?'rgba(76,194,255,.12)':'rgba(255,255,255,.05)'; rr(ctx,x,18,72,40,5); ctx.fill();
+      if(active){ ctx.strokeStyle='#4cc2ff'; ctx.lineWidth=1.2; rr(ctx,x,18,72,40,5); ctx.stroke(); }
+      txt(ctx,label,x+36,25,5.8,'#8fa3bd','center','700'); txt(ctx,val,x+36,40,16,dimmed?'#4c5a6c':'#ffffff','center','700');
+      if(note) txt(ctx,note,x+36,52.5,5.2,'#7d93ad','center','600'); };
+    let lLab='TEMP / VERMOGEN', lVal='—', lNote='', lDim=true;
+    if(st.mode==='micro'){ lLab='VERMOGEN'; lVal=PWR[st.pi]+' W'; lNote='wijzig met − / +'; lDim=false; }
+    else if(st.mode==='oven'){ lLab='TEMPERATUUR'; lVal=st.temp+' °C'; lNote='wijzig met − / +'; lDim=false; }
+    else if(st.mode==='grill'){ lLab='TEMPERATUUR'; lVal='auto'; lNote='niet nodig bij grill'; lDim=false; }
+    const t=st.rem!=null?st.rem:st.time;
+    field(6,lLab,lVal,false,lDim,lNote);
+    field(82,'TIJD',fmtTime(t),(st.mode&&st.time===0&&st.rem==null)||(warn==='time'&&blink),t===0,st.rem!=null?'resterend':(st.mode&&st.time===0?'stel tijd in ↓':''));
+    // stappen
+    const step=!st.mode?1:st.time===0?3:4;
+    const steps=['Functie','Instelling','Tijd','Start'];
+    steps.forEach((s,i)=>{ const x=6+i*37.5, n=i+1, done=n<step||(n===2&&step>2), cur=n===step&&st.rem==null;
+      ctx.fillStyle=cur?'#4cc2ff':done?'rgba(125,255,176,.18)':'rgba(255,255,255,.06)'; rr(ctx,x,62,35,12,6); ctx.fill();
+      txt(ctx,(done?'✓ ':n+' ')+s,x+17.5,68.3,5.6,cur?'#06223a':done?'#9dffc6':'#7d8da2','center','700'); });
+  }};
+  function warnFlash(w){ st.warn=w; st.warnUntil=performance.now()+1800; }
+  function drawPanel(ctx){ ctx.fillStyle='#24282e'; ctx.fillRect(0,0,PANEL_W,PANEL_H);
+    ctx.fillStyle='#14171b'; rr(ctx,6,8,168,86,6); ctx.fill();
+    const lab=(s,y)=>{ txt(ctx,s,10,y,6.4,'#aeb7c3','left','800'); ctx.strokeStyle='rgba(174,183,195,.25)'; ctx.lineWidth=0.6; ctx.beginPath(); ctx.moveTo(10+ctx.measureText(s).width+5,y); ctx.lineTo(170,y); ctx.stroke(); };
+    lab('2  TEMPERATUUR / VERMOGEN',164); lab('3  TIJD',212); }
+  return {
+    name:'herontwerp', controls:C, display, drawPanel, pressSound:SND.soft,
+    press(id,isRepeat){ st.ended=false;
+      if(id.startsWith('m_')){ st.mode=id.slice(2); }
+      else if(id==='min'||id==='plus'){ const d=id==='plus'?1:-1;
+        if(st.mode==='oven') st.temp=Math.min(250,Math.max(100,st.temp+d*10));
+        else if(st.mode==='micro') st.pi=Math.min(PWR.length-1,Math.max(0,st.pi+d));
+        else { warnFlash('mode'); return isRepeat?undefined:'error'; } }
+      else if(id==='t10m') st.time=Math.min(5990,st.time+600);
+      else if(id==='t1m') st.time=Math.min(5990,st.time+60);
+      else if(id==='t30s') st.time=Math.min(5990,st.time+30);
+      else if(id==='tclr') st.time=0;
+      else if(id==='stop'){ const had=st.mode||st.time; st.mode=null; st.time=0; st.temp=180; st.pi=5; if(had) return 'reset'; }
+      else if(id==='start') return 'start';
+    },
+    getState(){ return {mode:st.mode, power:st.mode==='micro'?PWR[st.pi]:undefined, temp:st.mode==='oven'?st.temp:undefined, time:st.time}; },
+    canRun(){ return ready(); },
+    setRemaining(sec,end){ st.rem=sec; if(end) st.ended=true; },
+    reject(){ warnFlash(!st.mode?'mode':'time'); }
+  };
+}
+
+const iface = ({oud:makeOud,standaard:makeStandaard,herontwerp:makeHerontwerp})[UI]();
+
+/* ================================================================
+   4. 3D-scène
+   ================================================================ */
+const canvas=document.getElementById('c');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+renderer.outputEncoding=THREE.sRGBEncoding;
+renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.05;
+renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+const MAX_ANISO=renderer.capabilities.getMaxAnisotropy();
+function canvasTex(cv){ const t=new THREE.CanvasTexture(cv); t.encoding=THREE.sRGBEncoding; t.anisotropy=MAX_ANISO; return t; }
+
+const scene=new THREE.Scene(); scene.background=new THREE.Color(0xe4e0da);
+const camera=new THREE.PerspectiveCamera(32,1,0.1,100);
+scene.add(new THREE.HemisphereLight(0xffffff,0x8a7f72,0.75));
+const sun=new THREE.DirectionalLight(0xffffff,0.95); sun.position.set(5,10,8); sun.castShadow=true;
+sun.shadow.mapSize.set(2048,2048); Object.assign(sun.shadow.camera,{left:-7,right:7,top:7,bottom:-7,near:1,far:30}); sun.shadow.bias=-0.0005;
+scene.add(sun);
+const fill=new THREE.DirectionalLight(0xdfe8ff,0.35); fill.position.set(-6,4,6); scene.add(fill);
+
+// keuken: werkblad + muur + achterwand-tegels
+const counter=new THREE.Mesh(new THREE.BoxGeometry(18,0.35,7.5),new THREE.MeshStandardMaterial({color:0xd6cfc3,roughness:0.6}));
+counter.position.set(0,-0.175,0.2); counter.receiveShadow=true; scene.add(counter);
+(function(){ const {cv,ctx}=makeCanvas(256,128,4); ctx.fillStyle='#f1eee8'; ctx.fillRect(0,0,256,128); ctx.strokeStyle='#dcd6cc'; ctx.lineWidth=1.2;
+  for(let x=0;x<=256;x+=32){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,128);ctx.stroke();} for(let y=0;y<=128;y+=16){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(256,y);ctx.stroke();}
+  const t=canvasTex(cv); t.wrapS=t.wrapT=THREE.RepeatWrapping; t.repeat.set(3,2);
+  const wall=new THREE.Mesh(new THREE.PlaneGeometry(30,16),new THREE.MeshStandardMaterial({map:t,roughness:0.9}));
+  wall.position.set(0,7,-3.4); wall.receiveShadow=true; scene.add(wall); })();
+
+// microgolf
+const W=6,H=3.6,D=4.2,FZ=D/2, U=0.01;
+const PL=1.15, PT=3.5, PZ=FZ+0.004;      // paneel links/boven (wereld), z
+const wx=u=>PL+u*U, wy=v=>PT-v*U;
+const mw=new THREE.Group(); mw.position.y=0.07; scene.add(mw);
+const steel=new THREE.MeshStandardMaterial({color:0xb9bdc2,metalness:0.6,roughness:0.38});
+const black=new THREE.MeshStandardMaterial({color:0x17191c,metalness:0.2,roughness:0.35});
+function box(w,h,d,x,y,z,mat){ const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat); m.position.set(x,y,z); m.castShadow=true; m.receiveShadow=true; mw.add(m); return m; }
+box(W,0.12,D, 0,H-0.06,0, steel);                // boven
+box(W,0.12,D, 0,0.06,0, steel);                  // onder
+box(0.12,H,D, -W/2+0.06,H/2,0, steel);           // links
+box(W,H,0.12, 0,H/2,-D/2+0.06, steel);           // achter
+box(1.9,H,D, W/2-0.95,H/2,0, steel);             // rechterblok (paneel)
+[[-2.6,-1.7],[2.6,-1.7],[-2.6,1.7],[2.6,1.7]].forEach(([x,z])=>{ const f=new THREE.Mesh(new THREE.CylinderGeometry(0.12,0.12,0.07,16),black); f.position.set(x,-0.035,z); mw.add(f); });
+// binnenruimte
+const cavMat=new THREE.MeshStandardMaterial({color:0xdcdcd5,roughness:0.7,side:THREE.BackSide,emissive:0x000000});
+const cav=new THREE.Mesh(new THREE.BoxGeometry(3.98,3.36,4.08),cavMat); cav.position.set(-0.89,1.8,0.06); cav.receiveShadow=true; mw.add(cav);
+const cavLight=new THREE.PointLight(0xffd59a,0,7,1.5); cavLight.position.set(-0.9,3.0,0.4); mw.add(cavLight);
+// draaiplateau + kom
+const turntable=new THREE.Group(); turntable.position.set(-0.89,0.18,0.06); mw.add(turntable);
+const plate=new THREE.Mesh(new THREE.CylinderGeometry(1.35,1.35,0.05,48),new THREE.MeshStandardMaterial({color:0xcfe3e6,roughness:0.1,metalness:0.1,transparent:true,opacity:0.75}));
+turntable.add(plate);
+const bowlPts=[]; for(let i=0;i<=12;i++){ const t=i/12; bowlPts.push(new THREE.Vector2(0.35+0.4*Math.sin(t*Math.PI/2),t*0.5)); }
+const bowl=new THREE.Mesh(new THREE.LatheGeometry(bowlPts,40),new THREE.MeshStandardMaterial({color:0xf3efe6,roughness:0.35,side:THREE.DoubleSide}));
+bowl.position.set(0.25,0.03,0.1); bowl.castShadow=true; turntable.add(bowl);
+const soup=new THREE.Mesh(new THREE.CircleGeometry(0.68,32),new THREE.MeshStandardMaterial({color:0xd9822b,roughness:0.6}));
+soup.rotation.x=-Math.PI/2; soup.position.set(0.25,0.4,0.1); turntable.add(soup);
+// deur
+const doorZ=FZ+0.05;
+box(0.38,3.44,0.1, -2.95+0.19,1.8,doorZ, black);   // linkerstijl
+box(0.42,3.44,0.1, 1.08-0.21,1.8,doorZ, black);    // rechterstijl
+box(4.03,0.36,0.1, -0.935,3.52-0.18,doorZ, black); // boven
+box(4.03,0.46,0.1, -0.935,0.08+0.23,doorZ, black); // onder
+(function(){ // glas met gaatjespatroon
+  const {cv,ctx}=makeCanvas(128,128,4); ctx.fillStyle='rgba(8,10,12,0.62)'; ctx.fillRect(0,0,128,128);
+  ctx.fillStyle='rgba(8,10,12,0.9)'; for(let y=0;y<128;y+=4) for(let x=(y/4)%2*2;x<128;x+=4){ ctx.fillRect(x,y,1.6,1.6); }
+  const t=canvasTex(cv); t.wrapS=t.wrapT=THREE.RepeatWrapping; t.repeat.set(5,4);
+  const g=new THREE.Mesh(new THREE.PlaneGeometry(3.23,2.62),new THREE.MeshStandardMaterial({map:t,transparent:true,roughness:0.08,metalness:0.3,depthWrite:false}));
+  g.position.set(-0.935,1.80+0.05,doorZ+0.01); mw.add(g);
+})();
+// handgreep
+const handleMat=new THREE.MeshStandardMaterial({color:0xc7cbd0,metalness:0.85,roughness:0.25});
+const handle=new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.06,2.3,20),handleMat); handle.position.set(0.88,1.8,doorZ+0.3); handle.castShadow=true; mw.add(handle);
+[1.0,-1.0].forEach(dy=>{ const s=new THREE.Mesh(new THREE.BoxGeometry(0.1,0.1,0.26),handleMat); s.position.set(0.88,1.8+dy,doorZ+0.17); mw.add(s); });
+
+// bedieningspaneel (achtergrond)
+const panelCv=makeCanvas(PANEL_W,PANEL_H,5); iface.drawPanel(panelCv.ctx);
+const panelMesh=new THREE.Mesh(new THREE.PlaneGeometry(PANEL_W*U,PANEL_H*U),new THREE.MeshStandardMaterial({map:canvasTex(panelCv.cv),roughness:0.55,metalness:0.1}));
+panelMesh.position.set(wx(PANEL_W/2),wy(PANEL_H/2),PZ); mw.add(panelMesh);
+
+// display
+let displayObj=null;
+if(iface.display){ const d=iface.display; const {cv,ctx}=makeCanvas(d.w,d.h,8);
+  const tex=canvasTex(cv);
+  const m=new THREE.Mesh(new THREE.PlaneGeometry(d.w*U,d.h*U),new THREE.MeshBasicMaterial({map:tex,toneMapped:false}));
+  m.position.set(wx(d.x+d.w/2),wy(d.y+d.h/2),PZ+0.002); mw.add(m);
+  displayObj={d,cv,ctx,tex};
+}
+function redrawDisplay(){ if(!displayObj) return; const {d,ctx,tex}=displayObj; ctx.clearRect(0,0,d.w,d.h); d.draw(ctx,d.w,d.h); tex.needsUpdate=true; }
+
+// bedieningselementen
+const pickables=[];
+function rrShape(w,h,r){ r=Math.max(0.0005,Math.min(r,w/2-0.0005,h/2-0.0005)); const s=new THREE.Shape(), x=-w/2, y=-h/2;
+  s.moveTo(x+r,y); s.lineTo(x+w-r,y); s.quadraticCurveTo(x+w,y,x+w,y+r); s.lineTo(x+w,y+h-r); s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  s.lineTo(x+r,y+h); s.quadraticCurveTo(x,y+h,x,y+h-r); s.lineTo(x,y+r); s.quadraticCurveTo(x,y,x+r,y); return s; }
+function makeButton(c){
+  const st=c.style, w=c.w*U, h=c.h*U, d=st.depth, bev=st.bevel!=null?st.bevel:Math.min(0.012,d*0.3);
+  const wi=w-2*bev, hi=h-2*bev;
+  const geo=new THREE.ExtrudeGeometry(rrShape(wi,hi,st.radius*U),{depth:Math.max(0.001,d-2*bev),bevelEnabled:bev>0,bevelThickness:bev,bevelSize:bev,bevelSegments:3,curveSegments:6});
+  const uv=geo.attributes.uv, pos=geo.attributes.position, g0=geo.groups[0];
+  for(let i=g0.start;i<g0.start+g0.count;i++) uv.setXY(i,(pos.getX(i)+wi/2)/wi,(pos.getY(i)+hi/2)/hi);
+  uv.needsUpdate=true; geo.translate(0,0,bev);
+  const {cv,ctx}=makeCanvas(c.w,c.h); c.cv=cv; c.ctx=ctx; c.tex=canvasTex(cv);
+  c.capMat=new THREE.MeshStandardMaterial({map:c.tex,roughness:st.rough!=null?st.rough:0.55,emissive:0x000000});
+  const m=new THREE.Mesh(geo,[c.capMat,new THREE.MeshStandardMaterial({color:st.side,roughness:0.6})]);
+  m.position.set(wx(c.x+c.w/2),wy(c.y+c.h/2),PZ); m.castShadow=true; m.userData.ctrl=c;
+  c.mesh=m; c.baseZ=PZ; c.depth=d; c.pressT=0; mw.add(m); pickables.push(m); drawFace(c);
+}
+function drawFace(c){ c.ctx.clearRect(0,0,c.w,c.h); c.face(c.ctx,c.w,c.h); c.tex.needsUpdate=true; }
+function makeKnob(c){
+  const r=c.r*U, d=c.style.depth, g=new THREE.Group(); g.position.set(wx(c.cx),wy(c.cy),PZ);
+  // greepring-textuur op de voorkant
+  const {cv,ctx}=makeCanvas(64,64,6); const grd=ctx.createRadialGradient(32,28,4,32,32,32); grd.addColorStop(0,'#f4f5f6'); grd.addColorStop(1,'#a9adb2'); ctx.fillStyle=grd; ctx.fillRect(0,0,64,64);
+  ctx.strokeStyle='rgba(0,0,0,.25)'; ctx.lineWidth=0.8; ctx.beginPath(); ctx.arc(32,32,29,0,Math.PI*2); ctx.stroke();
+  const bodyMat=new THREE.MeshStandardMaterial({color:c.style.body,metalness:0.75,roughness:0.28});
+  const capMat=new THREE.MeshStandardMaterial({map:canvasTex(cv),metalness:0.5,roughness:0.35});
+  const cylGeo=new THREE.CylinderGeometry(r*0.93,r,d,56); cylGeo.rotateX(Math.PI/2); cylGeo.translate(0,0,d/2);
+  const cyl=new THREE.Mesh(cylGeo,[bodyMat,capMat,bodyMat]); cyl.castShadow=true;
+  const fin=new THREE.Mesh(new THREE.BoxGeometry(r*0.42,r*1.75,d*0.85),new THREE.MeshStandardMaterial({color:c.style.fin,roughness:0.4}));
+  fin.position.z=d+d*0.42; fin.castShadow=true;
+  const ptr=new THREE.Mesh(new THREE.BoxGeometry(r*0.1,r*0.62,0.006),new THREE.MeshBasicMaterial({color:0xffffff}));
+  ptr.position.set(0,r*0.5,d+d*0.85+0.004);
+  [cyl,fin,ptr].forEach(m=>{ m.userData.ctrl=c; g.add(m); pickables.push(m); });
+  c.mesh=g; c.angle=c.detents[c.value]; setKnobAngle(c); mw.add(g);
+}
+function setKnobAngle(c){ c.mesh.rotation.z=-c.detents[c.value]*Math.PI/180; }
+iface.controls.forEach(c=>c.type==='knob'?makeKnob(c):makeButton(c));
+redrawDisplay();
+
+function refresh(){ iface.controls.forEach(c=>{ if(c.type==='knob') setKnobAngle(c); else if(c.dynamic) drawFace(c); }); redrawDisplay(); }
+
+/* ================================================================
+   5. Camera (eigen orbit, begrensd)
+   ================================================================ */
+const VIEWS={
+  start:{target:new THREE.Vector3(1.05,1.72,0.8),dist:9.8,yaw:20,pitch:8},
+  full:{target:new THREE.Vector3(0.2,1.8,0.3),dist:11.5,yaw:18,pitch:12},
+  panel:{target:new THREE.Vector3(2.05,1.87,FZ),dist:5.0,yaw:10,pitch:4}
+};
+const cam={target:VIEWS.start.target.clone(),dist:VIEWS.start.dist,yaw:VIEWS.start.yaw,pitch:VIEWS.start.pitch};
+let camAnim=null;
+function goView(v){ const V=VIEWS[v]; camAnim={from:{t:cam.target.clone(),d:cam.dist,y:cam.yaw,p:cam.pitch},to:V,t0:performance.now()}; }
+function aspectFactor(){ const a=canvas.clientWidth/Math.max(1,canvas.clientHeight); return Math.max(1,1.35/a); }
+function placeCamera(){ const y=cam.yaw*Math.PI/180, p=cam.pitch*Math.PI/180, d=cam.dist*aspectFactor();
+  camera.position.set(cam.target.x+d*Math.sin(y)*Math.cos(p),cam.target.y+d*Math.sin(p),cam.target.z+d*Math.cos(y)*Math.cos(p)); camera.lookAt(cam.target); }
+document.getElementById('vFull').onclick=()=>goView('full');
+document.getElementById('vPanel').onclick=()=>goView('panel');
+
+function resize(){ const w=canvas.clientWidth, h=canvas.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/Math.max(1,h); camera.updateProjectionMatrix(); }
+window.addEventListener('resize',resize);
+
+/* ================================================================
+   6. Logging & taakverloop
+   ================================================================ */
+const log={began:null,first:null,actions:0,errors:0,resets:0,camMoves:0,path:[]};
+let phase='intro';   // intro → task → running → done
+let running=null;
+const now=()=>performance.now();
+function act(token){ if(phase!=='task') return; log.actions++; if(log.first==null) log.first=Math.round(now()-log.began); log.path.push(token); dbg(); }
+
+function evaluate(s){
+  if(IS_FREE) return null;
+  if(s.mode!==TASK.mode) return 0;
+  if(TASK.temp!=null && s.temp!==TASK.temp) return 0;
+  if(TASK.power!=null && s.power!==TASK.power) return 0;
+  if(Math.abs((s.time||0)-TASK.time)>TIME_TOL) return 0;
+  return 1;
+}
+function finalValue(s){ return s.mode==='oven'?s.temp:s.mode==='micro'?s.power:''; }
+function postResult(s,gaveUp){
+  const r={source:'magnetron-test',id:ID,ui:UI,task:TASK_ID,
+    success:gaveUp?0:evaluate(s),gaveUp:gaveUp?1:0,
+    timeMs:Math.round(now()-log.began),firstActionMs:log.first,
+    actions:log.actions,errors:log.errors,resets:log.resets,camMoves:log.camMoves,
+    finalMode:s?s.mode||'':'',finalValue:s?finalValue(s):'',finalTime:s?s.time:'',
+    path:log.path.join(' ').slice(0,1000)};
+  if(!IS_FREE){ try{ window.parent.postMessage(r,'*'); }catch(e){} }
+  console.log('[magnetron-test]',r); lastResult=r; dbg(); return r;
+}
+let lastResult=null;
+
+function tryStart(){
+  if(iface.canRun()){ startRun(); }
+  else { if(phase==='task'){ log.errors++; } iface.reject(); SND.err(); refresh(); dbg(); }
+}
+function startRun(){
+  const s=iface.getState();
+  if(phase==='task') postResult(s,false);
+  phase='running'; running={t0:now(),dur:3500,total:s.time};
+  setTimeout(()=>{ if(running) endRun(); },3700); // vangnet als animatieframes gepauzeerd zijn
+  cavLight.intensity=1.4; cavMat.emissive.setHex(0x3a2a10);
+  document.getElementById('giveup').classList.add('hidden');
+}
+function endRun(){
+  running=null; iface.setRemaining(null,true); cavLight.intensity=0; cavMat.emissive.setHex(0); SND.end(); refresh();
+  setTimeout(showDone,700);
+}
+function showDone(){
+  phase='done';
+  const dt=document.getElementById('doneTitle'), dx=document.getElementById('doneText'), again=document.getElementById('againBtn');
+  if(IS_FREE){ dt.textContent='Klaar'; dx.textContent='Je kan de interface opnieuw verkennen.'; again.classList.remove('hidden'); }
+  else { dt.textContent='Taak afgerond';
+    dx.innerHTML=EMBEDDED?'Bedankt! Ga verder met de volgende vraag (pijl onderaan de pagina).':'Resultaat geregistreerd. '+(lastResult?`(succes: ${lastResult.success}, tijd: ${(lastResult.timeMs/1000).toFixed(1)} s, acties: ${lastResult.actions})`:'');
+    if(!EMBEDDED) again.classList.remove('hidden'); }
+  document.getElementById('done').classList.remove('hidden');
+}
+document.getElementById('againBtn').onclick=()=>location.reload();
+
+// opgeven (twee klikken)
+const gu=document.getElementById('giveup'); let guTimer=null;
+gu.onclick=()=>{ if(phase!=='task') return;
+  if(!gu.classList.contains('armed')){ gu.classList.add('armed'); gu.textContent='Klik nogmaals om over te slaan'; clearTimeout(guTimer);
+    guTimer=setTimeout(()=>{ gu.classList.remove('armed'); gu.textContent='Lukt niet / overslaan'; },3000); return; }
+  postResult(iface.getState(),true); phase='done'; gu.classList.add('hidden');
+  document.getElementById('doneTitle').textContent='Taak overgeslagen';
+  document.getElementById('doneText').textContent=EMBEDDED?'Geen probleem. Ga verder met de volgende vraag (pijl onderaan de pagina).':'Overgeslagen en geregistreerd.';
+  if(!EMBEDDED&&!IS_FREE) document.getElementById('againBtn').classList.remove('hidden');
+  document.getElementById('done').classList.remove('hidden');
+};
+
+// intro
+document.getElementById('introTitle').textContent=IS_FREE?'Vrij verkennen':'Taak';
+document.getElementById('introText').innerHTML=TASK.text;
+document.getElementById('task').innerHTML=(IS_FREE?'':'<b>Taak:</b> ')+TASK.text;
+document.getElementById('intro').classList.remove('hidden');
+if(P.get('hud')==='0') document.getElementById('hud').style.display='none';
+document.getElementById('beginBtn').onclick=()=>{
+  ensureAudio();
+  document.getElementById('intro').classList.add('hidden');
+  ['hud','tools','hint'].forEach(i=>document.getElementById(i).classList.remove('hidden'));
+  if(!IS_FREE) gu.classList.remove('hidden');
+  setTimeout(()=>{document.getElementById('hint').style.opacity='0';},6000);
+  phase=IS_FREE?'free':'task'; log.began=now(); canvas.focus(); dbg();
+};
+
+/* ================================================================
+   7. Interactie (raycasting, knoppen, draaiknoppen, orbit)
+   ================================================================ */
+const ray=new THREE.Raycaster(), ndc=new THREE.Vector2();
+function pick(e){ const r=canvas.getBoundingClientRect(); ndc.set(((e.clientX-r.left)/r.width)*2-1,-((e.clientY-r.top)/r.height)*2+1);
+  ray.setFromCamera(ndc,camera); const h=ray.intersectObjects(pickables,false); return h.length?h[0].object.userData.ctrl:null; }
+const interactive=()=>phase==='task'||phase==='free';
+let drag=null, repeatTimer=null;
+
+function pressButton(c,isRepeat){
+  if(!isRepeat){ c.pressT=1; act(c.id); }
+  (iface.pressSound||SND.digi)();
+  const r=iface.press(c.id,!!isRepeat);
+  if(r==='reset' && phase==='task') log.resets++;
+  if(r==='error' && phase==='task') log.errors++;
+  if(r==='start') tryStart();
+  refresh();
+}
+function knobScreenCenter(c){ const v=new THREE.Vector3(); c.mesh.getWorldPosition(v); v.z+=c.style.depth*1.5; v.project(camera); const r=canvas.getBoundingClientRect();
+  return {x:r.left+(v.x+1)/2*r.width,y:r.top+(1-v.y)/2*r.height}; }
+function pointerAngle(c,e){ const p=knobScreenCenter(c); return Math.atan2(e.clientX-p.x,-(e.clientY-p.y))*180/Math.PI; }
+function nearestDetent(c,a){ let best=0,bd=1e9; c.detents.forEach((d,i)=>{ const dd=Math.abs(d-a); if(dd<bd){bd=dd;best=i;} }); return best; }
+function setKnob(c,idx){ if(idx===c.value) return; c.value=idx; iface.knob(c.id,idx); (iface.knobSound||SND.tick)(); refresh(); }
+
+canvas.addEventListener('pointerdown',e=>{
+  ensureAudio(); if(phase==='intro'||phase==='done') return;
+  const c=interactive()?pick(e):null;
+  try{ canvas.setPointerCapture(e.pointerId); }catch(err){}
+  if(c&&c.type==='knob'){ drag={kind:'knob',c,last:pointerAngle(c,e),acc:c.detents[c.value],startIdx:c.value}; }
+  else if(c){ pressButton(c,false);
+    if(c.repeat){ clearTimeout(repeatTimer); const rep=()=>{ pressButton(c,true); c.pressT=Math.max(c.pressT,0.6); repeatTimer=setTimeout(rep,130); }; repeatTimer=setTimeout(rep,480); }
+    drag={kind:'button',c}; }
+  else { drag={kind:'orbit',x:e.clientX,y:e.clientY,moved:false}; }
+});
+canvas.addEventListener('pointermove',e=>{
+  if(!drag){ const c=interactive()?pick(e):null; canvas.style.cursor=c?(c.type==='knob'?'grab':'pointer'):'default'; return; }
+  if(drag.kind==='knob'){ canvas.style.cursor='grabbing'; const c=drag.c, a=pointerAngle(c,e); let d=a-drag.last; if(d>180)d-=360; if(d<-180)d+=360; drag.last=a;
+    const lo=c.detents[0], hi=c.detents[c.detents.length-1]; drag.acc=Math.max(lo-20,Math.min(hi+20,drag.acc+d)); setKnob(c,nearestDetent(c,drag.acc)); }
+  else if(drag.kind==='orbit'){ const dx=e.clientX-drag.x, dy=e.clientY-drag.y; drag.x=e.clientX; drag.y=e.clientY;
+    if(!drag.moved&&Math.abs(dx)+Math.abs(dy)>2){ drag.moved=true; if(phase==='task') log.camMoves++; }
+    cam.yaw=Math.max(-55,Math.min(60,cam.yaw-dx*0.25)); cam.pitch=Math.max(-4,Math.min(40,cam.pitch+dy*0.2)); camAnim=null; }
+});
+function endDrag(){
+  if(drag&&drag.kind==='knob'&&drag.c.value!==drag.startIdx){ act(drag.c.id+'='+drag.c.label(drag.c.value)); }
+  clearTimeout(repeatTimer); drag=null; canvas.style.cursor='default';
+}
+canvas.addEventListener('pointerup',endDrag); canvas.addEventListener('pointercancel',endDrag);
+canvas.addEventListener('wheel',e=>{ e.preventDefault(); if(phase==='intro'||phase==='done') return;
+  const c=interactive()?pick(e):null;
+  if(c&&c.type==='knob'){ const idx=Math.max(0,Math.min(c.detents.length-1,c.value+(e.deltaY<0?1:-1))); if(idx!==c.value){ setKnob(c,idx); act(c.id+'='+c.label(idx)); } return; }
+  cam.dist=Math.max(3.5,Math.min(16,cam.dist*(e.deltaY>0?1.08:0.926))); camAnim=null;
+},{passive:false});
+
+/* ================================================================
+   8. Render-loop
+   ================================================================ */
+let lastT=now(), lastDisp=0;
+function loop(){
+  const t=now(), dt=Math.min(0.05,(t-lastT)/1000); lastT=t;
+  if(camAnim){ const k=Math.min(1,(t-camAnim.t0)/600), e=k<0.5?2*k*k:1-Math.pow(-2*k+2,2)/2, f=camAnim.from, to=camAnim.to;
+    cam.target.lerpVectors(f.t,to.target,e); cam.dist=f.d+(to.dist-f.d)*e; cam.yaw=f.y+(to.yaw-f.y)*e; cam.pitch=f.p+(to.pitch-f.p)*e; if(k>=1) camAnim=null; }
+  placeCamera();
+  iface.controls.forEach(c=>{ if(c.type!=='button') return;
+    if(c.pressT>0){ c.pressT=Math.max(0,c.pressT-dt*7); }
+    c.mesh.position.z=c.baseZ-Math.sin(Math.min(1,c.pressT)*Math.PI/2)*c.depth*0.55;
+    if(c.glow){ const g=c.glow(); if(g){ const s=0.18+0.14*Math.sin(t/260); c.capMat.emissive.setHex(g).multiplyScalar(s); } else c.capMat.emissive.setHex(0); } });
+  if(running){ const k=(t-running.t0)/running.dur; const rem=Math.max(0,Math.round(running.total*(1-k)));
+    iface.setRemaining(rem); turntable.rotation.y+=dt*1.3; cavLight.intensity=1.3+Math.sin(t/90)*0.08;
+    if(iface.name==='oud') refresh();
+    if(k>=1) endRun(); }
+  if(t-lastDisp>200){ lastDisp=t; redrawDisplay(); }
+  renderer.render(scene,camera);
+  requestAnimationFrame(loop);
+}
+function dbg(){ if(!DEBUG) return; const el=document.getElementById('debug'); el.classList.remove('hidden');
+  el.textContent='ui='+UI+'  task='+TASK_ID+'  id='+ID+'\nphase='+phase+'\nstate='+JSON.stringify(iface.getState())+
+    '\nactions='+log.actions+' errors='+log.errors+' resets='+log.resets+' cam='+log.camMoves+
+    '\npath='+log.path.join(' ')+(lastResult?'\n\nRESULT '+JSON.stringify(lastResult,null,1):''); }
+resize(); placeCamera(); dbg(); loop();
+window.__mw={iface,log,get phase(){return phase;},camera,pickables}; // voor testen
+})();
+</script>
+</body>
+</html>
