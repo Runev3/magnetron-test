@@ -1,5 +1,8 @@
 # Microgolf UX-test – 3D-stimulus voor Application Assignment 2
 
+**Live:** https://runev3.github.io/magnetron-test/ (zonder parameters = keuzemenu,
+bv. `?ui=herontwerp&task=t1&debug=1`). Wijzigingen die naar `main` gepusht worden, staan binnen een minuut online.
+
 Eén interactief 3D-model van een microgolf (three.js) met **drie bedieningspanelen**.
 De behuizing, deur, camera en taken zijn identiek. **Alleen het paneel verschilt**,
 zodat verschillen in de resultaten aan de interface toe te schrijven zijn.
