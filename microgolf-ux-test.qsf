@@ -1,13 +1,13 @@
 {
  "SurveyEntry": {
-  "SurveyID": "SV_microgolfUX01",
+  "SurveyID": "SV_microgolfUX0001",
   "SurveyName": "Microgolf UX-test (AA2)",
   "SurveyDescription": null,
   "SurveyOwnerID": "UR_placeholder",
   "SurveyBrandID": "ugent",
   "DivisionID": null,
   "SurveyLanguage": "NL",
-  "SurveyActiveResponseSet": "RS_microgolf",
+  "SurveyActiveResponseSet": "RS_microgolfUX0001",
   "SurveyStatus": "Inactive",
   "SurveyStartDate": "0000-00-00 00:00:00",
   "SurveyExpirationDate": "0000-00-00 00:00:00",
@@ -20,7 +20,7 @@
  },
  "SurveyElements": [
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "BL",
    "PrimaryAttribute": "Survey Blocks",
    "SecondaryAttribute": null,
@@ -29,7 +29,7 @@
     {
      "Type": "Default",
      "Description": "Intro en toestemming",
-     "ID": "BL_intro",
+     "ID": "BL_introBlok000001",
      "BlockElements": [
       {
        "Type": "Question",
@@ -44,13 +44,13 @@
     {
      "Type": "Trash",
      "Description": "Trash / Unused Questions",
-     "ID": "BL_trash",
+     "ID": "BL_prullenbak00001",
      "BlockElements": []
     },
     {
      "Type": "Standard",
      "Description": "Demografie",
-     "ID": "BL_demo",
+     "ID": "BL_demografie00001",
      "BlockElements": [
       {
        "Type": "Question",
@@ -77,7 +77,7 @@
     {
      "Type": "Standard",
      "Description": "Ronde 1",
-     "ID": "BL_r1",
+     "ID": "BL_ronde1000000",
      "BlockElements": [
       {
        "Type": "Question",
@@ -137,7 +137,7 @@
     {
      "Type": "Standard",
      "Description": "Ronde 2",
-     "ID": "BL_r2",
+     "ID": "BL_ronde2000000",
      "BlockElements": [
       {
        "Type": "Question",
@@ -197,7 +197,7 @@
     {
      "Type": "Standard",
      "Description": "Ronde 3",
-     "ID": "BL_r3",
+     "ID": "BL_ronde3000000",
      "BlockElements": [
       {
        "Type": "Question",
@@ -257,7 +257,7 @@
     {
      "Type": "Standard",
      "Description": "Afsluiting",
-     "ID": "BL_einde",
+     "ID": "BL_afsluiting00001",
      "BlockElements": [
       {
        "Type": "Question",
@@ -276,7 +276,7 @@
    ]
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "FL",
    "PrimaryAttribute": "Survey Flow",
    "SecondaryAttribute": null,
@@ -1795,7 +1795,7 @@
       ]
      },
      {
-      "Type": "Randomizer",
+      "Type": "BlockRandomizer",
       "FlowID": "FL_1",
       "SubSet": 1,
       "EvenPresentation": true,
@@ -2056,7 +2056,7 @@
      },
      {
       "Type": "Standard",
-      "ID": "BL_intro",
+      "ID": "BL_introBlok000001",
       "FlowID": "FL_11",
       "Autofill": []
      },
@@ -2090,31 +2090,31 @@
      },
      {
       "Type": "Block",
-      "ID": "BL_demo",
+      "ID": "BL_demografie00001",
       "FlowID": "FL_12",
       "Autofill": []
      },
      {
       "Type": "Block",
-      "ID": "BL_r1",
+      "ID": "BL_ronde1000000",
       "FlowID": "FL_13",
       "Autofill": []
      },
      {
       "Type": "Block",
-      "ID": "BL_r2",
+      "ID": "BL_ronde2000000",
       "FlowID": "FL_14",
       "Autofill": []
      },
      {
       "Type": "Block",
-      "ID": "BL_r3",
+      "ID": "BL_ronde3000000",
       "FlowID": "FL_15",
       "Autofill": []
      },
      {
       "Type": "Block",
-      "ID": "BL_einde",
+      "ID": "BL_afsluiting00001",
       "FlowID": "FL_16",
       "Autofill": []
      }
@@ -2125,7 +2125,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SO",
    "PrimaryAttribute": "Survey Options",
    "SecondaryAttribute": null,
@@ -2164,7 +2164,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID1",
    "SecondaryAttribute": "Onderzoek naar bedieningspanelen van microgolfovens  Bedankt om deel te nemen! In dit onderzoek tes",
@@ -2195,7 +2195,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID2",
    "SecondaryAttribute": "Ga je akkoord om deel te nemen aan dit onderzoek?",
@@ -2244,7 +2244,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID3",
    "SecondaryAttribute": "Wat is je leeftijd?",
@@ -2287,7 +2287,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID4",
    "SecondaryAttribute": "Wat is je gender?",
@@ -2346,7 +2346,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID5",
    "SecondaryAttribute": "Hoe vaak gebruik je een microgolfoven?",
@@ -2410,7 +2410,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID6",
    "SecondaryAttribute": "Heb je al eens een combi-microgolf gebruikt (met hetelucht- of grillfunctie)?",
@@ -2469,7 +2469,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID7",
    "SecondaryAttribute": "Welk soort bediening heeft de microgolf die je het meest gebruikt?",
@@ -2533,7 +2533,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID8",
    "SecondaryAttribute": "Ronde 1 van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspaneel  te zien. Voer telkens",
@@ -2564,7 +2564,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID9",
    "SecondaryAttribute": "Taak 1",
@@ -2596,7 +2596,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID10",
    "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
@@ -2670,7 +2670,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID11",
    "SecondaryAttribute": "Taak 2",
@@ -2702,7 +2702,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID12",
    "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
@@ -2776,7 +2776,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID13",
    "SecondaryAttribute": "Taak 3",
@@ -2808,7 +2808,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID14",
    "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
@@ -2882,7 +2882,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID15",
    "SecondaryAttribute": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspra",
@@ -2996,7 +2996,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID16",
    "SecondaryAttribute": "Ronde 2 van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspaneel  te zien. Voer telkens",
@@ -3027,7 +3027,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID17",
    "SecondaryAttribute": "Taak 1",
@@ -3059,7 +3059,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID18",
    "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
@@ -3133,7 +3133,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID19",
    "SecondaryAttribute": "Taak 2",
@@ -3165,7 +3165,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID20",
    "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
@@ -3239,7 +3239,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID21",
    "SecondaryAttribute": "Taak 3",
@@ -3271,7 +3271,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID22",
    "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
@@ -3345,7 +3345,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID23",
    "SecondaryAttribute": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspra",
@@ -3459,7 +3459,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID24",
    "SecondaryAttribute": "Ronde 3 van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspaneel  te zien. Voer telkens",
@@ -3490,7 +3490,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID25",
    "SecondaryAttribute": "Taak 1",
@@ -3522,7 +3522,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID26",
    "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
@@ -3596,7 +3596,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID27",
    "SecondaryAttribute": "Taak 2",
@@ -3628,7 +3628,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID28",
    "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
@@ -3702,7 +3702,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID29",
    "SecondaryAttribute": "Taak 3",
@@ -3734,7 +3734,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID30",
    "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
@@ -3808,7 +3808,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID31",
    "SecondaryAttribute": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspra",
@@ -3922,7 +3922,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID32",
    "SecondaryAttribute": "Welk bedieningspaneel vond je het prettigst om te gebruiken?",
@@ -3981,7 +3981,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID33",
    "SecondaryAttribute": "Waarom? En wat vond je het meest verwarrend aan de andere panelen?",
@@ -4018,7 +4018,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID34",
    "SecondaryAttribute": "Bedankt voor je deelname! Klik op de pijl om je antwoorden te versturen.",
@@ -4049,7 +4049,7 @@
    }
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "QC",
    "PrimaryAttribute": "Survey Question Count",
    "SecondaryAttribute": "34",
@@ -4057,9 +4057,9 @@
    "Payload": null
   },
   {
-   "SurveyID": "SV_microgolfUX01",
+   "SurveyID": "SV_microgolfUX0001",
    "Element": "RS",
-   "PrimaryAttribute": "RS_microgolf",
+   "PrimaryAttribute": "RS_microgolfUX0001",
    "SecondaryAttribute": "Default Response Set",
    "TertiaryAttribute": null,
    "Payload": null

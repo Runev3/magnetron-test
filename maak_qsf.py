@@ -10,7 +10,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 STIM_URL = sys.argv[1] if len(sys.argv) > 1 else "https://JOUW-GEBRUIKERSNAAM.github.io/magnetron-test/"
-SID = "SV_microgolfUX01"
+SID = "SV_microgolfUX0001"
 
 UIS = ["oud", "standaard", "herontwerp"]
 TASKS = ["t1", "t2", "t3"]
@@ -127,15 +127,15 @@ def matrix_q(block, tag, html, statements, scale):
 
 
 # ---------------------------------------------------------------- blokken
-new_block("BL_intro", "Intro en toestemming", default=True)
-new_block("BL_demo", "Demografie")
+new_block("BL_introBlok000001", "Intro en toestemming", default=True)
+new_block("BL_demografie00001", "Demografie")
 for r in (1, 2, 3):
-    new_block(f"BL_r{r}", f"Ronde {r}")
-new_block("BL_einde", "Afsluiting")
-blocks["BL_trash"] = {"Type": "Trash", "Description": "Trash / Unused Questions", "ID": "BL_trash", "BlockElements": []}
+    new_block(f"BL_ronde{r}000000", f"Ronde {r}")
+new_block("BL_afsluiting00001", "Afsluiting")
+blocks["BL_prullenbak00001"] = {"Type": "Trash", "Description": "Trash / Unused Questions", "ID": "BL_prullenbak00001", "BlockElements": []}
 
 q_consent = None
-text_q("BL_intro", "intro", (
+text_q("BL_introBlok000001", "intro", (
     "<h2>Onderzoek naar bedieningspanelen van microgolfovens</h2>"
     "<p>Bedankt om deel te nemen! In dit onderzoek test je drie verschillende bedieningspanelen van een microgolfoven. "
     "Je krijgt telkens een interactief 3D-model te zien en voert een paar korte taken uit, zoals de microgolf op een "
@@ -143,16 +143,16 @@ text_q("BL_intro", "intro", (
     "<p>Het onderzoek duurt ongeveer <b>10 minuten</b>. Gebruik bij voorkeur een <b>computer met muis</b>. "
     "We meten hoe lang je over elke taak doet en welke knoppen je gebruikt. Je antwoorden worden anoniem verwerkt "
     "en enkel gebruikt voor een studieopdracht aan UGent. Je kan op elk moment stoppen.</p>"))
-q_consent = mc_q("BL_intro", "toestemming", "Ga je akkoord om deel te nemen aan dit onderzoek?",
+q_consent = mc_q("BL_introBlok000001", "toestemming", "Ga je akkoord om deel te nemen aan dit onderzoek?",
                  ["Ja, ik ga akkoord", "Nee, ik wil niet deelnemen"])
 
-te_q("BL_demo", "leeftijd", "Wat is je leeftijd?", numeric=True, force=True)
-mc_q("BL_demo", "geslacht", "Wat is je gender?", ["Man", "Vrouw", "Non-binair / anders", "Zeg ik liever niet"])
-mc_q("BL_demo", "gebruik_freq", "Hoe vaak gebruik je een microgolfoven?",
+te_q("BL_demografie00001", "leeftijd", "Wat is je leeftijd?", numeric=True, force=True)
+mc_q("BL_demografie00001", "geslacht", "Wat is je gender?", ["Man", "Vrouw", "Non-binair / anders", "Zeg ik liever niet"])
+mc_q("BL_demografie00001", "gebruik_freq", "Hoe vaak gebruik je een microgolfoven?",
      ["Dagelijks", "Wekelijks", "Maandelijks", "Zelden", "Nooit"])
-mc_q("BL_demo", "ervaring_combi", "Heb je al eens een combi-microgolf gebruikt (met hetelucht- of grillfunctie)?",
+mc_q("BL_demografie00001", "ervaring_combi", "Heb je al eens een combi-microgolf gebruikt (met hetelucht- of grillfunctie)?",
      ["Ja, regelmatig", "Ja, een paar keer", "Nee, nooit", "Weet ik niet"])
-mc_q("BL_demo", "type_thuis", "Welk soort bediening heeft de microgolf die je het meest gebruikt?",
+mc_q("BL_demografie00001", "type_thuis", "Welk soort bediening heeft de microgolf die je het meest gebruikt?",
      ["Draaiknoppen", "Digitale knoppen met cijfertoetsen", "Touchscreen / aanraakpaneel", "Andere / weet ik niet",
       "Ik gebruik geen microgolf"])
 
@@ -172,7 +172,7 @@ SUS_ITEMS = [
 SUS_SCALE = ["Helemaal oneens", "Oneens", "Neutraal", "Eens", "Helemaal eens"]
 
 for r in (1, 2, 3):
-    b = f"BL_r{r}"
+    b = f"BL_ronde{r}000000"
     text_q(b, f"r{r}_intro", (
         f"<h2>Ronde {r} van 3</h2>"
         "<p>Je krijgt zo dadelijk een microgolf met een <b>bedieningspaneel</b> te zien. Voer telkens de taak uit die "
@@ -192,11 +192,11 @@ for r in (1, 2, 3):
              "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
              SUS_ITEMS, SUS_SCALE)
 
-mc_q("BL_einde", "voorkeur", "Welk bedieningspaneel vond je het prettigst om te gebruiken?",
+mc_q("BL_afsluiting00001", "voorkeur", "Welk bedieningspaneel vond je het prettigst om te gebruiken?",
      ["De microgolf met draaiknoppen", "De microgolf met cijfertoetsen", "De microgolf met grote knoppen en genummerde stappen",
       "Geen voorkeur"])
-te_q("BL_einde", "waarom", "Waarom? En wat vond je het meest verwarrend aan de andere panelen?", multiline=True)
-text_q("BL_einde", "bedankt", "<p>Bedankt voor je deelname! Klik op de pijl om je antwoorden te versturen.</p>")
+te_q("BL_afsluiting00001", "waarom", "Waarom? En wat vond je het meest verwarrend aan de andere panelen?", multiline=True)
+text_q("BL_afsluiting00001", "bedankt", "<p>Bedankt voor je deelname! Klik op de pijl om je antwoorden te versturen.</p>")
 
 # ---------------------------------------------------------------- survey flow
 def ed(fields):
@@ -216,7 +216,7 @@ for ui in UIS:
         for f in RESULT_FIELDS:
             declared.append((f"__js_{ui}_{t}_{f}", ""))
 
-randomizer = {"Type": "Randomizer", "FlowID": flow_id(), "SubSet": 1, "EvenPresentation": True,
+randomizer = {"Type": "BlockRandomizer", "FlowID": flow_id(), "SubSet": 1, "EvenPresentation": True,
               "Flow": [ed([("volgorde", str(i + 1)), ("ui_r1", o[0]), ("ui_r2", o[1]), ("ui_r3", o[2])])
                        for i, o in enumerate(ORDERS)]}
 
@@ -233,15 +233,15 @@ consent_branch = {
 }
 
 flow = [ed(declared), randomizer,
-        {"Type": "Standard", "ID": "BL_intro", "FlowID": flow_id(), "Autofill": []},
+        {"Type": "Standard", "ID": "BL_introBlok000001", "FlowID": flow_id(), "Autofill": []},
         consent_branch,
-        {"Type": "Block", "ID": "BL_demo", "FlowID": flow_id(), "Autofill": []}]
-flow += [{"Type": "Block", "ID": f"BL_r{r}", "FlowID": flow_id(), "Autofill": []} for r in (1, 2, 3)]
-flow += [{"Type": "Block", "ID": "BL_einde", "FlowID": flow_id(), "Autofill": []}]
+        {"Type": "Block", "ID": "BL_demografie00001", "FlowID": flow_id(), "Autofill": []}]
+flow += [{"Type": "Block", "ID": f"BL_ronde{r}000000", "FlowID": flow_id(), "Autofill": []} for r in (1, 2, 3)]
+flow += [{"Type": "Block", "ID": "BL_afsluiting00001", "FlowID": flow_id(), "Autofill": []}]
 
 elements.insert(0, {"SurveyID": SID, "Element": "BL", "PrimaryAttribute": "Survey Blocks",
                     "SecondaryAttribute": None, "TertiaryAttribute": None,
-                    "Payload": [blocks[k] for k in ["BL_intro", "BL_trash", "BL_demo", "BL_r1", "BL_r2", "BL_r3", "BL_einde"]]})
+                    "Payload": [blocks[k] for k in ["BL_introBlok000001", "BL_prullenbak00001", "BL_demografie00001", "BL_ronde1000000", "BL_ronde2000000", "BL_ronde3000000", "BL_afsluiting00001"]]})
 elements.insert(1, {"SurveyID": SID, "Element": "FL", "PrimaryAttribute": "Survey Flow",
                     "SecondaryAttribute": None, "TertiaryAttribute": None,
                     "Payload": {"Type": "Root", "FlowID": "FL_0", "Flow": flow, "Properties": {"Count": _fl[0] + 1}}})
@@ -259,14 +259,14 @@ elements.insert(2, {"SurveyID": SID, "Element": "SO", "PrimaryAttribute": "Surve
                         "SurveyLanguage": "NL", "AvailableLanguages": {"NL": []}}})
 elements.append({"SurveyID": SID, "Element": "QC", "PrimaryAttribute": "Survey Question Count",
                  "SecondaryAttribute": str(qcount), "TertiaryAttribute": None, "Payload": None})
-elements.append({"SurveyID": SID, "Element": "RS", "PrimaryAttribute": "RS_microgolf",
+elements.append({"SurveyID": SID, "Element": "RS", "PrimaryAttribute": "RS_microgolfUX0001",
                  "SecondaryAttribute": "Default Response Set", "TertiaryAttribute": None, "Payload": None})
 
 qsf = {
     "SurveyEntry": {
         "SurveyID": SID, "SurveyName": "Microgolf UX-test (AA2)", "SurveyDescription": None,
         "SurveyOwnerID": "UR_placeholder", "SurveyBrandID": "ugent", "DivisionID": None,
-        "SurveyLanguage": "NL", "SurveyActiveResponseSet": "RS_microgolf", "SurveyStatus": "Inactive",
+        "SurveyLanguage": "NL", "SurveyActiveResponseSet": "RS_microgolfUX0001", "SurveyStatus": "Inactive",
         "SurveyStartDate": "0000-00-00 00:00:00", "SurveyExpirationDate": "0000-00-00 00:00:00",
         "SurveyCreationDate": "2026-11-15 12:00:00", "CreatorID": "UR_placeholder",
         "LastModified": "2026-11-15 12:00:00", "LastAccessed": "0000-00-00 00:00:00",
