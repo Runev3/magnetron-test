@@ -36,8 +36,8 @@
     f.src='index.html?ui='+document.getElementById('ui').value+'&task='+document.getElementById('task').value; };
   window.addEventListener('message',e=>{ const d=e.data; if(!d||d.source!=='magnetron-test') return;
     const p=d.id+'_';
-    out.textContent=[['success',d.success],['gaveup',d.gaveUp],['time',d.timeMs],['first',d.firstActionMs],['actions',d.actions],
-      ['errors',d.errors],['resets',d.resets],['final',d.finalMode+'|'+d.finalValue+'|'+d.finalTime],['path',d.path]]
+    out.textContent=[['juist',d.success],['seconden',Math.round(d.timeMs/100)/10],['kliks',d.actions],
+      ['fouten',d.errors],['opgegeven',d.gaveUp],['klikvolgorde',d.path]]
       .map(([k,v])=>p+k+' = '+v).join('\n');
     next.disabled=false; });
 </script>

@@ -13,8 +13,14 @@ STIM_URL = sys.argv[1] if len(sys.argv) > 1 else "https://JOUW-GEBRUIKERSNAAM.gi
 SID = "SV_microgolfUX0001"
 
 UIS = ["oud", "standaard", "herontwerp"]
+# Vaste naam per interface, zodat de kolommen altijd hetzelfde model bevatten, ongeacht de volgorde
+MODEL = {"oud": "model1", "standaard": "model2", "herontwerp": "model3"}
+MODEL_DESC = {"oud": "draaiknoppen", "standaard": "cijfertoetsen", "herontwerp": "herontwerp"}
 TASKS = ["t1", "t2", "t3"]
-RESULT_FIELDS = ["success", "gaveup", "time", "first", "actions", "errors", "resets", "final", "path"]
+TAAK = {"t1": "taak1", "t2": "taak2", "t3": "taak3"}
+# Velden die qualtrics-vraag.js per taak opslaat (klikvolgorde komt achteraan in de export)
+RESULT_FIELDS = ["juist", "seconden", "kliks", "fouten", "opgegeven"]
+EXTRA_FIELDS = ["klikvolgorde"]
 TASK_LABEL = {
     "t1": "Taak 1: hetelucht 200 °C, 10 minuten",
     "t2": "Taak 2: microgolf 600 W, 2 min 30 s",
@@ -129,8 +135,9 @@ def matrix_q(block, tag, html, statements, scale):
 # ---------------------------------------------------------------- blokken
 new_block("BL_introBlok000001", "Intro en toestemming", default=True)
 new_block("BL_demografie00001", "Demografie")
-for r in (1, 2, 3):
-    new_block(f"BL_ronde{r}000000", f"Ronde {r}")
+MODEL_BLOCK = {ui: f"BL_{MODEL[ui]}00000000" for ui in UIS}
+for ui in UIS:
+    new_block(MODEL_BLOCK[ui], f"{MODEL[ui].capitalize()} ({MODEL_DESC[ui]})")
 new_block("BL_afsluiting00001", "Afsluiting")
 blocks["BL_prullenbak00001"] = {"Type": "Trash", "Description": "Trash / Unused Questions", "ID": "BL_prullenbak00001", "BlockElements": []}
 
@@ -171,10 +178,10 @@ SUS_ITEMS = [
 ]
 SUS_SCALE = ["Helemaal oneens", "Oneens", "Neutraal", "Eens", "Helemaal eens"]
 
-for r in (1, 2, 3):
-    b = f"BL_ronde{r}000000"
-    text_q(b, f"r{r}_intro", (
-        f"<h2>Ronde {r} van 3</h2>"
+for ui in UIS:
+    b, m = MODEL_BLOCK[ui], MODEL[ui]
+    text_q(b, f"{m}_intro", (
+        f"<h2>Ronde ${{e://Field/{m}_ronde}} van 3</h2>"
         "<p>Je krijgt zo dadelijk een microgolf met een <b>bedieningspaneel</b> te zien. Voer telkens de taak uit die "
         "bovenaan staat en druk op <b>START</b> wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b> "
         "per taak. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken.</p>"
@@ -182,13 +189,13 @@ for r in (1, 2, 3):
     for t in TASKS:
         page_break(b)
         iframe = (f'<p style="margin:0 0 6px"><b>{TASK_LABEL[t].split(":")[0]}</b></p>'
-                  f'<iframe src="${{e://Field/stimulus_url}}?ui=${{e://Field/ui_r{r}}}&amp;task={t}" '
+                  f'<iframe src="${{e://Field/stimulus_url}}?ui={ui}&amp;task={t}&amp;id={m}_{TAAK[t]}" '
                   'style="width:100%;height:620px;border:0;border-radius:8px" allow="autoplay"></iframe>')
-        text_q(b, f"r{r}_{t}_taak", iframe, js=TASK_JS)
+        text_q(b, f"{m}_{TAAK[t]}_taak", iframe, js=TASK_JS)
         page_break(b)
-        mc_q(b, f"r{r}_{t}_seq", "Hoe moeilijk of makkelijk vond je deze taak?", SEQ_SCALE, horizontal=True)
+        mc_q(b, f"{m}_{TAAK[t]}_seq", "Hoe moeilijk of makkelijk vond je deze taak?", SEQ_SCALE, horizontal=True)
     page_break(b)
-    matrix_q(b, f"r{r}_sus",
+    matrix_q(b, f"{m}_sus",
              "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
              SUS_ITEMS, SUS_SCALE)
 
@@ -205,20 +212,43 @@ def ed(fields):
          "DataVisibility": [], "AnalyzeText": False, "Value": v} for k, v in fields]}
 
 
-declared = [("stimulus_url", STIM_URL), ("volgorde", ""), ("ui_r1", ""), ("ui_r2", ""), ("ui_r3", "")]
+# Volgorde van declareren = volgorde van de kolommen in de export
+declared = [("stimulus_url", STIM_URL), ("volgorde", "")]
+declared += [(f"{MODEL[ui]}_ronde", "") for ui in UIS]
 for ui in UIS:
     for t in TASKS:
         for f in RESULT_FIELDS:
-            declared.append((f"{ui}_{t}_{f}", ""))
-# Simple layout bewaart setJSEmbeddedData als __js_<naam>
+            declared.append((f"{MODEL[ui]}_{TAAK[t]}_{f}", ""))
 for ui in UIS:
     for t in TASKS:
-        for f in RESULT_FIELDS:
-            declared.append((f"__js_{ui}_{t}_{f}", ""))
+        for f in EXTRA_FIELDS:
+            declared.append((f"{MODEL[ui]}_{TAAK[t]}_{f}", ""))
+declared += [("ui_r1", ""), ("ui_r2", ""), ("ui_r3", "")]   # intern, voor de vertakking
 
+
+def order_fields(i, o):
+    f = [("volgorde", str(i + 1)), ("ui_r1", o[0]), ("ui_r2", o[1]), ("ui_r3", o[2])]
+    f += [(f"{MODEL[ui]}_ronde", str(o.index(ui) + 1)) for ui in UIS]
+    return f
+
+
+# Elke deelnemer krijgt willekeurig 1 van de 6 volgordes (evenwichtig verdeeld)
 randomizer = {"Type": "BlockRandomizer", "FlowID": flow_id(), "SubSet": 1, "EvenPresentation": True,
-              "Flow": [ed([("volgorde", str(i + 1)), ("ui_r1", o[0]), ("ui_r2", o[1]), ("ui_r3", o[2])])
-                       for i, o in enumerate(ORDERS)]}
+              "Flow": [ed(order_fields(i, o)) for i, o in enumerate(ORDERS)]}
+
+
+def show_if(field, value, block_id):
+    """Toon block_id als Embedded Data-veld `field` gelijk is aan `value`."""
+    return {
+        "Type": "Branch", "FlowID": flow_id(), "Description": f"{field} = {value}",
+        "BranchLogic": {"0": {"0": {
+            "LogicType": "EmbeddedField", "LeftOperand": field, "Operator": "EqualTo", "RightOperand": value,
+            "_HiddenExpression": False, "Type": "Expression",
+            "Description": (f"<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">{field}</span> "
+                            f"<span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> {value} </span>")},
+            "Type": "If"}, "Type": "BooleanExpression"},
+        "Flow": [{"Type": "Block", "ID": block_id, "FlowID": flow_id(), "Autofill": []}],
+    }
 
 consent_branch = {
     "Type": "Branch", "FlowID": flow_id(), "Description": "Geen toestemming",
@@ -236,12 +266,15 @@ flow = [ed(declared), randomizer,
         {"Type": "Standard", "ID": "BL_introBlok000001", "FlowID": flow_id(), "Autofill": []},
         consent_branch,
         {"Type": "Block", "ID": "BL_demografie00001", "FlowID": flow_id(), "Autofill": []}]
-flow += [{"Type": "Block", "ID": f"BL_ronde{r}000000", "FlowID": flow_id(), "Autofill": []} for r in (1, 2, 3)]
+# Ronde 1, 2, 3: toon telkens het modelblok dat de randomizer op die plaats zette
+for r in (1, 2, 3):
+    flow += [show_if(f"ui_r{r}", ui, MODEL_BLOCK[ui]) for ui in UIS]
 flow += [{"Type": "Block", "ID": "BL_afsluiting00001", "FlowID": flow_id(), "Autofill": []}]
 
 elements.insert(0, {"SurveyID": SID, "Element": "BL", "PrimaryAttribute": "Survey Blocks",
                     "SecondaryAttribute": None, "TertiaryAttribute": None,
-                    "Payload": [blocks[k] for k in ["BL_introBlok000001", "BL_prullenbak00001", "BL_demografie00001", "BL_ronde1000000", "BL_ronde2000000", "BL_ronde3000000", "BL_afsluiting00001"]]})
+                    "Payload": [blocks[k] for k in ["BL_introBlok000001", "BL_prullenbak00001", "BL_demografie00001",
+                                                    *MODEL_BLOCK.values(), "BL_afsluiting00001"]]})
 elements.insert(1, {"SurveyID": SID, "Element": "FL", "PrimaryAttribute": "Survey Flow",
                     "SecondaryAttribute": None, "TertiaryAttribute": None,
                     "Payload": {"Type": "Root", "FlowID": "FL_0", "Flow": flow, "Properties": {"Count": _fl[0] + 1}}})

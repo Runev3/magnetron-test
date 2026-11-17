@@ -110,7 +110,9 @@ if (P.get('mode')) { // eigen taak via URL: &mode=oven&temp=200&time=600&text=..
 }
 const TASK = TASKS[TASK_ID] || TASKS.free;
 const IS_FREE = !TASK.mode;
-const ID = P.get('id') || (UI+'_'+TASK_ID);
+// Standaard-id voor de Embedded Data: model1 = oud, model2 = standaard, model3 = herontwerp
+const MODEL_NR = {oud:1, standaard:2, herontwerp:3};
+const ID = P.get('id') || (MODEL_NR[UI] ? 'model'+MODEL_NR[UI]+'_'+TASK_ID.replace(/^t(\d+)$/,'taak$1') : UI+'_'+TASK_ID);
 const DEBUG = P.get('debug')==='1';
 const SOUND = P.get('sound')!=='0';
 const TIME_TOL = +(P.get('tol')||0); // toegestane afwijking in seconden

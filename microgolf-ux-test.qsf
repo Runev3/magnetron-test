@@ -76,8 +76,8 @@
     },
     {
      "Type": "Standard",
-     "Description": "Ronde 1",
-     "ID": "BL_ronde1000000",
+     "Description": "Model1 (draaiknoppen)",
+     "ID": "BL_model100000000",
      "BlockElements": [
       {
        "Type": "Question",
@@ -136,8 +136,8 @@
     },
     {
      "Type": "Standard",
-     "Description": "Ronde 2",
-     "ID": "BL_ronde2000000",
+     "Description": "Model2 (cijfertoetsen)",
+     "ID": "BL_model200000000",
      "BlockElements": [
       {
        "Type": "Question",
@@ -196,8 +196,8 @@
     },
     {
      "Type": "Standard",
-     "Description": "Ronde 3",
-     "ID": "BL_ronde3000000",
+     "Description": "Model3 (herontwerp)",
+     "ID": "BL_model300000000",
      "BlockElements": [
       {
        "Type": "Question",
@@ -308,6 +308,519 @@
         "Value": ""
        },
        {
+        "Description": "model1_ronde",
+        "Type": "Custom",
+        "Field": "model1_ronde",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_ronde",
+        "Type": "Custom",
+        "Field": "model2_ronde",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_ronde",
+        "Type": "Custom",
+        "Field": "model3_ronde",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak1_juist",
+        "Type": "Custom",
+        "Field": "model1_taak1_juist",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak1_seconden",
+        "Type": "Custom",
+        "Field": "model1_taak1_seconden",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak1_kliks",
+        "Type": "Custom",
+        "Field": "model1_taak1_kliks",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak1_fouten",
+        "Type": "Custom",
+        "Field": "model1_taak1_fouten",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak1_opgegeven",
+        "Type": "Custom",
+        "Field": "model1_taak1_opgegeven",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak2_juist",
+        "Type": "Custom",
+        "Field": "model1_taak2_juist",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak2_seconden",
+        "Type": "Custom",
+        "Field": "model1_taak2_seconden",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak2_kliks",
+        "Type": "Custom",
+        "Field": "model1_taak2_kliks",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak2_fouten",
+        "Type": "Custom",
+        "Field": "model1_taak2_fouten",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak2_opgegeven",
+        "Type": "Custom",
+        "Field": "model1_taak2_opgegeven",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak3_juist",
+        "Type": "Custom",
+        "Field": "model1_taak3_juist",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak3_seconden",
+        "Type": "Custom",
+        "Field": "model1_taak3_seconden",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak3_kliks",
+        "Type": "Custom",
+        "Field": "model1_taak3_kliks",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak3_fouten",
+        "Type": "Custom",
+        "Field": "model1_taak3_fouten",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak3_opgegeven",
+        "Type": "Custom",
+        "Field": "model1_taak3_opgegeven",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak1_juist",
+        "Type": "Custom",
+        "Field": "model2_taak1_juist",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak1_seconden",
+        "Type": "Custom",
+        "Field": "model2_taak1_seconden",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak1_kliks",
+        "Type": "Custom",
+        "Field": "model2_taak1_kliks",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak1_fouten",
+        "Type": "Custom",
+        "Field": "model2_taak1_fouten",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak1_opgegeven",
+        "Type": "Custom",
+        "Field": "model2_taak1_opgegeven",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak2_juist",
+        "Type": "Custom",
+        "Field": "model2_taak2_juist",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak2_seconden",
+        "Type": "Custom",
+        "Field": "model2_taak2_seconden",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak2_kliks",
+        "Type": "Custom",
+        "Field": "model2_taak2_kliks",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak2_fouten",
+        "Type": "Custom",
+        "Field": "model2_taak2_fouten",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak2_opgegeven",
+        "Type": "Custom",
+        "Field": "model2_taak2_opgegeven",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak3_juist",
+        "Type": "Custom",
+        "Field": "model2_taak3_juist",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak3_seconden",
+        "Type": "Custom",
+        "Field": "model2_taak3_seconden",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak3_kliks",
+        "Type": "Custom",
+        "Field": "model2_taak3_kliks",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak3_fouten",
+        "Type": "Custom",
+        "Field": "model2_taak3_fouten",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak3_opgegeven",
+        "Type": "Custom",
+        "Field": "model2_taak3_opgegeven",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak1_juist",
+        "Type": "Custom",
+        "Field": "model3_taak1_juist",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak1_seconden",
+        "Type": "Custom",
+        "Field": "model3_taak1_seconden",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak1_kliks",
+        "Type": "Custom",
+        "Field": "model3_taak1_kliks",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak1_fouten",
+        "Type": "Custom",
+        "Field": "model3_taak1_fouten",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak1_opgegeven",
+        "Type": "Custom",
+        "Field": "model3_taak1_opgegeven",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak2_juist",
+        "Type": "Custom",
+        "Field": "model3_taak2_juist",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak2_seconden",
+        "Type": "Custom",
+        "Field": "model3_taak2_seconden",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak2_kliks",
+        "Type": "Custom",
+        "Field": "model3_taak2_kliks",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak2_fouten",
+        "Type": "Custom",
+        "Field": "model3_taak2_fouten",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak2_opgegeven",
+        "Type": "Custom",
+        "Field": "model3_taak2_opgegeven",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak3_juist",
+        "Type": "Custom",
+        "Field": "model3_taak3_juist",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak3_seconden",
+        "Type": "Custom",
+        "Field": "model3_taak3_seconden",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak3_kliks",
+        "Type": "Custom",
+        "Field": "model3_taak3_kliks",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak3_fouten",
+        "Type": "Custom",
+        "Field": "model3_taak3_fouten",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak3_opgegeven",
+        "Type": "Custom",
+        "Field": "model3_taak3_opgegeven",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak1_klikvolgorde",
+        "Type": "Custom",
+        "Field": "model1_taak1_klikvolgorde",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak2_klikvolgorde",
+        "Type": "Custom",
+        "Field": "model1_taak2_klikvolgorde",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model1_taak3_klikvolgorde",
+        "Type": "Custom",
+        "Field": "model1_taak3_klikvolgorde",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak1_klikvolgorde",
+        "Type": "Custom",
+        "Field": "model2_taak1_klikvolgorde",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak2_klikvolgorde",
+        "Type": "Custom",
+        "Field": "model2_taak2_klikvolgorde",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model2_taak3_klikvolgorde",
+        "Type": "Custom",
+        "Field": "model2_taak3_klikvolgorde",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak1_klikvolgorde",
+        "Type": "Custom",
+        "Field": "model3_taak1_klikvolgorde",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak2_klikvolgorde",
+        "Type": "Custom",
+        "Field": "model3_taak2_klikvolgorde",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
+        "Description": "model3_taak3_klikvolgorde",
+        "Type": "Custom",
+        "Field": "model3_taak3_klikvolgorde",
+        "VariableType": "String",
+        "DataVisibility": [],
+        "AnalyzeText": false,
+        "Value": ""
+       },
+       {
         "Description": "ui_r1",
         "Type": "Custom",
         "Field": "ui_r1",
@@ -329,1464 +842,6 @@
         "Description": "ui_r3",
         "Type": "Custom",
         "Field": "ui_r3",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t1_success",
-        "Type": "Custom",
-        "Field": "oud_t1_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t1_gaveup",
-        "Type": "Custom",
-        "Field": "oud_t1_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t1_time",
-        "Type": "Custom",
-        "Field": "oud_t1_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t1_first",
-        "Type": "Custom",
-        "Field": "oud_t1_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t1_actions",
-        "Type": "Custom",
-        "Field": "oud_t1_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t1_errors",
-        "Type": "Custom",
-        "Field": "oud_t1_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t1_resets",
-        "Type": "Custom",
-        "Field": "oud_t1_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t1_final",
-        "Type": "Custom",
-        "Field": "oud_t1_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t1_path",
-        "Type": "Custom",
-        "Field": "oud_t1_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t2_success",
-        "Type": "Custom",
-        "Field": "oud_t2_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t2_gaveup",
-        "Type": "Custom",
-        "Field": "oud_t2_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t2_time",
-        "Type": "Custom",
-        "Field": "oud_t2_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t2_first",
-        "Type": "Custom",
-        "Field": "oud_t2_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t2_actions",
-        "Type": "Custom",
-        "Field": "oud_t2_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t2_errors",
-        "Type": "Custom",
-        "Field": "oud_t2_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t2_resets",
-        "Type": "Custom",
-        "Field": "oud_t2_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t2_final",
-        "Type": "Custom",
-        "Field": "oud_t2_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t2_path",
-        "Type": "Custom",
-        "Field": "oud_t2_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t3_success",
-        "Type": "Custom",
-        "Field": "oud_t3_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t3_gaveup",
-        "Type": "Custom",
-        "Field": "oud_t3_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t3_time",
-        "Type": "Custom",
-        "Field": "oud_t3_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t3_first",
-        "Type": "Custom",
-        "Field": "oud_t3_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t3_actions",
-        "Type": "Custom",
-        "Field": "oud_t3_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t3_errors",
-        "Type": "Custom",
-        "Field": "oud_t3_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t3_resets",
-        "Type": "Custom",
-        "Field": "oud_t3_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t3_final",
-        "Type": "Custom",
-        "Field": "oud_t3_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "oud_t3_path",
-        "Type": "Custom",
-        "Field": "oud_t3_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t1_success",
-        "Type": "Custom",
-        "Field": "standaard_t1_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t1_gaveup",
-        "Type": "Custom",
-        "Field": "standaard_t1_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t1_time",
-        "Type": "Custom",
-        "Field": "standaard_t1_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t1_first",
-        "Type": "Custom",
-        "Field": "standaard_t1_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t1_actions",
-        "Type": "Custom",
-        "Field": "standaard_t1_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t1_errors",
-        "Type": "Custom",
-        "Field": "standaard_t1_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t1_resets",
-        "Type": "Custom",
-        "Field": "standaard_t1_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t1_final",
-        "Type": "Custom",
-        "Field": "standaard_t1_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t1_path",
-        "Type": "Custom",
-        "Field": "standaard_t1_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t2_success",
-        "Type": "Custom",
-        "Field": "standaard_t2_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t2_gaveup",
-        "Type": "Custom",
-        "Field": "standaard_t2_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t2_time",
-        "Type": "Custom",
-        "Field": "standaard_t2_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t2_first",
-        "Type": "Custom",
-        "Field": "standaard_t2_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t2_actions",
-        "Type": "Custom",
-        "Field": "standaard_t2_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t2_errors",
-        "Type": "Custom",
-        "Field": "standaard_t2_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t2_resets",
-        "Type": "Custom",
-        "Field": "standaard_t2_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t2_final",
-        "Type": "Custom",
-        "Field": "standaard_t2_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t2_path",
-        "Type": "Custom",
-        "Field": "standaard_t2_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t3_success",
-        "Type": "Custom",
-        "Field": "standaard_t3_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t3_gaveup",
-        "Type": "Custom",
-        "Field": "standaard_t3_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t3_time",
-        "Type": "Custom",
-        "Field": "standaard_t3_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t3_first",
-        "Type": "Custom",
-        "Field": "standaard_t3_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t3_actions",
-        "Type": "Custom",
-        "Field": "standaard_t3_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t3_errors",
-        "Type": "Custom",
-        "Field": "standaard_t3_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t3_resets",
-        "Type": "Custom",
-        "Field": "standaard_t3_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t3_final",
-        "Type": "Custom",
-        "Field": "standaard_t3_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "standaard_t3_path",
-        "Type": "Custom",
-        "Field": "standaard_t3_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t1_success",
-        "Type": "Custom",
-        "Field": "herontwerp_t1_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t1_gaveup",
-        "Type": "Custom",
-        "Field": "herontwerp_t1_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t1_time",
-        "Type": "Custom",
-        "Field": "herontwerp_t1_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t1_first",
-        "Type": "Custom",
-        "Field": "herontwerp_t1_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t1_actions",
-        "Type": "Custom",
-        "Field": "herontwerp_t1_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t1_errors",
-        "Type": "Custom",
-        "Field": "herontwerp_t1_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t1_resets",
-        "Type": "Custom",
-        "Field": "herontwerp_t1_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t1_final",
-        "Type": "Custom",
-        "Field": "herontwerp_t1_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t1_path",
-        "Type": "Custom",
-        "Field": "herontwerp_t1_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t2_success",
-        "Type": "Custom",
-        "Field": "herontwerp_t2_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t2_gaveup",
-        "Type": "Custom",
-        "Field": "herontwerp_t2_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t2_time",
-        "Type": "Custom",
-        "Field": "herontwerp_t2_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t2_first",
-        "Type": "Custom",
-        "Field": "herontwerp_t2_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t2_actions",
-        "Type": "Custom",
-        "Field": "herontwerp_t2_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t2_errors",
-        "Type": "Custom",
-        "Field": "herontwerp_t2_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t2_resets",
-        "Type": "Custom",
-        "Field": "herontwerp_t2_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t2_final",
-        "Type": "Custom",
-        "Field": "herontwerp_t2_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t2_path",
-        "Type": "Custom",
-        "Field": "herontwerp_t2_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t3_success",
-        "Type": "Custom",
-        "Field": "herontwerp_t3_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t3_gaveup",
-        "Type": "Custom",
-        "Field": "herontwerp_t3_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t3_time",
-        "Type": "Custom",
-        "Field": "herontwerp_t3_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t3_first",
-        "Type": "Custom",
-        "Field": "herontwerp_t3_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t3_actions",
-        "Type": "Custom",
-        "Field": "herontwerp_t3_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t3_errors",
-        "Type": "Custom",
-        "Field": "herontwerp_t3_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t3_resets",
-        "Type": "Custom",
-        "Field": "herontwerp_t3_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t3_final",
-        "Type": "Custom",
-        "Field": "herontwerp_t3_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "herontwerp_t3_path",
-        "Type": "Custom",
-        "Field": "herontwerp_t3_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t1_success",
-        "Type": "Custom",
-        "Field": "__js_oud_t1_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t1_gaveup",
-        "Type": "Custom",
-        "Field": "__js_oud_t1_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t1_time",
-        "Type": "Custom",
-        "Field": "__js_oud_t1_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t1_first",
-        "Type": "Custom",
-        "Field": "__js_oud_t1_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t1_actions",
-        "Type": "Custom",
-        "Field": "__js_oud_t1_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t1_errors",
-        "Type": "Custom",
-        "Field": "__js_oud_t1_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t1_resets",
-        "Type": "Custom",
-        "Field": "__js_oud_t1_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t1_final",
-        "Type": "Custom",
-        "Field": "__js_oud_t1_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t1_path",
-        "Type": "Custom",
-        "Field": "__js_oud_t1_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t2_success",
-        "Type": "Custom",
-        "Field": "__js_oud_t2_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t2_gaveup",
-        "Type": "Custom",
-        "Field": "__js_oud_t2_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t2_time",
-        "Type": "Custom",
-        "Field": "__js_oud_t2_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t2_first",
-        "Type": "Custom",
-        "Field": "__js_oud_t2_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t2_actions",
-        "Type": "Custom",
-        "Field": "__js_oud_t2_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t2_errors",
-        "Type": "Custom",
-        "Field": "__js_oud_t2_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t2_resets",
-        "Type": "Custom",
-        "Field": "__js_oud_t2_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t2_final",
-        "Type": "Custom",
-        "Field": "__js_oud_t2_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t2_path",
-        "Type": "Custom",
-        "Field": "__js_oud_t2_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t3_success",
-        "Type": "Custom",
-        "Field": "__js_oud_t3_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t3_gaveup",
-        "Type": "Custom",
-        "Field": "__js_oud_t3_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t3_time",
-        "Type": "Custom",
-        "Field": "__js_oud_t3_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t3_first",
-        "Type": "Custom",
-        "Field": "__js_oud_t3_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t3_actions",
-        "Type": "Custom",
-        "Field": "__js_oud_t3_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t3_errors",
-        "Type": "Custom",
-        "Field": "__js_oud_t3_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t3_resets",
-        "Type": "Custom",
-        "Field": "__js_oud_t3_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t3_final",
-        "Type": "Custom",
-        "Field": "__js_oud_t3_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_oud_t3_path",
-        "Type": "Custom",
-        "Field": "__js_oud_t3_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t1_success",
-        "Type": "Custom",
-        "Field": "__js_standaard_t1_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t1_gaveup",
-        "Type": "Custom",
-        "Field": "__js_standaard_t1_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t1_time",
-        "Type": "Custom",
-        "Field": "__js_standaard_t1_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t1_first",
-        "Type": "Custom",
-        "Field": "__js_standaard_t1_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t1_actions",
-        "Type": "Custom",
-        "Field": "__js_standaard_t1_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t1_errors",
-        "Type": "Custom",
-        "Field": "__js_standaard_t1_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t1_resets",
-        "Type": "Custom",
-        "Field": "__js_standaard_t1_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t1_final",
-        "Type": "Custom",
-        "Field": "__js_standaard_t1_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t1_path",
-        "Type": "Custom",
-        "Field": "__js_standaard_t1_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t2_success",
-        "Type": "Custom",
-        "Field": "__js_standaard_t2_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t2_gaveup",
-        "Type": "Custom",
-        "Field": "__js_standaard_t2_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t2_time",
-        "Type": "Custom",
-        "Field": "__js_standaard_t2_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t2_first",
-        "Type": "Custom",
-        "Field": "__js_standaard_t2_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t2_actions",
-        "Type": "Custom",
-        "Field": "__js_standaard_t2_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t2_errors",
-        "Type": "Custom",
-        "Field": "__js_standaard_t2_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t2_resets",
-        "Type": "Custom",
-        "Field": "__js_standaard_t2_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t2_final",
-        "Type": "Custom",
-        "Field": "__js_standaard_t2_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t2_path",
-        "Type": "Custom",
-        "Field": "__js_standaard_t2_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t3_success",
-        "Type": "Custom",
-        "Field": "__js_standaard_t3_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t3_gaveup",
-        "Type": "Custom",
-        "Field": "__js_standaard_t3_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t3_time",
-        "Type": "Custom",
-        "Field": "__js_standaard_t3_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t3_first",
-        "Type": "Custom",
-        "Field": "__js_standaard_t3_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t3_actions",
-        "Type": "Custom",
-        "Field": "__js_standaard_t3_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t3_errors",
-        "Type": "Custom",
-        "Field": "__js_standaard_t3_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t3_resets",
-        "Type": "Custom",
-        "Field": "__js_standaard_t3_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t3_final",
-        "Type": "Custom",
-        "Field": "__js_standaard_t3_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_standaard_t3_path",
-        "Type": "Custom",
-        "Field": "__js_standaard_t3_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t1_success",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t1_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t1_gaveup",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t1_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t1_time",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t1_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t1_first",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t1_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t1_actions",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t1_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t1_errors",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t1_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t1_resets",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t1_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t1_final",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t1_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t1_path",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t1_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t2_success",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t2_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t2_gaveup",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t2_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t2_time",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t2_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t2_first",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t2_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t2_actions",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t2_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t2_errors",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t2_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t2_resets",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t2_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t2_final",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t2_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t2_path",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t2_path",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t3_success",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t3_success",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t3_gaveup",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t3_gaveup",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t3_time",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t3_time",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t3_first",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t3_first",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t3_actions",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t3_actions",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t3_errors",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t3_errors",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t3_resets",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t3_resets",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t3_final",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t3_final",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "__js_herontwerp_t3_path",
-        "Type": "Custom",
-        "Field": "__js_herontwerp_t3_path",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
@@ -1839,6 +894,33 @@
           "DataVisibility": [],
           "AnalyzeText": false,
           "Value": "herontwerp"
+         },
+         {
+          "Description": "model1_ronde",
+          "Type": "Custom",
+          "Field": "model1_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "1"
+         },
+         {
+          "Description": "model2_ronde",
+          "Type": "Custom",
+          "Field": "model2_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "2"
+         },
+         {
+          "Description": "model3_ronde",
+          "Type": "Custom",
+          "Field": "model3_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "3"
          }
         ]
        },
@@ -1881,6 +963,33 @@
           "DataVisibility": [],
           "AnalyzeText": false,
           "Value": "standaard"
+         },
+         {
+          "Description": "model1_ronde",
+          "Type": "Custom",
+          "Field": "model1_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "1"
+         },
+         {
+          "Description": "model2_ronde",
+          "Type": "Custom",
+          "Field": "model2_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "3"
+         },
+         {
+          "Description": "model3_ronde",
+          "Type": "Custom",
+          "Field": "model3_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "2"
          }
         ]
        },
@@ -1923,6 +1032,33 @@
           "DataVisibility": [],
           "AnalyzeText": false,
           "Value": "herontwerp"
+         },
+         {
+          "Description": "model1_ronde",
+          "Type": "Custom",
+          "Field": "model1_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "2"
+         },
+         {
+          "Description": "model2_ronde",
+          "Type": "Custom",
+          "Field": "model2_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "1"
+         },
+         {
+          "Description": "model3_ronde",
+          "Type": "Custom",
+          "Field": "model3_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "3"
          }
         ]
        },
@@ -1965,6 +1101,33 @@
           "DataVisibility": [],
           "AnalyzeText": false,
           "Value": "oud"
+         },
+         {
+          "Description": "model1_ronde",
+          "Type": "Custom",
+          "Field": "model1_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "3"
+         },
+         {
+          "Description": "model2_ronde",
+          "Type": "Custom",
+          "Field": "model2_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "1"
+         },
+         {
+          "Description": "model3_ronde",
+          "Type": "Custom",
+          "Field": "model3_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "2"
          }
         ]
        },
@@ -2007,6 +1170,33 @@
           "DataVisibility": [],
           "AnalyzeText": false,
           "Value": "standaard"
+         },
+         {
+          "Description": "model1_ronde",
+          "Type": "Custom",
+          "Field": "model1_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "2"
+         },
+         {
+          "Description": "model2_ronde",
+          "Type": "Custom",
+          "Field": "model2_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "3"
+         },
+         {
+          "Description": "model3_ronde",
+          "Type": "Custom",
+          "Field": "model3_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "1"
          }
         ]
        },
@@ -2049,6 +1239,33 @@
           "DataVisibility": [],
           "AnalyzeText": false,
           "Value": "oud"
+         },
+         {
+          "Description": "model1_ronde",
+          "Type": "Custom",
+          "Field": "model1_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "3"
+         },
+         {
+          "Description": "model2_ronde",
+          "Type": "Custom",
+          "Field": "model2_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "2"
+         },
+         {
+          "Description": "model3_ronde",
+          "Type": "Custom",
+          "Field": "model3_ronde",
+          "VariableType": "String",
+          "DataVisibility": [],
+          "AnalyzeText": false,
+          "Value": "1"
          }
         ]
        }
@@ -2095,32 +1312,266 @@
       "Autofill": []
      },
      {
-      "Type": "Block",
-      "ID": "BL_ronde1000000",
+      "Type": "Branch",
       "FlowID": "FL_13",
-      "Autofill": []
+      "Description": "ui_r1 = oud",
+      "BranchLogic": {
+       "0": {
+        "0": {
+         "LogicType": "EmbeddedField",
+         "LeftOperand": "ui_r1",
+         "Operator": "EqualTo",
+         "RightOperand": "oud",
+         "_HiddenExpression": false,
+         "Type": "Expression",
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r1</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> oud </span>"
+        },
+        "Type": "If"
+       },
+       "Type": "BooleanExpression"
+      },
+      "Flow": [
+       {
+        "Type": "Block",
+        "ID": "BL_model100000000",
+        "FlowID": "FL_14",
+        "Autofill": []
+       }
+      ]
      },
      {
-      "Type": "Block",
-      "ID": "BL_ronde2000000",
-      "FlowID": "FL_14",
-      "Autofill": []
-     },
-     {
-      "Type": "Block",
-      "ID": "BL_ronde3000000",
+      "Type": "Branch",
       "FlowID": "FL_15",
-      "Autofill": []
+      "Description": "ui_r1 = standaard",
+      "BranchLogic": {
+       "0": {
+        "0": {
+         "LogicType": "EmbeddedField",
+         "LeftOperand": "ui_r1",
+         "Operator": "EqualTo",
+         "RightOperand": "standaard",
+         "_HiddenExpression": false,
+         "Type": "Expression",
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r1</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> standaard </span>"
+        },
+        "Type": "If"
+       },
+       "Type": "BooleanExpression"
+      },
+      "Flow": [
+       {
+        "Type": "Block",
+        "ID": "BL_model200000000",
+        "FlowID": "FL_16",
+        "Autofill": []
+       }
+      ]
+     },
+     {
+      "Type": "Branch",
+      "FlowID": "FL_17",
+      "Description": "ui_r1 = herontwerp",
+      "BranchLogic": {
+       "0": {
+        "0": {
+         "LogicType": "EmbeddedField",
+         "LeftOperand": "ui_r1",
+         "Operator": "EqualTo",
+         "RightOperand": "herontwerp",
+         "_HiddenExpression": false,
+         "Type": "Expression",
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r1</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> herontwerp </span>"
+        },
+        "Type": "If"
+       },
+       "Type": "BooleanExpression"
+      },
+      "Flow": [
+       {
+        "Type": "Block",
+        "ID": "BL_model300000000",
+        "FlowID": "FL_18",
+        "Autofill": []
+       }
+      ]
+     },
+     {
+      "Type": "Branch",
+      "FlowID": "FL_19",
+      "Description": "ui_r2 = oud",
+      "BranchLogic": {
+       "0": {
+        "0": {
+         "LogicType": "EmbeddedField",
+         "LeftOperand": "ui_r2",
+         "Operator": "EqualTo",
+         "RightOperand": "oud",
+         "_HiddenExpression": false,
+         "Type": "Expression",
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r2</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> oud </span>"
+        },
+        "Type": "If"
+       },
+       "Type": "BooleanExpression"
+      },
+      "Flow": [
+       {
+        "Type": "Block",
+        "ID": "BL_model100000000",
+        "FlowID": "FL_20",
+        "Autofill": []
+       }
+      ]
+     },
+     {
+      "Type": "Branch",
+      "FlowID": "FL_21",
+      "Description": "ui_r2 = standaard",
+      "BranchLogic": {
+       "0": {
+        "0": {
+         "LogicType": "EmbeddedField",
+         "LeftOperand": "ui_r2",
+         "Operator": "EqualTo",
+         "RightOperand": "standaard",
+         "_HiddenExpression": false,
+         "Type": "Expression",
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r2</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> standaard </span>"
+        },
+        "Type": "If"
+       },
+       "Type": "BooleanExpression"
+      },
+      "Flow": [
+       {
+        "Type": "Block",
+        "ID": "BL_model200000000",
+        "FlowID": "FL_22",
+        "Autofill": []
+       }
+      ]
+     },
+     {
+      "Type": "Branch",
+      "FlowID": "FL_23",
+      "Description": "ui_r2 = herontwerp",
+      "BranchLogic": {
+       "0": {
+        "0": {
+         "LogicType": "EmbeddedField",
+         "LeftOperand": "ui_r2",
+         "Operator": "EqualTo",
+         "RightOperand": "herontwerp",
+         "_HiddenExpression": false,
+         "Type": "Expression",
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r2</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> herontwerp </span>"
+        },
+        "Type": "If"
+       },
+       "Type": "BooleanExpression"
+      },
+      "Flow": [
+       {
+        "Type": "Block",
+        "ID": "BL_model300000000",
+        "FlowID": "FL_24",
+        "Autofill": []
+       }
+      ]
+     },
+     {
+      "Type": "Branch",
+      "FlowID": "FL_25",
+      "Description": "ui_r3 = oud",
+      "BranchLogic": {
+       "0": {
+        "0": {
+         "LogicType": "EmbeddedField",
+         "LeftOperand": "ui_r3",
+         "Operator": "EqualTo",
+         "RightOperand": "oud",
+         "_HiddenExpression": false,
+         "Type": "Expression",
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r3</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> oud </span>"
+        },
+        "Type": "If"
+       },
+       "Type": "BooleanExpression"
+      },
+      "Flow": [
+       {
+        "Type": "Block",
+        "ID": "BL_model100000000",
+        "FlowID": "FL_26",
+        "Autofill": []
+       }
+      ]
+     },
+     {
+      "Type": "Branch",
+      "FlowID": "FL_27",
+      "Description": "ui_r3 = standaard",
+      "BranchLogic": {
+       "0": {
+        "0": {
+         "LogicType": "EmbeddedField",
+         "LeftOperand": "ui_r3",
+         "Operator": "EqualTo",
+         "RightOperand": "standaard",
+         "_HiddenExpression": false,
+         "Type": "Expression",
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r3</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> standaard </span>"
+        },
+        "Type": "If"
+       },
+       "Type": "BooleanExpression"
+      },
+      "Flow": [
+       {
+        "Type": "Block",
+        "ID": "BL_model200000000",
+        "FlowID": "FL_28",
+        "Autofill": []
+       }
+      ]
+     },
+     {
+      "Type": "Branch",
+      "FlowID": "FL_29",
+      "Description": "ui_r3 = herontwerp",
+      "BranchLogic": {
+       "0": {
+        "0": {
+         "LogicType": "EmbeddedField",
+         "LeftOperand": "ui_r3",
+         "Operator": "EqualTo",
+         "RightOperand": "herontwerp",
+         "_HiddenExpression": false,
+         "Type": "Expression",
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r3</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> herontwerp </span>"
+        },
+        "Type": "If"
+       },
+       "Type": "BooleanExpression"
+      },
+      "Flow": [
+       {
+        "Type": "Block",
+        "ID": "BL_model300000000",
+        "FlowID": "FL_30",
+        "Autofill": []
+       }
+      ]
      },
      {
       "Type": "Block",
       "ID": "BL_afsluiting00001",
-      "FlowID": "FL_16",
+      "FlowID": "FL_31",
       "Autofill": []
      }
     ],
     "Properties": {
-     "Count": 17
+     "Count": 32
     }
    }
   },
@@ -2536,7 +1987,7 @@
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID8",
-   "SecondaryAttribute": "Ronde 1 van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspaneel  te zien. Voer telkens",
+   "SecondaryAttribute": "Ronde ${e://Field/model1_ronde} van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspanee",
    "TertiaryAttribute": null,
    "Payload": {
     "QuestionID": "QID8",
@@ -2550,11 +2001,11 @@
       "Type": "None"
      }
     },
-    "QuestionDescription": "Ronde 1 van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspaneel  te zien. Voer telkens",
+    "QuestionDescription": "Ronde ${e://Field/model1_ronde} van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspanee",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<h2>Ronde 1 van 3</h2><p>Je krijgt zo dadelijk een microgolf met een <b>bedieningspaneel</b> te zien. Voer telkens de taak uit die bovenaan staat en druk op <b>START</b> wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b> per taak. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken.</p><p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>",
-    "DataExportTag": "r1_intro",
+    "QuestionText": "<h2>Ronde ${e://Field/model1_ronde} van 3</h2><p>Je krijgt zo dadelijk een microgolf met een <b>bedieningspaneel</b> te zien. Voer telkens de taak uit die bovenaan staat en druk op <b>START</b> wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b> per taak. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken.</p><p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>",
+    "DataExportTag": "model1_intro",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
@@ -2584,15 +2035,15 @@
     "QuestionDescription": "Taak 1",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 1</b></p><iframe src=\"${e://Field/stimulus_url}?ui=${e://Field/ui_r1}&amp;task=t1\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "r1_t1_taak",
+    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 1</b></p><iframe src=\"${e://Field/stimulus_url}?ui=oud&amp;task=t1&amp;id=model1_taak1\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
+    "DataExportTag": "model1_taak1_taak",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
      "QuestionDescriptionOption": "UseText"
     },
     "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data met als prefix het id\n     (standaard  <ui>_<taak>, bv. herontwerp_t1_success).\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": setJSEmbeddedData\n    // (die bewaart als \"__js_\" + name; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    }\n    if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';\n    save(p + 'success', d.success);        // 1 = juist, 0 = fout/overgeslagen\n    save(p + 'gaveup', d.gaveUp);          // 1 = overgeslagen\n    save(p + 'time', d.timeMs);            // ms van \"Begin taak\" tot START/overslaan\n    save(p + 'first', d.firstActionMs);    // ms tot eerste actie\n    save(p + 'actions', d.actions);        // aantal knopdrukken / knopdraaiingen\n    save(p + 'errors', d.errors);          // START geweigerd + ongeldige acties\n    save(p + 'resets', d.resets);          // STOP/wissen gebruikt\n    save(p + 'final', d.finalMode + '|' + d.finalValue + '|' + d.finalTime);\n    save(p + 'path', d.path);              // volledige klikvolgorde\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
+    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
    }
   },
   {
@@ -2619,7 +2070,7 @@
     "NextChoiceId": 8,
     "NextAnswerId": 1,
     "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "r1_t1_seq",
+    "DataExportTag": "model1_taak1_seq",
     "QuestionType": "MC",
     "Selector": "SAHR",
     "SubSelector": "TX",
@@ -2690,15 +2141,15 @@
     "QuestionDescription": "Taak 2",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 2</b></p><iframe src=\"${e://Field/stimulus_url}?ui=${e://Field/ui_r1}&amp;task=t2\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "r1_t2_taak",
+    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 2</b></p><iframe src=\"${e://Field/stimulus_url}?ui=oud&amp;task=t2&amp;id=model1_taak2\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
+    "DataExportTag": "model1_taak2_taak",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
      "QuestionDescriptionOption": "UseText"
     },
     "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data met als prefix het id\n     (standaard  <ui>_<taak>, bv. herontwerp_t1_success).\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": setJSEmbeddedData\n    // (die bewaart als \"__js_\" + name; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    }\n    if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';\n    save(p + 'success', d.success);        // 1 = juist, 0 = fout/overgeslagen\n    save(p + 'gaveup', d.gaveUp);          // 1 = overgeslagen\n    save(p + 'time', d.timeMs);            // ms van \"Begin taak\" tot START/overslaan\n    save(p + 'first', d.firstActionMs);    // ms tot eerste actie\n    save(p + 'actions', d.actions);        // aantal knopdrukken / knopdraaiingen\n    save(p + 'errors', d.errors);          // START geweigerd + ongeldige acties\n    save(p + 'resets', d.resets);          // STOP/wissen gebruikt\n    save(p + 'final', d.finalMode + '|' + d.finalValue + '|' + d.finalTime);\n    save(p + 'path', d.path);              // volledige klikvolgorde\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
+    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
    }
   },
   {
@@ -2725,7 +2176,7 @@
     "NextChoiceId": 8,
     "NextAnswerId": 1,
     "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "r1_t2_seq",
+    "DataExportTag": "model1_taak2_seq",
     "QuestionType": "MC",
     "Selector": "SAHR",
     "SubSelector": "TX",
@@ -2796,15 +2247,15 @@
     "QuestionDescription": "Taak 3",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 3</b></p><iframe src=\"${e://Field/stimulus_url}?ui=${e://Field/ui_r1}&amp;task=t3\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "r1_t3_taak",
+    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 3</b></p><iframe src=\"${e://Field/stimulus_url}?ui=oud&amp;task=t3&amp;id=model1_taak3\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
+    "DataExportTag": "model1_taak3_taak",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
      "QuestionDescriptionOption": "UseText"
     },
     "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data met als prefix het id\n     (standaard  <ui>_<taak>, bv. herontwerp_t1_success).\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": setJSEmbeddedData\n    // (die bewaart als \"__js_\" + name; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    }\n    if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';\n    save(p + 'success', d.success);        // 1 = juist, 0 = fout/overgeslagen\n    save(p + 'gaveup', d.gaveUp);          // 1 = overgeslagen\n    save(p + 'time', d.timeMs);            // ms van \"Begin taak\" tot START/overslaan\n    save(p + 'first', d.firstActionMs);    // ms tot eerste actie\n    save(p + 'actions', d.actions);        // aantal knopdrukken / knopdraaiingen\n    save(p + 'errors', d.errors);          // START geweigerd + ongeldige acties\n    save(p + 'resets', d.resets);          // STOP/wissen gebruikt\n    save(p + 'final', d.finalMode + '|' + d.finalValue + '|' + d.finalTime);\n    save(p + 'path', d.path);              // volledige klikvolgorde\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
+    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
    }
   },
   {
@@ -2831,7 +2282,7 @@
     "NextChoiceId": 8,
     "NextAnswerId": 1,
     "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "r1_t3_seq",
+    "DataExportTag": "model1_taak3_seq",
     "QuestionType": "MC",
     "Selector": "SAHR",
     "SubSelector": "TX",
@@ -2905,7 +2356,7 @@
     "NextChoiceId": 11,
     "NextAnswerId": 6,
     "QuestionText": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
-    "DataExportTag": "r1_sus",
+    "DataExportTag": "model1_sus",
     "QuestionType": "Matrix",
     "Selector": "Likert",
     "SubSelector": "SingleAnswer",
@@ -2999,7 +2450,7 @@
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID16",
-   "SecondaryAttribute": "Ronde 2 van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspaneel  te zien. Voer telkens",
+   "SecondaryAttribute": "Ronde ${e://Field/model2_ronde} van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspanee",
    "TertiaryAttribute": null,
    "Payload": {
     "QuestionID": "QID16",
@@ -3013,11 +2464,11 @@
       "Type": "None"
      }
     },
-    "QuestionDescription": "Ronde 2 van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspaneel  te zien. Voer telkens",
+    "QuestionDescription": "Ronde ${e://Field/model2_ronde} van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspanee",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<h2>Ronde 2 van 3</h2><p>Je krijgt zo dadelijk een microgolf met een <b>bedieningspaneel</b> te zien. Voer telkens de taak uit die bovenaan staat en druk op <b>START</b> wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b> per taak. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken.</p><p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>",
-    "DataExportTag": "r2_intro",
+    "QuestionText": "<h2>Ronde ${e://Field/model2_ronde} van 3</h2><p>Je krijgt zo dadelijk een microgolf met een <b>bedieningspaneel</b> te zien. Voer telkens de taak uit die bovenaan staat en druk op <b>START</b> wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b> per taak. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken.</p><p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>",
+    "DataExportTag": "model2_intro",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
@@ -3047,15 +2498,15 @@
     "QuestionDescription": "Taak 1",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 1</b></p><iframe src=\"${e://Field/stimulus_url}?ui=${e://Field/ui_r2}&amp;task=t1\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "r2_t1_taak",
+    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 1</b></p><iframe src=\"${e://Field/stimulus_url}?ui=standaard&amp;task=t1&amp;id=model2_taak1\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
+    "DataExportTag": "model2_taak1_taak",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
      "QuestionDescriptionOption": "UseText"
     },
     "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data met als prefix het id\n     (standaard  <ui>_<taak>, bv. herontwerp_t1_success).\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": setJSEmbeddedData\n    // (die bewaart als \"__js_\" + name; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    }\n    if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';\n    save(p + 'success', d.success);        // 1 = juist, 0 = fout/overgeslagen\n    save(p + 'gaveup', d.gaveUp);          // 1 = overgeslagen\n    save(p + 'time', d.timeMs);            // ms van \"Begin taak\" tot START/overslaan\n    save(p + 'first', d.firstActionMs);    // ms tot eerste actie\n    save(p + 'actions', d.actions);        // aantal knopdrukken / knopdraaiingen\n    save(p + 'errors', d.errors);          // START geweigerd + ongeldige acties\n    save(p + 'resets', d.resets);          // STOP/wissen gebruikt\n    save(p + 'final', d.finalMode + '|' + d.finalValue + '|' + d.finalTime);\n    save(p + 'path', d.path);              // volledige klikvolgorde\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
+    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
    }
   },
   {
@@ -3082,7 +2533,7 @@
     "NextChoiceId": 8,
     "NextAnswerId": 1,
     "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "r2_t1_seq",
+    "DataExportTag": "model2_taak1_seq",
     "QuestionType": "MC",
     "Selector": "SAHR",
     "SubSelector": "TX",
@@ -3153,15 +2604,15 @@
     "QuestionDescription": "Taak 2",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 2</b></p><iframe src=\"${e://Field/stimulus_url}?ui=${e://Field/ui_r2}&amp;task=t2\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "r2_t2_taak",
+    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 2</b></p><iframe src=\"${e://Field/stimulus_url}?ui=standaard&amp;task=t2&amp;id=model2_taak2\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
+    "DataExportTag": "model2_taak2_taak",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
      "QuestionDescriptionOption": "UseText"
     },
     "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data met als prefix het id\n     (standaard  <ui>_<taak>, bv. herontwerp_t1_success).\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": setJSEmbeddedData\n    // (die bewaart als \"__js_\" + name; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    }\n    if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';\n    save(p + 'success', d.success);        // 1 = juist, 0 = fout/overgeslagen\n    save(p + 'gaveup', d.gaveUp);          // 1 = overgeslagen\n    save(p + 'time', d.timeMs);            // ms van \"Begin taak\" tot START/overslaan\n    save(p + 'first', d.firstActionMs);    // ms tot eerste actie\n    save(p + 'actions', d.actions);        // aantal knopdrukken / knopdraaiingen\n    save(p + 'errors', d.errors);          // START geweigerd + ongeldige acties\n    save(p + 'resets', d.resets);          // STOP/wissen gebruikt\n    save(p + 'final', d.finalMode + '|' + d.finalValue + '|' + d.finalTime);\n    save(p + 'path', d.path);              // volledige klikvolgorde\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
+    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
    }
   },
   {
@@ -3188,7 +2639,7 @@
     "NextChoiceId": 8,
     "NextAnswerId": 1,
     "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "r2_t2_seq",
+    "DataExportTag": "model2_taak2_seq",
     "QuestionType": "MC",
     "Selector": "SAHR",
     "SubSelector": "TX",
@@ -3259,15 +2710,15 @@
     "QuestionDescription": "Taak 3",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 3</b></p><iframe src=\"${e://Field/stimulus_url}?ui=${e://Field/ui_r2}&amp;task=t3\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "r2_t3_taak",
+    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 3</b></p><iframe src=\"${e://Field/stimulus_url}?ui=standaard&amp;task=t3&amp;id=model2_taak3\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
+    "DataExportTag": "model2_taak3_taak",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
      "QuestionDescriptionOption": "UseText"
     },
     "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data met als prefix het id\n     (standaard  <ui>_<taak>, bv. herontwerp_t1_success).\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": setJSEmbeddedData\n    // (die bewaart als \"__js_\" + name; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    }\n    if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';\n    save(p + 'success', d.success);        // 1 = juist, 0 = fout/overgeslagen\n    save(p + 'gaveup', d.gaveUp);          // 1 = overgeslagen\n    save(p + 'time', d.timeMs);            // ms van \"Begin taak\" tot START/overslaan\n    save(p + 'first', d.firstActionMs);    // ms tot eerste actie\n    save(p + 'actions', d.actions);        // aantal knopdrukken / knopdraaiingen\n    save(p + 'errors', d.errors);          // START geweigerd + ongeldige acties\n    save(p + 'resets', d.resets);          // STOP/wissen gebruikt\n    save(p + 'final', d.finalMode + '|' + d.finalValue + '|' + d.finalTime);\n    save(p + 'path', d.path);              // volledige klikvolgorde\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
+    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
    }
   },
   {
@@ -3294,7 +2745,7 @@
     "NextChoiceId": 8,
     "NextAnswerId": 1,
     "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "r2_t3_seq",
+    "DataExportTag": "model2_taak3_seq",
     "QuestionType": "MC",
     "Selector": "SAHR",
     "SubSelector": "TX",
@@ -3368,7 +2819,7 @@
     "NextChoiceId": 11,
     "NextAnswerId": 6,
     "QuestionText": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
-    "DataExportTag": "r2_sus",
+    "DataExportTag": "model2_sus",
     "QuestionType": "Matrix",
     "Selector": "Likert",
     "SubSelector": "SingleAnswer",
@@ -3462,7 +2913,7 @@
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID24",
-   "SecondaryAttribute": "Ronde 3 van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspaneel  te zien. Voer telkens",
+   "SecondaryAttribute": "Ronde ${e://Field/model3_ronde} van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspanee",
    "TertiaryAttribute": null,
    "Payload": {
     "QuestionID": "QID24",
@@ -3476,11 +2927,11 @@
       "Type": "None"
      }
     },
-    "QuestionDescription": "Ronde 3 van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspaneel  te zien. Voer telkens",
+    "QuestionDescription": "Ronde ${e://Field/model3_ronde} van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspanee",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<h2>Ronde 3 van 3</h2><p>Je krijgt zo dadelijk een microgolf met een <b>bedieningspaneel</b> te zien. Voer telkens de taak uit die bovenaan staat en druk op <b>START</b> wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b> per taak. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken.</p><p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>",
-    "DataExportTag": "r3_intro",
+    "QuestionText": "<h2>Ronde ${e://Field/model3_ronde} van 3</h2><p>Je krijgt zo dadelijk een microgolf met een <b>bedieningspaneel</b> te zien. Voer telkens de taak uit die bovenaan staat en druk op <b>START</b> wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b> per taak. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken.</p><p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>",
+    "DataExportTag": "model3_intro",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
@@ -3510,15 +2961,15 @@
     "QuestionDescription": "Taak 1",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 1</b></p><iframe src=\"${e://Field/stimulus_url}?ui=${e://Field/ui_r3}&amp;task=t1\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "r3_t1_taak",
+    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 1</b></p><iframe src=\"${e://Field/stimulus_url}?ui=herontwerp&amp;task=t1&amp;id=model3_taak1\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
+    "DataExportTag": "model3_taak1_taak",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
      "QuestionDescriptionOption": "UseText"
     },
     "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data met als prefix het id\n     (standaard  <ui>_<taak>, bv. herontwerp_t1_success).\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": setJSEmbeddedData\n    // (die bewaart als \"__js_\" + name; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    }\n    if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';\n    save(p + 'success', d.success);        // 1 = juist, 0 = fout/overgeslagen\n    save(p + 'gaveup', d.gaveUp);          // 1 = overgeslagen\n    save(p + 'time', d.timeMs);            // ms van \"Begin taak\" tot START/overslaan\n    save(p + 'first', d.firstActionMs);    // ms tot eerste actie\n    save(p + 'actions', d.actions);        // aantal knopdrukken / knopdraaiingen\n    save(p + 'errors', d.errors);          // START geweigerd + ongeldige acties\n    save(p + 'resets', d.resets);          // STOP/wissen gebruikt\n    save(p + 'final', d.finalMode + '|' + d.finalValue + '|' + d.finalTime);\n    save(p + 'path', d.path);              // volledige klikvolgorde\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
+    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
    }
   },
   {
@@ -3545,7 +2996,7 @@
     "NextChoiceId": 8,
     "NextAnswerId": 1,
     "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "r3_t1_seq",
+    "DataExportTag": "model3_taak1_seq",
     "QuestionType": "MC",
     "Selector": "SAHR",
     "SubSelector": "TX",
@@ -3616,15 +3067,15 @@
     "QuestionDescription": "Taak 2",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 2</b></p><iframe src=\"${e://Field/stimulus_url}?ui=${e://Field/ui_r3}&amp;task=t2\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "r3_t2_taak",
+    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 2</b></p><iframe src=\"${e://Field/stimulus_url}?ui=herontwerp&amp;task=t2&amp;id=model3_taak2\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
+    "DataExportTag": "model3_taak2_taak",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
      "QuestionDescriptionOption": "UseText"
     },
     "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data met als prefix het id\n     (standaard  <ui>_<taak>, bv. herontwerp_t1_success).\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": setJSEmbeddedData\n    // (die bewaart als \"__js_\" + name; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    }\n    if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';\n    save(p + 'success', d.success);        // 1 = juist, 0 = fout/overgeslagen\n    save(p + 'gaveup', d.gaveUp);          // 1 = overgeslagen\n    save(p + 'time', d.timeMs);            // ms van \"Begin taak\" tot START/overslaan\n    save(p + 'first', d.firstActionMs);    // ms tot eerste actie\n    save(p + 'actions', d.actions);        // aantal knopdrukken / knopdraaiingen\n    save(p + 'errors', d.errors);          // START geweigerd + ongeldige acties\n    save(p + 'resets', d.resets);          // STOP/wissen gebruikt\n    save(p + 'final', d.finalMode + '|' + d.finalValue + '|' + d.finalTime);\n    save(p + 'path', d.path);              // volledige klikvolgorde\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
+    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
    }
   },
   {
@@ -3651,7 +3102,7 @@
     "NextChoiceId": 8,
     "NextAnswerId": 1,
     "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "r3_t2_seq",
+    "DataExportTag": "model3_taak2_seq",
     "QuestionType": "MC",
     "Selector": "SAHR",
     "SubSelector": "TX",
@@ -3722,15 +3173,15 @@
     "QuestionDescription": "Taak 3",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 3</b></p><iframe src=\"${e://Field/stimulus_url}?ui=${e://Field/ui_r3}&amp;task=t3\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "r3_t3_taak",
+    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 3</b></p><iframe src=\"${e://Field/stimulus_url}?ui=herontwerp&amp;task=t3&amp;id=model3_taak3\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
+    "DataExportTag": "model3_taak3_taak",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
      "QuestionDescriptionOption": "UseText"
     },
     "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data met als prefix het id\n     (standaard  <ui>_<taak>, bv. herontwerp_t1_success).\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": setJSEmbeddedData\n    // (die bewaart als \"__js_\" + name; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    }\n    if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';\n    save(p + 'success', d.success);        // 1 = juist, 0 = fout/overgeslagen\n    save(p + 'gaveup', d.gaveUp);          // 1 = overgeslagen\n    save(p + 'time', d.timeMs);            // ms van \"Begin taak\" tot START/overslaan\n    save(p + 'first', d.firstActionMs);    // ms tot eerste actie\n    save(p + 'actions', d.actions);        // aantal knopdrukken / knopdraaiingen\n    save(p + 'errors', d.errors);          // START geweigerd + ongeldige acties\n    save(p + 'resets', d.resets);          // STOP/wissen gebruikt\n    save(p + 'final', d.finalMode + '|' + d.finalValue + '|' + d.finalTime);\n    save(p + 'path', d.path);              // volledige klikvolgorde\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
+    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
    }
   },
   {
@@ -3757,7 +3208,7 @@
     "NextChoiceId": 8,
     "NextAnswerId": 1,
     "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "r3_t3_seq",
+    "DataExportTag": "model3_taak3_seq",
     "QuestionType": "MC",
     "Selector": "SAHR",
     "SubSelector": "TX",
@@ -3831,7 +3282,7 @@
     "NextChoiceId": 11,
     "NextAnswerId": 6,
     "QuestionText": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
-    "DataExportTag": "r3_sus",
+    "DataExportTag": "model3_sus",
     "QuestionType": "Matrix",
     "Selector": "Likert",
     "SubSelector": "SingleAnswer",

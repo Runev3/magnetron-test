@@ -38,7 +38,7 @@ Eigen taak: `?ui=oud&task=t4&mode=oven&temp=180&time=300&text=Stel...` (`mode` =
 - `debug=1`: toont een paneel met de live toestand en het resultaat
 - `sound=0`: geen piepjes
 - `hud=0`: verbergt de taakbalk bovenaan (als de taak al in de Qualtrics-vraagtekst staat)
-- `id=...`: eigen prefix voor de Embedded Data (standaard `<ui>_<taak>`, bv. `oud_t2`)
+- `id=...`: eigen prefix voor de Embedded Data (standaard `<model>_<taak>`, bv. `model1_taak2`)
 - `tol=10`: toegestane tijdafwijking in seconden (standaard 0 = exact)
 - zonder parameters: keuzemenu om alles te previewen
 
@@ -50,15 +50,25 @@ resultaat verstuurd en is de taak afgesloten. Er is dus één poging per taak.
 
 | Veld | Betekenis |
 |---|---|
-| `success` | 1 = functie + temperatuur/vermogen + tijd exact juist, 0 = fout of overgeslagen |
-| `gaveup` | 1 = overgeslagen |
-| `time` | taakduur in ms |
-| `first` | ms tot de eerste actie (oriëntatietijd) |
-| `actions` | aantal acties (knopdrukken, knopdraaiingen) |
-| `errors` | START gedrukt terwijl het toestel niet kon starten + ongeldige acties |
-| `resets` | STOP/wissen gebruikt terwijl er iets ingesteld was |
-| `final` | eindtoestand `mode|waarde|tijd(s)`, bv. `oven|200|600` |
-| `path` | volledige klikvolgorde, bv. `m_oven plus plus t10m start` (handig voor foutanalyse) |
+| `juist` | 1 = functie + temperatuur/vermogen + tijd exact juist, 0 = fout of overgeslagen |
+| `seconden` | taakduur in seconden (1 decimaal) |
+| `kliks` | aantal acties (knopdrukken, knopdraaiingen) |
+| `fouten` | START gedrukt terwijl het toestel niet kon starten + ongeldige acties |
+| `opgegeven` | 1 = "Lukt niet / overslaan" gebruikt |
+| `klikvolgorde` | volledige klikvolgorde, bv. `m_oven plus plus t10m start` (handig voor foutanalyse) |
+
+De deelnemer vult hier niets van in: het wordt op de achtergrond gemeten en als Embedded Data
+opgeslagen. In de export heten de kolommen **`<model>_<taak>_<veld>`**, met een vaste naam per interface:
+
+| Model | Interface |
+|---|---|
+| `model1` | `oud` (draaiknoppen) |
+| `model2` | `standaard` (cijfertoetsen) |
+| `model3` | `herontwerp` |
+
+Bv. `model1_taak1_kliks`, `model2_taak3_seconden`, `model3_taak2_juist`. Ook de vragen heten zo
+(`model1_taak1_seq`, `model1_sus_1` … `model1_sus_10`), en `model1_ronde` zegt in welke ronde (1–3)
+die persoon model 1 zag.
 
 ## 1. Online zetten (nodig voor Qualtrics)
 
@@ -75,7 +85,7 @@ Test de link eerst in je browser, bv. `.../?ui=oud&task=t1&debug=1`.
 1. Maak een vraag van het type **Text / Graphic**.
 2. Klik in de vraagtekst op **HTML View** en plak:
    ```html
-   <iframe src="https://<gebruikersnaam>.github.io/magnetron-test/?ui=${e://Field/ui_r1}&task=t1&hud=1"
+   <iframe src="https://<gebruikersnaam>.github.io/magnetron-test/?ui=oud&task=t1&id=model1_taak1"
            style="width:100%;height:620px;border:0;border-radius:8px" allow="autoplay"></iframe>
    ```
 3. Vraag → **JavaScript toevoegen** → plak de inhoud van `qualtrics-vraag.js`.
@@ -85,44 +95,42 @@ Test de link eerst in je browser, bv. `.../?ui=oud&task=t1&debug=1`.
 
 ## 3. Survey Flow (within-subjects, gecounterbalanced)
 
+`microgolf-ux-test.qsf` (gemaakt met `python maak_qsf.py <stimulus_url>`) bevat dit al:
+
 ```
-Embedded Data   ← alle velden declareren (zie lijst hieronder) + ui_r1, ui_r2, ui_r3, volgorde
-Randomizer (1 element, "Evenly Present Elements" aan)
-   ├─ Embedded Data: volgorde=1 ui_r1=oud        ui_r2=standaard  ui_r3=herontwerp
+Embedded Data   ← alle velden declareren (zie lijst hieronder)
+Randomizer (1 van 6, "Evenly Present Elements" aan)
+   ├─ Embedded Data: volgorde=1 ui_r1=oud        ui_r2=standaard  ui_r3=herontwerp  (+ model1_ronde=1 …)
    ├─ Embedded Data: volgorde=2 ui_r1=oud        ui_r2=herontwerp ui_r3=standaard
    ├─ Embedded Data: volgorde=3 ui_r1=standaard  ui_r2=oud        ui_r3=herontwerp
    ├─ Embedded Data: volgorde=4 ui_r1=standaard  ui_r2=herontwerp ui_r3=oud
    ├─ Embedded Data: volgorde=5 ui_r1=herontwerp ui_r2=oud        ui_r3=standaard
    └─ Embedded Data: volgorde=6 ui_r1=herontwerp ui_r2=standaard  ui_r3=oud
-Block: Intro + toestemming + demografie (+ ervaring met microgolven)
-Block: Ronde 1  → t1, t2, t3 met ${e://Field/ui_r1}, telkens gevolgd door SEQ; daarna SUS of UMUX-Lite
-Block: Ronde 2  → idem met ${e://Field/ui_r2}
-Block: Ronde 3  → idem met ${e://Field/ui_r3}
+Block: Intro + toestemming, Block: demografie
+Ronde 1: Branch ui_r1 = oud → Block Model1 | = standaard → Block Model2 | = herontwerp → Block Model3
+Ronde 2: idem met ui_r2
+Ronde 3: idem met ui_r3
 Block: Voorkeur + open vraag
 ```
 
-Omdat het `id` automatisch `<ui>_<taak>` is, landen de resultaten altijd in dezelfde kolommen
-(`oud_t1_time`, `herontwerp_t2_success`, ...), ongeacht de volgorde. Het veld `volgorde` gebruik
-je als controlevariabele.
+Elk modelblok bevat t1, t2, t3 (telkens gevolgd door SEQ) en daarna de SUS. Elke deelnemer ziet
+de drie modellen dus in een **willekeurige volgorde** (6 volgordes, evenwichtig verdeeld), maar
+de resultaten landen altijd in dezelfde kolommen (`model1_…`, `model2_…`, `model3_…`). `volgorde`
+en `model1_ronde` … `model3_ronde` gebruik je als controlevariabelen.
 
 ### Te declareren Embedded Data-velden
 
-Minimum (4 per combinatie):
 ```
-oud_t1_success oud_t1_time oud_t1_actions oud_t1_errors
-oud_t2_success oud_t2_time oud_t2_actions oud_t2_errors
-oud_t3_success oud_t3_time oud_t3_actions oud_t3_errors
-standaard_t1_success standaard_t1_time standaard_t1_actions standaard_t1_errors
-standaard_t2_success standaard_t2_time standaard_t2_actions standaard_t2_errors
-standaard_t3_success standaard_t3_time standaard_t3_actions standaard_t3_errors
-herontwerp_t1_success herontwerp_t1_time herontwerp_t1_actions herontwerp_t1_errors
-herontwerp_t2_success herontwerp_t2_time herontwerp_t2_actions herontwerp_t2_errors
-herontwerp_t3_success herontwerp_t3_time herontwerp_t3_actions herontwerp_t3_errors
+stimulus_url volgorde model1_ronde model2_ronde model3_ronde
+model1_taak1_juist model1_taak1_seconden model1_taak1_kliks model1_taak1_fouten model1_taak1_opgegeven
+… idem voor model1–3 × taak1–3 …
+model1_taak1_klikvolgorde … model3_taak3_klikvolgorde
+ui_r1 ui_r2 ui_r3
 ```
-Optioneel per combinatie: `_gaveup _first _resets _final _path`.
+De volgorde waarin je ze declareert, is de volgorde van de kolommen in de export.
 
 > Gebruik je de nieuwe **Simple layout**? Dan werkt alleen `setJSEmbeddedData`, en heten de
-> velden `__js_oud_t1_success` enz. Declareer die namen dan in de Survey Flow.
+> velden `__js_model1_taak1_juist` enz. Declareer die namen dan in de Survey Flow.
 
 ## Methodologische aandachtspunten (voor je verslag/reflectie)
 
