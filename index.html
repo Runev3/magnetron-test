@@ -86,6 +86,7 @@
       <button data-v="t1">T1 · Hetelucht 200 °C, 10 min</button>
       <button data-v="t2">T2 · Micro 600 W, 2:30</button>
       <button data-v="t3">T3 · Grill 15 min</button>
+      <button data-v="t4">T4 · Micro 1000 W, 5 min</button>
     </div>
     <div class="grid" style="grid-template-columns:1fr"><button data-v="free" id="chFree">Vrij verkennen (zonder taak)</button></div>
     <button class="main" id="chGo">Open</button>
@@ -111,6 +112,7 @@ const TASKS = {
   t1:{mode:'oven', temp:200, time:600, text:'Stel de microgolf in op <b>hetelucht 200 °C</b> voor <b>10 minuten</b> en start hem.'},
   t2:{mode:'micro', power:600, time:150, text:'Warm een kom soep op in de <b>microgolfstand op 600 W</b> gedurende <b>2 minuten 30 seconden</b> en start.'},
   t3:{mode:'grill', time:900, text:'Gebruik de <b>grill</b> gedurende <b>15 minuten</b> en start.'},
+  t4:{mode:'micro', power:1000, time:300, text:'Zet de microgolf in de <b>microgolfstand</b> op <b>1000 W</b>, stel de tijd in op <b>5 minuten</b> en klik daarna op <b>START</b>.'},
   free:{text:'Verken de microgolf vrij. Er wordt niets geregistreerd.'}
 };
 let TASK_ID = (P.get('task')||'free').toLowerCase();

@@ -17,8 +17,8 @@ UIS = ["oud", "modern", "knop"]
 MODEL = {"oud": "model1", "modern": "model2", "knop": "model3"}
 MODEL_DESC = {"oud": "draaiknoppen", "modern": "touchpaneel", "knop": "draai-/drukknop"}
 # Eén taak per model (t2 en t3 bestaan nog in index.html en kunnen hier terug bij)
-TASKS = ["t1"]
-TAAK = {"t1": "taak1", "t2": "taak2", "t3": "taak3"}
+TASKS = ["t4"]   # microgolf 1000 W, 5 minuten
+TAAK = {"t1": "taak1", "t2": "taak2", "t3": "taak3", "t4": "taak4"}
 
 
 def pfx(ui, t):
@@ -31,6 +31,7 @@ TASK_LABEL = {
     "t1": "Taak 1: hetelucht 200 °C, 10 minuten",
     "t2": "Taak 2: microgolf 600 W, 2 min 30 s",
     "t3": "Taak 3: grill 15 minuten",
+    "t4": "Taak 4: microgolf 1000 W, 5 minuten",
 }
 # Alle 6 volgordes van de 3 modellen (volledig gecounterbalanced)
 from itertools import permutations
@@ -151,7 +152,7 @@ text_q("BL_introBlok000001", "intro", (
     "<h2>Onderzoek naar bedieningspanelen van microgolfovens</h2>"
     "<p>Bedankt om deel te nemen! In dit onderzoek test je drie verschillende bedieningspanelen van een microgolfoven. "
     "Je krijgt telkens een interactief 3D-model te zien en voert een korte taak uit: de microgolf op een "
-    "bepaalde functie, temperatuur en tijd zetten. Daarna beantwoord je enkele vragen.</p>"
+    "bepaalde functie, vermogen en tijd zetten. Daarna beantwoord je enkele vragen.</p>"
     "<p>Het onderzoek duurt ongeveer <b>5 minuten</b>. Gebruik bij voorkeur een <b>computer met muis</b>. "
     "We meten hoe lang je over de taak doet en welke knoppen je gebruikt. Je antwoorden worden anoniem verwerkt "
     "en enkel gebruikt voor een studieopdracht aan UGent. Je kan op elk moment stoppen.</p>"))
