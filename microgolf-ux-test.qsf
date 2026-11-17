@@ -96,10 +96,14 @@
       {
        "Type": "Question",
        "QuestionID": "QID10"
-      },
-      {
-       "Type": "Page Break"
-      },
+      }
+     ]
+    },
+    {
+     "Type": "Standard",
+     "Description": "Model2 (touchpaneel)",
+     "ID": "BL_model200000000",
+     "BlockElements": [
       {
        "Type": "Question",
        "QuestionID": "QID11"
@@ -117,10 +121,14 @@
       {
        "Type": "Question",
        "QuestionID": "QID13"
-      },
-      {
-       "Type": "Page Break"
-      },
+      }
+     ]
+    },
+    {
+     "Type": "Standard",
+     "Description": "Model3 (draai-/drukknop)",
+     "ID": "BL_model300000000",
+     "BlockElements": [
       {
        "Type": "Question",
        "QuestionID": "QID14"
@@ -131,126 +139,13 @@
       {
        "Type": "Question",
        "QuestionID": "QID15"
-      }
-     ]
-    },
-    {
-     "Type": "Standard",
-     "Description": "Model2 (cijfertoetsen)",
-     "ID": "BL_model200000000",
-     "BlockElements": [
+      },
+      {
+       "Type": "Page Break"
+      },
       {
        "Type": "Question",
        "QuestionID": "QID16"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID17"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID18"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID19"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID20"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID21"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID22"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID23"
-      }
-     ]
-    },
-    {
-     "Type": "Standard",
-     "Description": "Model3 (herontwerp)",
-     "ID": "BL_model300000000",
-     "BlockElements": [
-      {
-       "Type": "Question",
-       "QuestionID": "QID24"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID25"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID26"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID27"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID28"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID29"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID30"
-      },
-      {
-       "Type": "Page Break"
-      },
-      {
-       "Type": "Question",
-       "QuestionID": "QID31"
       }
      ]
     },
@@ -261,15 +156,15 @@
      "BlockElements": [
       {
        "Type": "Question",
-       "QuestionID": "QID32"
+       "QuestionID": "QID17"
       },
       {
        "Type": "Question",
-       "QuestionID": "QID33"
+       "QuestionID": "QID18"
       },
       {
        "Type": "Question",
-       "QuestionID": "QID34"
+       "QuestionID": "QID19"
       }
      ]
     }
@@ -335,486 +230,162 @@
         "Value": ""
        },
        {
-        "Description": "model1_taak1_juist",
+        "Description": "model1_juist",
         "Type": "Custom",
-        "Field": "model1_taak1_juist",
+        "Field": "model1_juist",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak1_seconden",
+        "Description": "model1_seconden",
         "Type": "Custom",
-        "Field": "model1_taak1_seconden",
+        "Field": "model1_seconden",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak1_kliks",
+        "Description": "model1_kliks",
         "Type": "Custom",
-        "Field": "model1_taak1_kliks",
+        "Field": "model1_kliks",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak1_fouten",
+        "Description": "model1_fouten",
         "Type": "Custom",
-        "Field": "model1_taak1_fouten",
+        "Field": "model1_fouten",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak1_opgegeven",
+        "Description": "model1_opgegeven",
         "Type": "Custom",
-        "Field": "model1_taak1_opgegeven",
+        "Field": "model1_opgegeven",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak2_juist",
+        "Description": "model2_juist",
         "Type": "Custom",
-        "Field": "model1_taak2_juist",
+        "Field": "model2_juist",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak2_seconden",
+        "Description": "model2_seconden",
         "Type": "Custom",
-        "Field": "model1_taak2_seconden",
+        "Field": "model2_seconden",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak2_kliks",
+        "Description": "model2_kliks",
         "Type": "Custom",
-        "Field": "model1_taak2_kliks",
+        "Field": "model2_kliks",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak2_fouten",
+        "Description": "model2_fouten",
         "Type": "Custom",
-        "Field": "model1_taak2_fouten",
+        "Field": "model2_fouten",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak2_opgegeven",
+        "Description": "model2_opgegeven",
         "Type": "Custom",
-        "Field": "model1_taak2_opgegeven",
+        "Field": "model2_opgegeven",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak3_juist",
+        "Description": "model3_juist",
         "Type": "Custom",
-        "Field": "model1_taak3_juist",
+        "Field": "model3_juist",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak3_seconden",
+        "Description": "model3_seconden",
         "Type": "Custom",
-        "Field": "model1_taak3_seconden",
+        "Field": "model3_seconden",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak3_kliks",
+        "Description": "model3_kliks",
         "Type": "Custom",
-        "Field": "model1_taak3_kliks",
+        "Field": "model3_kliks",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak3_fouten",
+        "Description": "model3_fouten",
         "Type": "Custom",
-        "Field": "model1_taak3_fouten",
+        "Field": "model3_fouten",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model1_taak3_opgegeven",
+        "Description": "model3_opgegeven",
         "Type": "Custom",
-        "Field": "model1_taak3_opgegeven",
+        "Field": "model3_opgegeven",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model2_taak1_juist",
+        "Description": "model1_klikvolgorde",
         "Type": "Custom",
-        "Field": "model2_taak1_juist",
+        "Field": "model1_klikvolgorde",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model2_taak1_seconden",
+        "Description": "model2_klikvolgorde",
         "Type": "Custom",
-        "Field": "model2_taak1_seconden",
+        "Field": "model2_klikvolgorde",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
         "Value": ""
        },
        {
-        "Description": "model2_taak1_kliks",
+        "Description": "model3_klikvolgorde",
         "Type": "Custom",
-        "Field": "model2_taak1_kliks",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak1_fouten",
-        "Type": "Custom",
-        "Field": "model2_taak1_fouten",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak1_opgegeven",
-        "Type": "Custom",
-        "Field": "model2_taak1_opgegeven",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak2_juist",
-        "Type": "Custom",
-        "Field": "model2_taak2_juist",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak2_seconden",
-        "Type": "Custom",
-        "Field": "model2_taak2_seconden",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak2_kliks",
-        "Type": "Custom",
-        "Field": "model2_taak2_kliks",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak2_fouten",
-        "Type": "Custom",
-        "Field": "model2_taak2_fouten",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak2_opgegeven",
-        "Type": "Custom",
-        "Field": "model2_taak2_opgegeven",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak3_juist",
-        "Type": "Custom",
-        "Field": "model2_taak3_juist",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak3_seconden",
-        "Type": "Custom",
-        "Field": "model2_taak3_seconden",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak3_kliks",
-        "Type": "Custom",
-        "Field": "model2_taak3_kliks",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak3_fouten",
-        "Type": "Custom",
-        "Field": "model2_taak3_fouten",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak3_opgegeven",
-        "Type": "Custom",
-        "Field": "model2_taak3_opgegeven",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak1_juist",
-        "Type": "Custom",
-        "Field": "model3_taak1_juist",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak1_seconden",
-        "Type": "Custom",
-        "Field": "model3_taak1_seconden",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak1_kliks",
-        "Type": "Custom",
-        "Field": "model3_taak1_kliks",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak1_fouten",
-        "Type": "Custom",
-        "Field": "model3_taak1_fouten",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak1_opgegeven",
-        "Type": "Custom",
-        "Field": "model3_taak1_opgegeven",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak2_juist",
-        "Type": "Custom",
-        "Field": "model3_taak2_juist",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak2_seconden",
-        "Type": "Custom",
-        "Field": "model3_taak2_seconden",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak2_kliks",
-        "Type": "Custom",
-        "Field": "model3_taak2_kliks",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak2_fouten",
-        "Type": "Custom",
-        "Field": "model3_taak2_fouten",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak2_opgegeven",
-        "Type": "Custom",
-        "Field": "model3_taak2_opgegeven",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak3_juist",
-        "Type": "Custom",
-        "Field": "model3_taak3_juist",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak3_seconden",
-        "Type": "Custom",
-        "Field": "model3_taak3_seconden",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak3_kliks",
-        "Type": "Custom",
-        "Field": "model3_taak3_kliks",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak3_fouten",
-        "Type": "Custom",
-        "Field": "model3_taak3_fouten",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak3_opgegeven",
-        "Type": "Custom",
-        "Field": "model3_taak3_opgegeven",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model1_taak1_klikvolgorde",
-        "Type": "Custom",
-        "Field": "model1_taak1_klikvolgorde",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model1_taak2_klikvolgorde",
-        "Type": "Custom",
-        "Field": "model1_taak2_klikvolgorde",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model1_taak3_klikvolgorde",
-        "Type": "Custom",
-        "Field": "model1_taak3_klikvolgorde",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak1_klikvolgorde",
-        "Type": "Custom",
-        "Field": "model2_taak1_klikvolgorde",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak2_klikvolgorde",
-        "Type": "Custom",
-        "Field": "model2_taak2_klikvolgorde",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model2_taak3_klikvolgorde",
-        "Type": "Custom",
-        "Field": "model2_taak3_klikvolgorde",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak1_klikvolgorde",
-        "Type": "Custom",
-        "Field": "model3_taak1_klikvolgorde",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak2_klikvolgorde",
-        "Type": "Custom",
-        "Field": "model3_taak2_klikvolgorde",
-        "VariableType": "String",
-        "DataVisibility": [],
-        "AnalyzeText": false,
-        "Value": ""
-       },
-       {
-        "Description": "model3_taak3_klikvolgorde",
-        "Type": "Custom",
-        "Field": "model3_taak3_klikvolgorde",
+        "Field": "model3_klikvolgorde",
         "VariableType": "String",
         "DataVisibility": [],
         "AnalyzeText": false,
@@ -884,7 +455,7 @@
           "VariableType": "String",
           "DataVisibility": [],
           "AnalyzeText": false,
-          "Value": "standaard"
+          "Value": "modern"
          },
          {
           "Description": "ui_r3",
@@ -893,7 +464,7 @@
           "VariableType": "String",
           "DataVisibility": [],
           "AnalyzeText": false,
-          "Value": "herontwerp"
+          "Value": "knop"
          },
          {
           "Description": "model1_ronde",
@@ -953,7 +524,7 @@
           "VariableType": "String",
           "DataVisibility": [],
           "AnalyzeText": false,
-          "Value": "herontwerp"
+          "Value": "knop"
          },
          {
           "Description": "ui_r3",
@@ -962,7 +533,7 @@
           "VariableType": "String",
           "DataVisibility": [],
           "AnalyzeText": false,
-          "Value": "standaard"
+          "Value": "modern"
          },
          {
           "Description": "model1_ronde",
@@ -1013,7 +584,7 @@
           "VariableType": "String",
           "DataVisibility": [],
           "AnalyzeText": false,
-          "Value": "standaard"
+          "Value": "modern"
          },
          {
           "Description": "ui_r2",
@@ -1031,7 +602,7 @@
           "VariableType": "String",
           "DataVisibility": [],
           "AnalyzeText": false,
-          "Value": "herontwerp"
+          "Value": "knop"
          },
          {
           "Description": "model1_ronde",
@@ -1082,7 +653,7 @@
           "VariableType": "String",
           "DataVisibility": [],
           "AnalyzeText": false,
-          "Value": "standaard"
+          "Value": "modern"
          },
          {
           "Description": "ui_r2",
@@ -1091,7 +662,7 @@
           "VariableType": "String",
           "DataVisibility": [],
           "AnalyzeText": false,
-          "Value": "herontwerp"
+          "Value": "knop"
          },
          {
           "Description": "ui_r3",
@@ -1151,7 +722,7 @@
           "VariableType": "String",
           "DataVisibility": [],
           "AnalyzeText": false,
-          "Value": "herontwerp"
+          "Value": "knop"
          },
          {
           "Description": "ui_r2",
@@ -1169,7 +740,7 @@
           "VariableType": "String",
           "DataVisibility": [],
           "AnalyzeText": false,
-          "Value": "standaard"
+          "Value": "modern"
          },
          {
           "Description": "model1_ronde",
@@ -1220,7 +791,7 @@
           "VariableType": "String",
           "DataVisibility": [],
           "AnalyzeText": false,
-          "Value": "herontwerp"
+          "Value": "knop"
          },
          {
           "Description": "ui_r2",
@@ -1229,7 +800,7 @@
           "VariableType": "String",
           "DataVisibility": [],
           "AnalyzeText": false,
-          "Value": "standaard"
+          "Value": "modern"
          },
          {
           "Description": "ui_r3",
@@ -1342,17 +913,17 @@
      {
       "Type": "Branch",
       "FlowID": "FL_15",
-      "Description": "ui_r1 = standaard",
+      "Description": "ui_r1 = modern",
       "BranchLogic": {
        "0": {
         "0": {
          "LogicType": "EmbeddedField",
          "LeftOperand": "ui_r1",
          "Operator": "EqualTo",
-         "RightOperand": "standaard",
+         "RightOperand": "modern",
          "_HiddenExpression": false,
          "Type": "Expression",
-         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r1</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> standaard </span>"
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r1</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> modern </span>"
         },
         "Type": "If"
        },
@@ -1370,17 +941,17 @@
      {
       "Type": "Branch",
       "FlowID": "FL_17",
-      "Description": "ui_r1 = herontwerp",
+      "Description": "ui_r1 = knop",
       "BranchLogic": {
        "0": {
         "0": {
          "LogicType": "EmbeddedField",
          "LeftOperand": "ui_r1",
          "Operator": "EqualTo",
-         "RightOperand": "herontwerp",
+         "RightOperand": "knop",
          "_HiddenExpression": false,
          "Type": "Expression",
-         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r1</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> herontwerp </span>"
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r1</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> knop </span>"
         },
         "Type": "If"
        },
@@ -1426,17 +997,17 @@
      {
       "Type": "Branch",
       "FlowID": "FL_21",
-      "Description": "ui_r2 = standaard",
+      "Description": "ui_r2 = modern",
       "BranchLogic": {
        "0": {
         "0": {
          "LogicType": "EmbeddedField",
          "LeftOperand": "ui_r2",
          "Operator": "EqualTo",
-         "RightOperand": "standaard",
+         "RightOperand": "modern",
          "_HiddenExpression": false,
          "Type": "Expression",
-         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r2</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> standaard </span>"
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r2</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> modern </span>"
         },
         "Type": "If"
        },
@@ -1454,17 +1025,17 @@
      {
       "Type": "Branch",
       "FlowID": "FL_23",
-      "Description": "ui_r2 = herontwerp",
+      "Description": "ui_r2 = knop",
       "BranchLogic": {
        "0": {
         "0": {
          "LogicType": "EmbeddedField",
          "LeftOperand": "ui_r2",
          "Operator": "EqualTo",
-         "RightOperand": "herontwerp",
+         "RightOperand": "knop",
          "_HiddenExpression": false,
          "Type": "Expression",
-         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r2</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> herontwerp </span>"
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r2</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> knop </span>"
         },
         "Type": "If"
        },
@@ -1510,17 +1081,17 @@
      {
       "Type": "Branch",
       "FlowID": "FL_27",
-      "Description": "ui_r3 = standaard",
+      "Description": "ui_r3 = modern",
       "BranchLogic": {
        "0": {
         "0": {
          "LogicType": "EmbeddedField",
          "LeftOperand": "ui_r3",
          "Operator": "EqualTo",
-         "RightOperand": "standaard",
+         "RightOperand": "modern",
          "_HiddenExpression": false,
          "Type": "Expression",
-         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r3</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> standaard </span>"
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r3</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> modern </span>"
         },
         "Type": "If"
        },
@@ -1538,17 +1109,17 @@
      {
       "Type": "Branch",
       "FlowID": "FL_29",
-      "Description": "ui_r3 = herontwerp",
+      "Description": "ui_r3 = knop",
       "BranchLogic": {
        "0": {
         "0": {
          "LogicType": "EmbeddedField",
          "LeftOperand": "ui_r3",
          "Operator": "EqualTo",
-         "RightOperand": "herontwerp",
+         "RightOperand": "knop",
          "_HiddenExpression": false,
          "Type": "Expression",
-         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r3</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> herontwerp </span>"
+         "Description": "<span class=\"ConjDesc\">If</span> <span class=\"LeftOpDesc\">ui_r3</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> knop </span>"
         },
         "Type": "If"
        },
@@ -1635,7 +1206,7 @@
     "QuestionDescription": "Onderzoek naar bedieningspanelen van microgolfovens  Bedankt om deel te nemen! In dit onderzoek tes",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<h2>Onderzoek naar bedieningspanelen van microgolfovens</h2><p>Bedankt om deel te nemen! In dit onderzoek test je drie verschillende bedieningspanelen van een microgolfoven. Je krijgt telkens een interactief 3D-model te zien en voert een paar korte taken uit, zoals de microgolf op een bepaalde temperatuur en tijd zetten. Daarna beantwoord je enkele vragen.</p><p>Het onderzoek duurt ongeveer <b>10 minuten</b>. Gebruik bij voorkeur een <b>computer met muis</b>. We meten hoe lang je over elke taak doet en welke knoppen je gebruikt. Je antwoorden worden anoniem verwerkt en enkel gebruikt voor een studieopdracht aan UGent. Je kan op elk moment stoppen.</p>",
+    "QuestionText": "<h2>Onderzoek naar bedieningspanelen van microgolfovens</h2><p>Bedankt om deel te nemen! In dit onderzoek test je drie verschillende bedieningspanelen van een microgolfoven. Je krijgt telkens een interactief 3D-model te zien en voert een korte taak uit: de microgolf op een bepaalde functie, temperatuur en tijd zetten. Daarna beantwoord je enkele vragen.</p><p>Het onderzoek duurt ongeveer <b>5 minuten</b>. Gebruik bij voorkeur een <b>computer met muis</b>. We meten hoe lang je over de taak doet en welke knoppen je gebruikt. Je antwoorden worden anoniem verwerkt en enkel gebruikt voor een studieopdracht aan UGent. Je kan op elk moment stoppen.</p>",
     "DataExportTag": "intro",
     "QuestionType": "DB",
     "Selector": "TB",
@@ -1987,7 +1558,7 @@
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID8",
-   "SecondaryAttribute": "Ronde ${e://Field/model1_ronde} van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspanee",
+   "SecondaryAttribute": "Ronde ${e://Field/model1_ronde} van 3  Je krijgt zo dadelijk een microgolfoven met een  bedieningsp",
    "TertiaryAttribute": null,
    "Payload": {
     "QuestionID": "QID8",
@@ -2001,10 +1572,10 @@
       "Type": "None"
      }
     },
-    "QuestionDescription": "Ronde ${e://Field/model1_ronde} van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspanee",
+    "QuestionDescription": "Ronde ${e://Field/model1_ronde} van 3  Je krijgt zo dadelijk een microgolfoven met een  bedieningsp",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<h2>Ronde ${e://Field/model1_ronde} van 3</h2><p>Je krijgt zo dadelijk een microgolf met een <b>bedieningspaneel</b> te zien. Voer telkens de taak uit die bovenaan staat en druk op <b>START</b> wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b> per taak. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken.</p><p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>",
+    "QuestionText": "<h2>Ronde ${e://Field/model1_ronde} van 3</h2><p>Je krijgt zo dadelijk een microgolfoven met een <b>bedieningspaneel</b> te zien. Eerst lees je de taak; neem daar gerust je tijd voor. De taak start pas wanneer je op <b>Begin taak</b> klikt. Druk daarna op <b>START</b> op de microgolfoven wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b>. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken en dat bevestigen.</p><p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>",
     "DataExportTag": "model1_intro",
     "QuestionType": "DB",
     "Selector": "TB",
@@ -2018,7 +1589,7 @@
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID9",
-   "SecondaryAttribute": "Taak 1",
+   "SecondaryAttribute": "Taak",
    "TertiaryAttribute": null,
    "Payload": {
     "QuestionID": "QID9",
@@ -2032,11 +1603,11 @@
       "Type": "None"
      }
     },
-    "QuestionDescription": "Taak 1",
+    "QuestionDescription": "Taak",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 1</b></p><iframe src=\"${e://Field/stimulus_url}?ui=oud&amp;task=t1&amp;id=model1_taak1\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "model1_taak1_taak",
+    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak</b></p><iframe src=\"${e://Field/stimulus_url}?ui=oud&amp;task=t1&amp;id=model1\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
+    "DataExportTag": "model1_taak",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
@@ -2050,7 +1621,7 @@
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
    "PrimaryAttribute": "QID10",
-   "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
+   "SecondaryAttribute": "Denk aan de microgolfoven die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uit",
    "TertiaryAttribute": null,
    "Payload": {
     "QuestionID": "QID10",
@@ -2066,296 +1637,10 @@
       "Type": "None"
      }
     },
-    "QuestionDescription": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "NextChoiceId": 8,
-    "NextAnswerId": 1,
-    "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "model1_taak1_seq",
-    "QuestionType": "MC",
-    "Selector": "SAHR",
-    "SubSelector": "TX",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "Choices": {
-     "1": {
-      "Display": "1<br>Zeer moeilijk"
-     },
-     "2": {
-      "Display": "2"
-     },
-     "3": {
-      "Display": "3"
-     },
-     "4": {
-      "Display": "4"
-     },
-     "5": {
-      "Display": "5"
-     },
-     "6": {
-      "Display": "6"
-     },
-     "7": {
-      "Display": "7<br>Zeer makkelijk"
-     }
-    },
-    "ChoiceOrder": [
-     "1",
-     "2",
-     "3",
-     "4",
-     "5",
-     "6",
-     "7"
-    ],
-    "RecodeValues": {
-     "1": "1",
-     "2": "2",
-     "3": "3",
-     "4": "4",
-     "5": "5",
-     "6": "6",
-     "7": "7"
-    }
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID11",
-   "SecondaryAttribute": "Taak 2",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID11",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Taak 2",
-    "NextChoiceId": 1,
-    "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 2</b></p><iframe src=\"${e://Field/stimulus_url}?ui=oud&amp;task=t2&amp;id=model1_taak2\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "model1_taak2_taak",
-    "QuestionType": "DB",
-    "Selector": "TB",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID12",
-   "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID12",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "ForceResponse": "ON",
-      "ForceResponseType": "ON",
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "NextChoiceId": 8,
-    "NextAnswerId": 1,
-    "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "model1_taak2_seq",
-    "QuestionType": "MC",
-    "Selector": "SAHR",
-    "SubSelector": "TX",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "Choices": {
-     "1": {
-      "Display": "1<br>Zeer moeilijk"
-     },
-     "2": {
-      "Display": "2"
-     },
-     "3": {
-      "Display": "3"
-     },
-     "4": {
-      "Display": "4"
-     },
-     "5": {
-      "Display": "5"
-     },
-     "6": {
-      "Display": "6"
-     },
-     "7": {
-      "Display": "7<br>Zeer makkelijk"
-     }
-    },
-    "ChoiceOrder": [
-     "1",
-     "2",
-     "3",
-     "4",
-     "5",
-     "6",
-     "7"
-    ],
-    "RecodeValues": {
-     "1": "1",
-     "2": "2",
-     "3": "3",
-     "4": "4",
-     "5": "5",
-     "6": "6",
-     "7": "7"
-    }
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID13",
-   "SecondaryAttribute": "Taak 3",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID13",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Taak 3",
-    "NextChoiceId": 1,
-    "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 3</b></p><iframe src=\"${e://Field/stimulus_url}?ui=oud&amp;task=t3&amp;id=model1_taak3\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "model1_taak3_taak",
-    "QuestionType": "DB",
-    "Selector": "TB",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID14",
-   "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID14",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "ForceResponse": "ON",
-      "ForceResponseType": "ON",
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "NextChoiceId": 8,
-    "NextAnswerId": 1,
-    "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "model1_taak3_seq",
-    "QuestionType": "MC",
-    "Selector": "SAHR",
-    "SubSelector": "TX",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "Choices": {
-     "1": {
-      "Display": "1<br>Zeer moeilijk"
-     },
-     "2": {
-      "Display": "2"
-     },
-     "3": {
-      "Display": "3"
-     },
-     "4": {
-      "Display": "4"
-     },
-     "5": {
-      "Display": "5"
-     },
-     "6": {
-      "Display": "6"
-     },
-     "7": {
-      "Display": "7<br>Zeer makkelijk"
-     }
-    },
-    "ChoiceOrder": [
-     "1",
-     "2",
-     "3",
-     "4",
-     "5",
-     "6",
-     "7"
-    ],
-    "RecodeValues": {
-     "1": "1",
-     "2": "2",
-     "3": "3",
-     "4": "4",
-     "5": "5",
-     "6": "6",
-     "7": "7"
-    }
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID15",
-   "SecondaryAttribute": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspra",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID15",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "ForceResponse": "ON",
-      "ForceResponseType": "ON",
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspra",
+    "QuestionDescription": "Denk aan de microgolfoven die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uit",
     "NextChoiceId": 11,
     "NextAnswerId": 6,
-    "QuestionText": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
+    "QuestionText": "Denk aan de microgolfoven die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
     "DataExportTag": "model1_sus",
     "QuestionType": "Matrix",
     "Selector": "Likert",
@@ -2370,34 +1655,34 @@
     },
     "Choices": {
      "1": {
-      "Display": "Ik denk dat ik deze microgolf graag regelmatig zou gebruiken."
+      "Display": "Ik denk dat ik deze microgolfoven regelmatig zou willen gebruiken."
      },
      "2": {
-      "Display": "Ik vond de bediening onnodig complex."
+      "Display": "Ik vond de interface onnodig complex."
      },
      "3": {
-      "Display": "Ik vond de microgolf makkelijk te gebruiken."
+      "Display": "Ik vond de microgolfoven eenvoudig in gebruik."
      },
      "4": {
-      "Display": "Ik denk dat ik hulp van iemand met technische kennis nodig heb om deze microgolf te kunnen gebruiken."
+      "Display": "Ik denk dat ik hulp nodig zou hebben om deze microgolfoven te kunnen gebruiken."
      },
      "5": {
-      "Display": "Ik vond dat de verschillende functies van deze microgolf goed op elkaar aansloten."
+      "Display": "Ik vond dat de verschillende functies van deze microgolfoven goed op elkaar waren afgestemd."
      },
      "6": {
-      "Display": "Ik vond dat er te veel inconsistentie in de bediening zat."
+      "Display": "Ik vond dat er te veel inconsistenties waren in deze interface."
      },
      "7": {
-      "Display": "Ik kan me voorstellen dat de meeste mensen zeer snel leren om deze microgolf te gebruiken."
+      "Display": "Ik kan me voorstellen dat de meeste mensen heel snel zouden leren hoe ze deze microgolfoven moeten gebruiken."
      },
      "8": {
-      "Display": "Ik vond de bediening erg omslachtig."
+      "Display": "Ik vond de microgolfoven erg omslachtig in gebruik."
      },
      "9": {
-      "Display": "Ik voelde me erg zeker tijdens het gebruik van deze microgolf."
+      "Display": "Ik voelde me zeer zelfverzekerd bij het gebruik van de microgolfoven."
      },
      "10": {
-      "Display": "Ik moest veel leren voordat ik met deze microgolf aan de slag kon."
+      "Display": "Ik moest veel dingen leren voordat ik aan de slag kon met deze microgolfoven."
      }
     },
     "ChoiceOrder": [
@@ -2449,11 +1734,11 @@
   {
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
-   "PrimaryAttribute": "QID16",
-   "SecondaryAttribute": "Ronde ${e://Field/model2_ronde} van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspanee",
+   "PrimaryAttribute": "QID11",
+   "SecondaryAttribute": "Ronde ${e://Field/model2_ronde} van 3  Je krijgt zo dadelijk een microgolfoven met een  bedieningsp",
    "TertiaryAttribute": null,
    "Payload": {
-    "QuestionID": "QID16",
+    "QuestionID": "QID11",
     "DataVisibility": {
      "Private": false,
      "Hidden": false
@@ -2464,10 +1749,10 @@
       "Type": "None"
      }
     },
-    "QuestionDescription": "Ronde ${e://Field/model2_ronde} van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspanee",
+    "QuestionDescription": "Ronde ${e://Field/model2_ronde} van 3  Je krijgt zo dadelijk een microgolfoven met een  bedieningsp",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<h2>Ronde ${e://Field/model2_ronde} van 3</h2><p>Je krijgt zo dadelijk een microgolf met een <b>bedieningspaneel</b> te zien. Voer telkens de taak uit die bovenaan staat en druk op <b>START</b> wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b> per taak. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken.</p><p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>",
+    "QuestionText": "<h2>Ronde ${e://Field/model2_ronde} van 3</h2><p>Je krijgt zo dadelijk een microgolfoven met een <b>bedieningspaneel</b> te zien. Eerst lees je de taak; neem daar gerust je tijd voor. De taak start pas wanneer je op <b>Begin taak</b> klikt. Druk daarna op <b>START</b> op de microgolfoven wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b>. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken en dat bevestigen.</p><p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>",
     "DataExportTag": "model2_intro",
     "QuestionType": "DB",
     "Selector": "TB",
@@ -2480,11 +1765,11 @@
   {
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
-   "PrimaryAttribute": "QID17",
-   "SecondaryAttribute": "Taak 1",
+   "PrimaryAttribute": "QID12",
+   "SecondaryAttribute": "Taak",
    "TertiaryAttribute": null,
    "Payload": {
-    "QuestionID": "QID17",
+    "QuestionID": "QID12",
     "DataVisibility": {
      "Private": false,
      "Hidden": false
@@ -2495,11 +1780,11 @@
       "Type": "None"
      }
     },
-    "QuestionDescription": "Taak 1",
+    "QuestionDescription": "Taak",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 1</b></p><iframe src=\"${e://Field/stimulus_url}?ui=standaard&amp;task=t1&amp;id=model2_taak1\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "model2_taak1_taak",
+    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak</b></p><iframe src=\"${e://Field/stimulus_url}?ui=modern&amp;task=t1&amp;id=model2\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
+    "DataExportTag": "model2_taak",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
@@ -2512,11 +1797,11 @@
   {
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
-   "PrimaryAttribute": "QID18",
-   "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
+   "PrimaryAttribute": "QID13",
+   "SecondaryAttribute": "Denk aan de microgolfoven die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uit",
    "TertiaryAttribute": null,
    "Payload": {
-    "QuestionID": "QID18",
+    "QuestionID": "QID13",
     "DataVisibility": {
      "Private": false,
      "Hidden": false
@@ -2529,296 +1814,10 @@
       "Type": "None"
      }
     },
-    "QuestionDescription": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "NextChoiceId": 8,
-    "NextAnswerId": 1,
-    "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "model2_taak1_seq",
-    "QuestionType": "MC",
-    "Selector": "SAHR",
-    "SubSelector": "TX",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "Choices": {
-     "1": {
-      "Display": "1<br>Zeer moeilijk"
-     },
-     "2": {
-      "Display": "2"
-     },
-     "3": {
-      "Display": "3"
-     },
-     "4": {
-      "Display": "4"
-     },
-     "5": {
-      "Display": "5"
-     },
-     "6": {
-      "Display": "6"
-     },
-     "7": {
-      "Display": "7<br>Zeer makkelijk"
-     }
-    },
-    "ChoiceOrder": [
-     "1",
-     "2",
-     "3",
-     "4",
-     "5",
-     "6",
-     "7"
-    ],
-    "RecodeValues": {
-     "1": "1",
-     "2": "2",
-     "3": "3",
-     "4": "4",
-     "5": "5",
-     "6": "6",
-     "7": "7"
-    }
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID19",
-   "SecondaryAttribute": "Taak 2",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID19",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Taak 2",
-    "NextChoiceId": 1,
-    "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 2</b></p><iframe src=\"${e://Field/stimulus_url}?ui=standaard&amp;task=t2&amp;id=model2_taak2\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "model2_taak2_taak",
-    "QuestionType": "DB",
-    "Selector": "TB",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID20",
-   "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID20",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "ForceResponse": "ON",
-      "ForceResponseType": "ON",
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "NextChoiceId": 8,
-    "NextAnswerId": 1,
-    "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "model2_taak2_seq",
-    "QuestionType": "MC",
-    "Selector": "SAHR",
-    "SubSelector": "TX",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "Choices": {
-     "1": {
-      "Display": "1<br>Zeer moeilijk"
-     },
-     "2": {
-      "Display": "2"
-     },
-     "3": {
-      "Display": "3"
-     },
-     "4": {
-      "Display": "4"
-     },
-     "5": {
-      "Display": "5"
-     },
-     "6": {
-      "Display": "6"
-     },
-     "7": {
-      "Display": "7<br>Zeer makkelijk"
-     }
-    },
-    "ChoiceOrder": [
-     "1",
-     "2",
-     "3",
-     "4",
-     "5",
-     "6",
-     "7"
-    ],
-    "RecodeValues": {
-     "1": "1",
-     "2": "2",
-     "3": "3",
-     "4": "4",
-     "5": "5",
-     "6": "6",
-     "7": "7"
-    }
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID21",
-   "SecondaryAttribute": "Taak 3",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID21",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Taak 3",
-    "NextChoiceId": 1,
-    "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 3</b></p><iframe src=\"${e://Field/stimulus_url}?ui=standaard&amp;task=t3&amp;id=model2_taak3\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "model2_taak3_taak",
-    "QuestionType": "DB",
-    "Selector": "TB",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID22",
-   "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID22",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "ForceResponse": "ON",
-      "ForceResponseType": "ON",
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "NextChoiceId": 8,
-    "NextAnswerId": 1,
-    "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "model2_taak3_seq",
-    "QuestionType": "MC",
-    "Selector": "SAHR",
-    "SubSelector": "TX",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "Choices": {
-     "1": {
-      "Display": "1<br>Zeer moeilijk"
-     },
-     "2": {
-      "Display": "2"
-     },
-     "3": {
-      "Display": "3"
-     },
-     "4": {
-      "Display": "4"
-     },
-     "5": {
-      "Display": "5"
-     },
-     "6": {
-      "Display": "6"
-     },
-     "7": {
-      "Display": "7<br>Zeer makkelijk"
-     }
-    },
-    "ChoiceOrder": [
-     "1",
-     "2",
-     "3",
-     "4",
-     "5",
-     "6",
-     "7"
-    ],
-    "RecodeValues": {
-     "1": "1",
-     "2": "2",
-     "3": "3",
-     "4": "4",
-     "5": "5",
-     "6": "6",
-     "7": "7"
-    }
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID23",
-   "SecondaryAttribute": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspra",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID23",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "ForceResponse": "ON",
-      "ForceResponseType": "ON",
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspra",
+    "QuestionDescription": "Denk aan de microgolfoven die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uit",
     "NextChoiceId": 11,
     "NextAnswerId": 6,
-    "QuestionText": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
+    "QuestionText": "Denk aan de microgolfoven die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
     "DataExportTag": "model2_sus",
     "QuestionType": "Matrix",
     "Selector": "Likert",
@@ -2833,34 +1832,34 @@
     },
     "Choices": {
      "1": {
-      "Display": "Ik denk dat ik deze microgolf graag regelmatig zou gebruiken."
+      "Display": "Ik denk dat ik deze microgolfoven regelmatig zou willen gebruiken."
      },
      "2": {
-      "Display": "Ik vond de bediening onnodig complex."
+      "Display": "Ik vond de interface onnodig complex."
      },
      "3": {
-      "Display": "Ik vond de microgolf makkelijk te gebruiken."
+      "Display": "Ik vond de microgolfoven eenvoudig in gebruik."
      },
      "4": {
-      "Display": "Ik denk dat ik hulp van iemand met technische kennis nodig heb om deze microgolf te kunnen gebruiken."
+      "Display": "Ik denk dat ik hulp nodig zou hebben om deze microgolfoven te kunnen gebruiken."
      },
      "5": {
-      "Display": "Ik vond dat de verschillende functies van deze microgolf goed op elkaar aansloten."
+      "Display": "Ik vond dat de verschillende functies van deze microgolfoven goed op elkaar waren afgestemd."
      },
      "6": {
-      "Display": "Ik vond dat er te veel inconsistentie in de bediening zat."
+      "Display": "Ik vond dat er te veel inconsistenties waren in deze interface."
      },
      "7": {
-      "Display": "Ik kan me voorstellen dat de meeste mensen zeer snel leren om deze microgolf te gebruiken."
+      "Display": "Ik kan me voorstellen dat de meeste mensen heel snel zouden leren hoe ze deze microgolfoven moeten gebruiken."
      },
      "8": {
-      "Display": "Ik vond de bediening erg omslachtig."
+      "Display": "Ik vond de microgolfoven erg omslachtig in gebruik."
      },
      "9": {
-      "Display": "Ik voelde me erg zeker tijdens het gebruik van deze microgolf."
+      "Display": "Ik voelde me zeer zelfverzekerd bij het gebruik van de microgolfoven."
      },
      "10": {
-      "Display": "Ik moest veel leren voordat ik met deze microgolf aan de slag kon."
+      "Display": "Ik moest veel dingen leren voordat ik aan de slag kon met deze microgolfoven."
      }
     },
     "ChoiceOrder": [
@@ -2912,11 +1911,11 @@
   {
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
-   "PrimaryAttribute": "QID24",
-   "SecondaryAttribute": "Ronde ${e://Field/model3_ronde} van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspanee",
+   "PrimaryAttribute": "QID14",
+   "SecondaryAttribute": "Ronde ${e://Field/model3_ronde} van 3  Je krijgt zo dadelijk een microgolfoven met een  bedieningsp",
    "TertiaryAttribute": null,
    "Payload": {
-    "QuestionID": "QID24",
+    "QuestionID": "QID14",
     "DataVisibility": {
      "Private": false,
      "Hidden": false
@@ -2927,10 +1926,10 @@
       "Type": "None"
      }
     },
-    "QuestionDescription": "Ronde ${e://Field/model3_ronde} van 3  Je krijgt zo dadelijk een microgolf met een  bedieningspanee",
+    "QuestionDescription": "Ronde ${e://Field/model3_ronde} van 3  Je krijgt zo dadelijk een microgolfoven met een  bedieningsp",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<h2>Ronde ${e://Field/model3_ronde} van 3</h2><p>Je krijgt zo dadelijk een microgolf met een <b>bedieningspaneel</b> te zien. Voer telkens de taak uit die bovenaan staat en druk op <b>START</b> wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b> per taak. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken.</p><p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>",
+    "QuestionText": "<h2>Ronde ${e://Field/model3_ronde} van 3</h2><p>Je krijgt zo dadelijk een microgolfoven met een <b>bedieningspaneel</b> te zien. Eerst lees je de taak; neem daar gerust je tijd voor. De taak start pas wanneer je op <b>Begin taak</b> klikt. Druk daarna op <b>START</b> op de microgolfoven wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b>. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken en dat bevestigen.</p><p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>",
     "DataExportTag": "model3_intro",
     "QuestionType": "DB",
     "Selector": "TB",
@@ -2943,11 +1942,11 @@
   {
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
-   "PrimaryAttribute": "QID25",
-   "SecondaryAttribute": "Taak 1",
+   "PrimaryAttribute": "QID15",
+   "SecondaryAttribute": "Taak",
    "TertiaryAttribute": null,
    "Payload": {
-    "QuestionID": "QID25",
+    "QuestionID": "QID15",
     "DataVisibility": {
      "Private": false,
      "Hidden": false
@@ -2958,11 +1957,11 @@
       "Type": "None"
      }
     },
-    "QuestionDescription": "Taak 1",
+    "QuestionDescription": "Taak",
     "NextChoiceId": 1,
     "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 1</b></p><iframe src=\"${e://Field/stimulus_url}?ui=herontwerp&amp;task=t1&amp;id=model3_taak1\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "model3_taak1_taak",
+    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak</b></p><iframe src=\"${e://Field/stimulus_url}?ui=knop&amp;task=t1&amp;id=model3\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
+    "DataExportTag": "model3_taak",
     "QuestionType": "DB",
     "Selector": "TB",
     "Configuration": {
@@ -2975,11 +1974,11 @@
   {
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
-   "PrimaryAttribute": "QID26",
-   "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
+   "PrimaryAttribute": "QID16",
+   "SecondaryAttribute": "Denk aan de microgolfoven die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uit",
    "TertiaryAttribute": null,
    "Payload": {
-    "QuestionID": "QID26",
+    "QuestionID": "QID16",
     "DataVisibility": {
      "Private": false,
      "Hidden": false
@@ -2992,296 +1991,10 @@
       "Type": "None"
      }
     },
-    "QuestionDescription": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "NextChoiceId": 8,
-    "NextAnswerId": 1,
-    "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "model3_taak1_seq",
-    "QuestionType": "MC",
-    "Selector": "SAHR",
-    "SubSelector": "TX",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "Choices": {
-     "1": {
-      "Display": "1<br>Zeer moeilijk"
-     },
-     "2": {
-      "Display": "2"
-     },
-     "3": {
-      "Display": "3"
-     },
-     "4": {
-      "Display": "4"
-     },
-     "5": {
-      "Display": "5"
-     },
-     "6": {
-      "Display": "6"
-     },
-     "7": {
-      "Display": "7<br>Zeer makkelijk"
-     }
-    },
-    "ChoiceOrder": [
-     "1",
-     "2",
-     "3",
-     "4",
-     "5",
-     "6",
-     "7"
-    ],
-    "RecodeValues": {
-     "1": "1",
-     "2": "2",
-     "3": "3",
-     "4": "4",
-     "5": "5",
-     "6": "6",
-     "7": "7"
-    }
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID27",
-   "SecondaryAttribute": "Taak 2",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID27",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Taak 2",
-    "NextChoiceId": 1,
-    "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 2</b></p><iframe src=\"${e://Field/stimulus_url}?ui=herontwerp&amp;task=t2&amp;id=model3_taak2\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "model3_taak2_taak",
-    "QuestionType": "DB",
-    "Selector": "TB",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID28",
-   "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID28",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "ForceResponse": "ON",
-      "ForceResponseType": "ON",
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "NextChoiceId": 8,
-    "NextAnswerId": 1,
-    "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "model3_taak2_seq",
-    "QuestionType": "MC",
-    "Selector": "SAHR",
-    "SubSelector": "TX",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "Choices": {
-     "1": {
-      "Display": "1<br>Zeer moeilijk"
-     },
-     "2": {
-      "Display": "2"
-     },
-     "3": {
-      "Display": "3"
-     },
-     "4": {
-      "Display": "4"
-     },
-     "5": {
-      "Display": "5"
-     },
-     "6": {
-      "Display": "6"
-     },
-     "7": {
-      "Display": "7<br>Zeer makkelijk"
-     }
-    },
-    "ChoiceOrder": [
-     "1",
-     "2",
-     "3",
-     "4",
-     "5",
-     "6",
-     "7"
-    ],
-    "RecodeValues": {
-     "1": "1",
-     "2": "2",
-     "3": "3",
-     "4": "4",
-     "5": "5",
-     "6": "6",
-     "7": "7"
-    }
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID29",
-   "SecondaryAttribute": "Taak 3",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID29",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Taak 3",
-    "NextChoiceId": 1,
-    "NextAnswerId": 1,
-    "QuestionText": "<p style=\"margin:0 0 6px\"><b>Taak 3</b></p><iframe src=\"${e://Field/stimulus_url}?ui=herontwerp&amp;task=t3&amp;id=model3_taak3\" style=\"width:100%;height:620px;border:0;border-radius:8px\" allow=\"autoplay\"></iframe>",
-    "DataExportTag": "model3_taak3_taak",
-    "QuestionType": "DB",
-    "Selector": "TB",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "ChoiceOrder": [],
-    "QuestionJS": "/* =====================================================================\n   Qualtrics – JavaScript voor één taakvraag met het 3D-microgolf-iframe\n   Plak dit via: vraag > tandwiel/\"JavaScript toevoegen\".\n   - Verbergt de Volgende-knop tot de taak afgerond of overgeslagen is.\n   - Slaat de resultaten op in Embedded Data, per model en per taak:\n       model1_taak1_juist, model1_taak1_seconden, model1_taak1_kliks, ...\n     (model1 = draaiknoppen, model2 = cijfertoetsen, model3 = herontwerp)\n   De deelnemer ziet of vult hier niets van in.\n   BELANGRIJK: declareer de Embedded Data-velden bovenaan in je Survey Flow\n   (zie README), anders bewaart Qualtrics ze niet.\n   ===================================================================== */\nQualtrics.SurveyEngine.addOnload(function () {\n  var q = this;\n  q.hideNextButton();\n\n  function save(name, value) {\n    // Klassieke/flat layouts: setEmbeddedData. Nieuwe \"Simple layout\": enkel setJSEmbeddedData\n    // (die bewaart als \"__js_\" + naam; declareer dan __js_<veld> in de Survey Flow).\n    if (Qualtrics.SurveyEngine.setEmbeddedData) {\n      Qualtrics.SurveyEngine.setEmbeddedData(name, value);\n    } else if (Qualtrics.SurveyEngine.setJSEmbeddedData) {\n      Qualtrics.SurveyEngine.setJSEmbeddedData(name, value);\n    }\n  }\n\n  function onMessage(e) {\n    var d = e.data;\n    if (!d || d.source !== 'magnetron-test') return;\n    var p = d.id + '_';                                  // bv. \"model1_taak1_\"\n    save(p + 'juist', d.success);                        // 1 = juist uitgevoerd, 0 = fout of overgeslagen\n    save(p + 'seconden', Math.round(d.timeMs / 100) / 10); // tijd van \"Begin taak\" tot START/overslaan\n    save(p + 'kliks', d.actions);                        // aantal knopdrukken / knopdraaiingen\n    save(p + 'fouten', d.errors);                        // START geweigerd + ongeldige acties\n    save(p + 'opgegeven', d.gaveUp);                     // 1 = \"Lukt niet / overslaan\"\n    save(p + 'klikvolgorde', d.path);                    // welke knoppen, in volgorde (voor foutanalyse)\n    q.showNextButton();\n  }\n\n  window.addEventListener('message', onMessage);\n  Qualtrics.SurveyEngine.addOnUnload(function () {\n    window.removeEventListener('message', onMessage);\n  });\n});\n"
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID30",
-   "SecondaryAttribute": "Hoe moeilijk of makkelijk vond je deze taak?",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID30",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "ForceResponse": "ON",
-      "ForceResponseType": "ON",
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "NextChoiceId": 8,
-    "NextAnswerId": 1,
-    "QuestionText": "Hoe moeilijk of makkelijk vond je deze taak?",
-    "DataExportTag": "model3_taak3_seq",
-    "QuestionType": "MC",
-    "Selector": "SAHR",
-    "SubSelector": "TX",
-    "Configuration": {
-     "QuestionDescriptionOption": "UseText"
-    },
-    "Choices": {
-     "1": {
-      "Display": "1<br>Zeer moeilijk"
-     },
-     "2": {
-      "Display": "2"
-     },
-     "3": {
-      "Display": "3"
-     },
-     "4": {
-      "Display": "4"
-     },
-     "5": {
-      "Display": "5"
-     },
-     "6": {
-      "Display": "6"
-     },
-     "7": {
-      "Display": "7<br>Zeer makkelijk"
-     }
-    },
-    "ChoiceOrder": [
-     "1",
-     "2",
-     "3",
-     "4",
-     "5",
-     "6",
-     "7"
-    ],
-    "RecodeValues": {
-     "1": "1",
-     "2": "2",
-     "3": "3",
-     "4": "4",
-     "5": "5",
-     "6": "6",
-     "7": "7"
-    }
-   }
-  },
-  {
-   "SurveyID": "SV_microgolfUX0001",
-   "Element": "SQ",
-   "PrimaryAttribute": "QID31",
-   "SecondaryAttribute": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspra",
-   "TertiaryAttribute": null,
-   "Payload": {
-    "QuestionID": "QID31",
-    "DataVisibility": {
-     "Private": false,
-     "Hidden": false
-    },
-    "Language": [],
-    "Validation": {
-     "Settings": {
-      "ForceResponse": "ON",
-      "ForceResponseType": "ON",
-      "Type": "None"
-     }
-    },
-    "QuestionDescription": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspra",
+    "QuestionDescription": "Denk aan de microgolfoven die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uit",
     "NextChoiceId": 11,
     "NextAnswerId": 6,
-    "QuestionText": "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
+    "QuestionText": "Denk aan de microgolfoven die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
     "DataExportTag": "model3_sus",
     "QuestionType": "Matrix",
     "Selector": "Likert",
@@ -3296,34 +2009,34 @@
     },
     "Choices": {
      "1": {
-      "Display": "Ik denk dat ik deze microgolf graag regelmatig zou gebruiken."
+      "Display": "Ik denk dat ik deze microgolfoven regelmatig zou willen gebruiken."
      },
      "2": {
-      "Display": "Ik vond de bediening onnodig complex."
+      "Display": "Ik vond de interface onnodig complex."
      },
      "3": {
-      "Display": "Ik vond de microgolf makkelijk te gebruiken."
+      "Display": "Ik vond de microgolfoven eenvoudig in gebruik."
      },
      "4": {
-      "Display": "Ik denk dat ik hulp van iemand met technische kennis nodig heb om deze microgolf te kunnen gebruiken."
+      "Display": "Ik denk dat ik hulp nodig zou hebben om deze microgolfoven te kunnen gebruiken."
      },
      "5": {
-      "Display": "Ik vond dat de verschillende functies van deze microgolf goed op elkaar aansloten."
+      "Display": "Ik vond dat de verschillende functies van deze microgolfoven goed op elkaar waren afgestemd."
      },
      "6": {
-      "Display": "Ik vond dat er te veel inconsistentie in de bediening zat."
+      "Display": "Ik vond dat er te veel inconsistenties waren in deze interface."
      },
      "7": {
-      "Display": "Ik kan me voorstellen dat de meeste mensen zeer snel leren om deze microgolf te gebruiken."
+      "Display": "Ik kan me voorstellen dat de meeste mensen heel snel zouden leren hoe ze deze microgolfoven moeten gebruiken."
      },
      "8": {
-      "Display": "Ik vond de bediening erg omslachtig."
+      "Display": "Ik vond de microgolfoven erg omslachtig in gebruik."
      },
      "9": {
-      "Display": "Ik voelde me erg zeker tijdens het gebruik van deze microgolf."
+      "Display": "Ik voelde me zeer zelfverzekerd bij het gebruik van de microgolfoven."
      },
      "10": {
-      "Display": "Ik moest veel leren voordat ik met deze microgolf aan de slag kon."
+      "Display": "Ik moest veel dingen leren voordat ik aan de slag kon met deze microgolfoven."
      }
     },
     "ChoiceOrder": [
@@ -3375,11 +2088,11 @@
   {
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
-   "PrimaryAttribute": "QID32",
+   "PrimaryAttribute": "QID17",
    "SecondaryAttribute": "Welk bedieningspaneel vond je het prettigst om te gebruiken?",
    "TertiaryAttribute": null,
    "Payload": {
-    "QuestionID": "QID32",
+    "QuestionID": "QID17",
     "DataVisibility": {
      "Private": false,
      "Hidden": false
@@ -3405,13 +2118,13 @@
     },
     "Choices": {
      "1": {
-      "Display": "De microgolf met draaiknoppen"
+      "Display": "De microgolfoven met draaiknoppen"
      },
      "2": {
-      "Display": "De microgolf met cijfertoetsen"
+      "Display": "De microgolfoven met het zwarte aanraakpaneel"
      },
      "3": {
-      "Display": "De microgolf met grote knoppen en genummerde stappen"
+      "Display": "De microgolfoven met het display en de draai-/drukknop"
      },
      "4": {
       "Display": "Geen voorkeur"
@@ -3434,11 +2147,11 @@
   {
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
-   "PrimaryAttribute": "QID33",
+   "PrimaryAttribute": "QID18",
    "SecondaryAttribute": "Waarom? En wat vond je het meest verwarrend aan de andere panelen?",
    "TertiaryAttribute": null,
    "Payload": {
-    "QuestionID": "QID33",
+    "QuestionID": "QID18",
     "DataVisibility": {
      "Private": false,
      "Hidden": false
@@ -3471,11 +2184,11 @@
   {
    "SurveyID": "SV_microgolfUX0001",
    "Element": "SQ",
-   "PrimaryAttribute": "QID34",
+   "PrimaryAttribute": "QID19",
    "SecondaryAttribute": "Bedankt voor je deelname! Klik op de pijl om je antwoorden te versturen.",
    "TertiaryAttribute": null,
    "Payload": {
-    "QuestionID": "QID34",
+    "QuestionID": "QID19",
     "DataVisibility": {
      "Private": false,
      "Hidden": false
@@ -3503,7 +2216,7 @@
    "SurveyID": "SV_microgolfUX0001",
    "Element": "QC",
    "PrimaryAttribute": "Survey Question Count",
-   "SecondaryAttribute": "34",
+   "SecondaryAttribute": "19",
    "TertiaryAttribute": null,
    "Payload": null
   },

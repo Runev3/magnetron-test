@@ -52,6 +52,15 @@
   </div>
 </div>
 
+<div id="skipConfirm" class="overlay hidden">
+  <div class="card">
+    <h2>Taak overslaan?</h2>
+    <p>Lukt het niet? Je kan deze taak overslaan. Daarna kan je niet meer terug naar deze taak.</p>
+    <button class="main" id="skipYes" style="background:#c8373b">Ja, taak overslaan</button>
+    <button class="main" id="skipNo" style="background:#e7e9ee;color:#1d1f22;margin-left:8px">Nee, verder proberen</button>
+  </div>
+</div>
+
 <div id="done" class="overlay hidden">
   <div class="card">
     <h2 id="doneTitle">Taak afgerond</h2>
@@ -66,9 +75,11 @@
     <p class="small">Deze pagina wordt normaal in Qualtrics geladen met URL-parameters (<code>?ui=…&amp;task=…</code>). Kies hier een combinatie om te testen.</p>
     <label class="row">Interface</label>
     <div class="grid" id="chUi">
-      <button data-v="oud">Oud (knoppen)</button>
-      <button data-v="standaard">Standaard digitaal</button>
-      <button data-v="herontwerp">Herontwerp</button>
+      <button data-v="oud">Model 1 · Draaiknoppen</button>
+      <button data-v="modern">Model 2 · Modern touch</button>
+      <button data-v="knop">Model 3 · Draai-/drukknop</button>
+      <button data-v="standaard">(oud) Standaard digitaal</button>
+      <button data-v="herontwerp">(oud) Herontwerp</button>
     </div>
     <label class="row">Taak</label>
     <div class="grid" id="chTask">
@@ -93,7 +104,8 @@
 const P = new URLSearchParams(location.search);
 const UI_ALIAS = {oud:'oud',old:'oud','1':'oud',knoppen:'oud',
                   standaard:'standaard',normaal:'standaard',normal:'standaard','2':'standaard',digitaal:'standaard',
-                  herontwerp:'herontwerp',redesign:'herontwerp',nieuw:'herontwerp','3':'herontwerp'};
+                  herontwerp:'herontwerp',redesign:'herontwerp',nieuw:'herontwerp','3':'herontwerp',
+                  modern:'modern',touch:'modern',knop:'knop',draaiknop:'knop'};
 const UI = UI_ALIAS[(P.get('ui')||'').toLowerCase()] || null;
 const TASKS = {
   t1:{mode:'oven', temp:200, time:600, text:'Stel de microgolf in op <b>hetelucht 200 °C</b> voor <b>10 minuten</b> en start hem.'},
@@ -110,8 +122,8 @@ if (P.get('mode')) { // eigen taak via URL: &mode=oven&temp=200&time=600&text=..
 }
 const TASK = TASKS[TASK_ID] || TASKS.free;
 const IS_FREE = !TASK.mode;
-// Standaard-id voor de Embedded Data: model1 = oud, model2 = standaard, model3 = herontwerp
-const MODEL_NR = {oud:1, standaard:2, herontwerp:3};
+// Standaard-id voor de Embedded Data: model1 = oud (draaiknoppen), model2 = modern (touch), model3 = knop (draai-/drukknop)
+const MODEL_NR = {oud:1, modern:2, knop:3};
 const ID = P.get('id') || (MODEL_NR[UI] ? 'model'+MODEL_NR[UI]+'_'+TASK_ID.replace(/^t(\d+)$/,'taak$1') : UI+'_'+TASK_ID);
 const DEBUG = P.get('debug')==='1';
 const SOUND = P.get('sound')!=='0';
@@ -121,7 +133,7 @@ let EMBEDDED = false; try { EMBEDDED = window.self !== window.top; } catch(e){ E
 /* ---------- preview-kiezer als er geen ui gekozen is ---------- */
 if (!UI) {
   const ch = document.getElementById('chooser'); ch.classList.remove('hidden');
-  let selUi='herontwerp', selTask='t1';
+  let selUi='oud', selTask='t1';
   const mark = () => {
     ch.querySelectorAll('#chUi button').forEach(b=>b.classList.toggle('sel',b.dataset.v===selUi));
     ch.querySelectorAll('#chTask button, #chFree').forEach(b=>b.classList.toggle('sel',b.dataset.v===selTask));
@@ -405,7 +417,222 @@ function makeHerontwerp(){
   };
 }
 
-const iface = ({oud:makeOud,standaard:makeStandaard,herontwerp:makeHerontwerp})[UI]();
+/* ---------------- 3d. MODERN (model 1): zwart glazen touchpaneel ----------------
+   Rij functie-iconen zonder tekst, OLED-display, aanraaktoetsen ↶ ▼ ▲ OK, schuifbalk
+   en ⏻ / MobileStart / favoriet / duur / licht. Verloop: functie → waarde (OK) → duur (OK = start). */
+function makeModern(){
+  const OR='#ff8a1f', WH='#e6e9ec', DIM='#5d636b', BG='#0c0d10';
+  const PWR=[100,180,300,450,600,800,1000];
+  const FN=[
+    {id:'f_hl',  mode:'oven',    name:'Hetelucht plus',          par:'temp', def:160, icon:'fan'},
+    {id:'f_bo',  mode:'conv',    name:'Boven- en onderwarmte',   par:'temp', def:180, icon:'bo'},
+    {id:'f_bw',  mode:'top',     name:'Bovenwarmte',             par:'temp', def:190, icon:'top'},
+    {id:'f_mg',  mode:'micro',   name:'Microgolf',               par:'power',def:800, icon:'waves'},
+    {id:'f_gr',  mode:'grill',   name:'Grill',                   par:'level',def:3,   icon:'grill'},
+    {id:'f_ghl', mode:'grillfan',name:'Grill met hetelucht',     par:'temp', def:200, icon:'grillfan'},
+    {id:'f_cmb', mode:'combi',   name:'Microgolf + hetelucht',   par:'power',def:300, icon:'combi'},
+    {id:'f_ont', mode:'defrost', name:'Ontdooien',               par:null,   def:null,icon:'defrost'},
+    {id:'f_auto',mode:null,      name:'Automatische programma\'s',icon:'auto',na:true},
+    {id:'f_ext', mode:null,      name:'Andere functies',         icon:'extra',na:true}];
+  const SL_TEMP=[30,50,70,90,110,130,150,170,190,210,230,250];
+  const SL_DUR=[60,120,180,300,600,900,1200,1800,2700,3600,5400,7200];
+  const NSEG=12;
+  const st={on:true,fn:null,step:null,val:0,time:0,light:false,rem:null,ended:false,msg:null,msgUntil:0};
+  const flash=(m,ms=1600)=>{ st.msg=m; st.msgUntil=performance.now()+ms; };
+  const reset=()=>{ st.fn=null; st.step=null; st.val=0; st.time=0; };
+  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+  function adjust(d){
+    if(st.step==='duur'){ const s=d>0?(st.time<300?30:60):(st.time<=300?30:60); st.time=clamp(st.time+d*s,0,7200); return; }
+    const p=st.fn.par;
+    if(p==='temp') st.val=clamp(st.val+d*5,30,250);
+    else if(p==='power'){ const i=clamp(PWR.indexOf(st.val)+d,0,PWR.length-1); st.val=PWR[i]; }
+    else if(p==='level') st.val=clamp(st.val+d,1,3);
+  }
+  function slide(i){
+    if(st.step==='duur'){ st.time=SL_DUR[i]; return; }
+    const p=st.fn.par;
+    if(p==='temp') st.val=SL_TEMP[i];
+    else if(p==='power') st.val=PWR[Math.round(i*(PWR.length-1)/(NSEG-1))];
+    else if(p==='level') st.val=1+Math.round(i*2/(NSEG-1));
+  }
+  function frac(){ // hoe ver de schuifbalk gevuld is (0..1)
+    if(!st.on||!st.fn) return 0;
+    if(st.step==='duur'){ let k=0; SL_DUR.forEach((v,i)=>{ if(st.time>=v) k=i+1; }); return k/NSEG; }
+    const p=st.fn.par;
+    if(p==='temp') return (st.val-30)/220; if(p==='power') return PWR.indexOf(st.val)/(PWR.length-1); if(p==='level') return (st.val-1)/2; return 0;
+  }
+  // ---- line-art iconen (wit of oranje) in een afgerond kader
+  function drawIcon(ctx,kind,w,h,col){
+    const cx=w/2, cy=h/2, s=Math.min(w,h)*0.62;
+    ctx.strokeStyle=col; ctx.fillStyle=col; ctx.lineWidth=0.9; ctx.lineCap='round'; ctx.lineJoin='round';
+    rr(ctx,cx-s/2,cy-s/2,s,s,2.2); ctx.stroke();
+    const k=s*0.5;
+    const line=(x1,y1,x2,y2)=>{ ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); };
+    const zig=(y)=>{ ctx.beginPath(); for(let i=0;i<=6;i++){ const x=cx-k*0.75+i*k*1.5/6, yy=y+(i%2?k*0.18:0); i?ctx.lineTo(x,yy):ctx.moveTo(x,yy);} ctx.stroke(); };
+    const fan=(x,y,r)=>{ for(let i=0;i<3;i++){ ctx.save(); ctx.translate(x,y); ctx.rotate(i*Math.PI*2/3); ctx.beginPath(); ctx.ellipse(r*0.12,-r*0.45,r*0.22,r*0.45,0.5,0,Math.PI*2); ctx.stroke(); ctx.restore(); } };
+    const waves=(y,n,len)=>{ for(let j=0;j<n;j++){ const yy=y+j*k*0.32; ctx.beginPath(); for(let i=0;i<=16;i++){ const x=cx-len/2+i*len/16, v=yy+Math.sin(i/16*Math.PI*2)*k*0.1; i?ctx.lineTo(x,v):ctx.moveTo(x,v);} ctx.stroke(); } };
+    ctx.lineWidth=0.8;
+    if(kind==='fan') fan(cx,cy,k*0.75);
+    else if(kind==='bo'){ line(cx-k*0.7,cy-k*0.6,cx+k*0.7,cy-k*0.6); line(cx-k*0.7,cy+k*0.6,cx+k*0.7,cy+k*0.6); }
+    else if(kind==='top'){ line(cx-k*0.7,cy-k*0.6,cx+k*0.7,cy-k*0.6); for(let i=-1;i<=1;i++){ ctx.beginPath(); ctx.arc(cx+i*k*0.4,cy-k*0.25,0.7,0,Math.PI*2); ctx.fill(); } }
+    else if(kind==='waves') waves(cy-k*0.32,3,k*1.4);
+    else if(kind==='grill') zig(cy-k*0.6);
+    else if(kind==='grillfan'){ zig(cy-k*0.62); fan(cx,cy+k*0.22,k*0.45); }
+    else if(kind==='combi'){ waves(cy-k*0.6,2,k*1.3); fan(cx,cy+k*0.3,k*0.42); }
+    else if(kind==='defrost'){ for(let i=0;i<3;i++){ const a=i*Math.PI/3; line(cx-Math.cos(a)*k*0.62,cy-k*0.12-Math.sin(a)*k*0.62,cx+Math.cos(a)*k*0.62,cy-k*0.12+Math.sin(a)*k*0.62); }
+      ctx.beginPath(); ctx.arc(cx,cy+k*0.7,0.8,0,Math.PI*2); ctx.fill(); }
+    else if(kind==='auto') txt(ctx,'Auto',cx,cy+0.3,5.2,col,'center','600');
+    else if(kind==='extra'){ rr(ctx,cx-k*0.6,cy-k*0.35,k*0.95,k*0.8,1); ctx.stroke(); rr(ctx,cx-k*0.3,cy-k*0.6,k*0.95,k*0.8,1); ctx.stroke(); }
+  }
+  function glyph(ctx,kind,w,h,col){
+    const cx=w/2, cy=h/2; ctx.strokeStyle=col; ctx.fillStyle=col; ctx.lineWidth=1; ctx.lineCap='round'; ctx.lineJoin='round';
+    const line=(x1,y1,x2,y2)=>{ ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); };
+    if(kind==='back'){ ctx.beginPath(); ctx.arc(cx+1,cy+1,4.5,-Math.PI*0.95,Math.PI*0.45); ctx.stroke(); line(cx-3.6,cy,cx-3.6,cy-3.4); line(cx-3.6,cy,cx-0.4,cy-0.6); }
+    else if(kind==='down'){ line(cx-4.5,cy-2,cx,cy+2.5); line(cx,cy+2.5,cx+4.5,cy-2); }
+    else if(kind==='up'){ line(cx-4.5,cy+2,cx,cy-2.5); line(cx,cy-2.5,cx+4.5,cy+2); }
+    else if(kind==='ok') txt(ctx,'OK',cx,cy+0.4,8,col,'center','600');
+    else if(kind==='pwr'){ ctx.beginPath(); ctx.arc(cx,cy+0.6,4.4,-Math.PI*0.32,Math.PI*1.32); ctx.stroke(); line(cx,cy-4.6,cx,cy-0.4); }
+    else if(kind==='mobile'){ rr(ctx,cx-3,cy-4.6,6,9.2,1.2); ctx.stroke(); txt(ctx,'⁹',cx+5,cy-3.4,4.5,col,'center','600'); }
+    else if(kind==='fav'){ ctx.save(); ctx.translate(cx,cy); ctx.rotate(Math.PI/4); ctx.strokeRect(-3.4,-3.4,6.8,6.8); ctx.fillRect(-1.3,-1.3,2.6,2.6); ctx.restore(); }
+    else if(kind==='timer'){ ctx.beginPath(); ctx.arc(cx,cy,4.5,0,Math.PI*2); ctx.stroke(); line(cx,cy,cx,cy-3); line(cx,cy,cx+2.2,cy+1); }
+    else if(kind==='light'){ ctx.beginPath(); ctx.arc(cx,cy,2.4,0,Math.PI*2); ctx.stroke(); for(let i=0;i<8;i++){ const a=i*Math.PI/4; line(cx+Math.cos(a)*3.8,cy+Math.sin(a)*3.8,cx+Math.cos(a)*5.4,cy+Math.sin(a)*5.4); } }
+  }
+  const touch={depth:0.004,radius:3,bevel:0.001,side:0x0b0c0e,rough:0.25};
+  const C=[];
+  FN.forEach((f,i)=>{ const col=i%5, row=Math.floor(i/5);
+    C.push({id:f.id,type:'button',x:11+col*32,y:16+row*34,w:28,h:28,style:touch,dynamic:true,
+      face(ctx,w,h){ ctx.fillStyle=BG; ctx.fillRect(0,0,w,h); const on=st.on&&st.fn===f;
+        if(on){ ctx.save(); ctx.shadowColor=OR; ctx.shadowBlur=4; drawIcon(ctx,f.icon,w,h,OR); ctx.restore(); }
+        else drawIcon(ctx,f.icon,w,h,st.on?WH:DIM); }}); });
+  const key=(id,x,y,w,h,kind)=>C.push({id,type:'button',x,y,w,h,style:touch,dynamic:true,repeat:id==='up'||id==='down',
+    face(ctx,ww,hh){ ctx.fillStyle=BG; ctx.fillRect(0,0,ww,hh); glyph(ctx,kind,ww,hh,(st.on||id==='pwr')?WH:DIM); }});
+  key('back',14,176,34,24,'back'); key('down',52,176,34,24,'down'); key('up',90,176,34,24,'up'); key('ok',128,176,38,24,'ok');
+  const segW=152/NSEG;
+  for(let i=0;i<NSEG;i++) C.push({id:'sl_'+i,type:'button',x:14+i*segW,y:208,w:segW,h:22,style:{...touch,radius:0.5},dynamic:true,
+    face(ctx,w,h){ ctx.fillStyle=BG; ctx.fillRect(0,0,w,h); const f=frac(), lit=(i+0.5)/NSEG<=f;
+      for(let k=0;k<4;k++){ const x=w*(k+0.5)/4; ctx.strokeStyle=lit?OR:(st.on?'#8a9097':'#3c4046'); ctx.lineWidth=0.7;
+        ctx.beginPath(); ctx.moveTo(x,h/2-(k%2?3:4.5)); ctx.lineTo(x,h/2+(k%2?3:4.5)); ctx.stroke(); } }});
+  key('pwr',14,244,24,24,'pwr'); key('mobile',46,244,24,24,'mobile'); key('fav',78,244,24,24,'fav'); key('timer',110,244,24,24,'timer'); key('light',142,244,24,24,'light');
+  const display={x:14,y:90,w:152,h:72, draw(ctx,w,h){
+    ctx.fillStyle='#000'; ctx.fillRect(0,0,w,h);
+    if(!st.on) return;
+    const now=performance.now(), msg=st.msg&&now<st.msgUntil?st.msg:null;
+    if(st.rem!=null){ txt(ctx,st.fn?st.fn.name:'',w/2,11,6.5,'#cfd3d8','center','500'); txt(ctx,fmtTime(st.rem),w/2,36,22,'#fff','center','400'); txt(ctx,'bezig',w/2,59,6,OR,'center','600'); return; }
+    if(st.ended){ txt(ctx,'Klaar',w/2,34,18,'#fff','center','400'); return; }
+    if(!st.fn){ txt(ctx,'12:00',w/2,32,24,'#fff','center','400'); txt(ctx,'17 nov',w/2,50,5.5,'#9ba1a8','center','500');
+      if(msg) txt(ctx,msg,w/2,63,6,OR,'center','600'); return; }
+    txt(ctx,st.fn.name,w/2,10,6.5,'#cfd3d8','center','500');
+    let lab, val;
+    if(st.step==='duur'){ lab='Duur (min:sec)'; val=fmtTime(st.time); }
+    else { const p=st.fn.par; lab=p==='temp'?'Temperatuur':p==='power'?'Vermogen':'Stand'; val=p==='temp'?st.val+' °C':p==='power'?st.val+' W':String(st.val); }
+    txt(ctx,lab,w/2,22,5.6,'#9ba1a8','center','500');
+    txt(ctx,val,w/2,40,20,'#fff','center','400');
+    txt(ctx,msg||(st.step==='duur'?'OK = starten':'OK = bevestigen'),w/2,63,6,msg?OR:'#9ba1a8','center','600');
+  }};
+  function drawPanel(ctx){
+    const g=ctx.createLinearGradient(0,0,0,PANEL_H); g.addColorStop(0,'#16181c'); g.addColorStop(1,'#0a0b0d'); ctx.fillStyle=g; ctx.fillRect(0,0,PANEL_W,PANEL_H);
+    ctx.strokeStyle='rgba(255,255,255,.12)'; ctx.lineWidth=0.4;
+    [172,204,234,240,272].forEach(y=>{ ctx.beginPath(); ctx.moveTo(10,y); ctx.lineTo(170,y); ctx.stroke(); });
+    ctx.fillStyle='#000'; rr(ctx,12,88,156,76,2); ctx.fill();
+  }
+  return {
+    name:'modern', controls:C, display, drawPanel, pressSound:SND.soft,
+    press(id,isRepeat){ st.ended=false;
+      if(id==='pwr'){ if(st.on){ const had=!!st.fn; reset(); st.on=false; return had?'reset':undefined; } st.on=true; return; }
+      if(!st.on) return;                                  // uitgeschakeld: aanraaktoetsen reageren niet
+      const f=FN.find(x=>x.id===id);
+      if(f){ if(f.na){ flash('Niet beschikbaar in deze test'); return; }
+        st.fn=f; st.val=f.def; st.time=0; st.step=f.par?'param':'duur'; return; }
+      const needFn=()=>{ flash('Kies eerst een functie'); return 'error'; };
+      if(id==='up'||id==='down'){ if(!st.fn){ const r=needFn(); return isRepeat?undefined:r; } adjust(id==='up'?1:-1); return; }
+      if(id.startsWith('sl_')){ if(!st.fn) return needFn(); slide(+id.slice(3)); return; }
+      if(id==='ok'){ if(!st.fn) return needFn(); if(st.step==='param'){ st.step='duur'; return; } return 'start'; }
+      if(id==='timer'){ if(!st.fn) return needFn(); st.step='duur'; return; }
+      if(id==='back'){ if(st.step==='duur'&&st.fn.par){ st.step='param'; return; } if(st.fn){ reset(); return 'reset'; } return; }
+      if(id==='light'){ st.light=!st.light; flash(st.light?'Verlichting aan':'Verlichting uit'); return; }
+      if(id==='mobile'){ flash('MobileStart: niet verbonden'); return; }
+      if(id==='fav'){ flash('Geen favorieten opgeslagen'); return; }
+    },
+    getState(){ const p=st.fn&&st.fn.par; return {mode:st.fn?st.fn.mode:null, temp:p==='temp'?st.val:undefined, power:p==='power'?st.val:undefined, time:st.time}; },
+    canRun(){ return st.on&&!!st.fn&&st.step==='duur'&&st.time>0; },
+    setRemaining(sec,end){ st.rem=sec; if(end) st.ended=true; },
+    reject(){ flash(!st.fn?'Kies eerst een functie':'Stel eerst een duur in'); }
+  };
+}
+
+/* ---------------- 3e. KNOP (model 2): display + functiekeuze + draai-/drukknop ----------------
+   Kies een functie in de balk, draai aan de knop om de waarde te wijzigen, druk om te bevestigen.
+   Daarna tijd draaien en nogmaals drukken = start. */
+function makeKnop(){
+  const OR='#ff8a1f';
+  const PWR=[100,180,300,450,600,800,1000];
+  const st={mode:null,step:null,temp:180,pi:5,time:0,rem:null,ended:false,msg:null,msgUntil:0};
+  const flash=(m,ms=1600)=>{ st.msg=m; st.msgUntil=performance.now()+ms; };
+  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+  const SEG=[['oven','HETELUCHT'],['micro','MICROGOLF'],['grill','GRILL']];
+  const C=SEG.map(([m,l],i)=>({id:'seg_'+m,type:'button',x:14+i*51,y:104,w:50,h:36,dynamic:true,
+    style:{depth:0.006,radius:4,bevel:0.002,side:0x111214,rough:0.35},
+    face(ctx,w,h){ const on=st.mode===m;
+      if(on){ ctx.fillStyle='#1b1d20'; ctx.fillRect(0,0,w,h); const g=ctx.createLinearGradient(0,0,0,h); g.addColorStop(0,'#ffa040'); g.addColorStop(1,'#f07a12'); ctx.fillStyle=g; rr(ctx,1.5,1.5,w-3,h-3,3.5); ctx.fill(); }
+      else { ctx.fillStyle='#1b1d20'; ctx.fillRect(0,0,w,h); }
+      ICONS[m](ctx,w/2,h*0.38,11,on?'#fff':'#d9dce0');
+      txt(ctx,l,w/2,h*0.78,5.4,on?'#fff':'#d9dce0','center','700'); }}));
+  const knob={id:'knop',type:'knob',encoder:true,cx:90,cy:226,r:38,step:20,style:{depth:0.13,body:0xcfd2d6},
+    ring:(t)=>{ if(st.rem!=null) return 0xff8a1f; if(!st.mode) return 0x46494e; const ready=st.step==='tijd'&&st.time>0;
+      const k=ready?0.75+0.25*Math.sin(t/220):1; const c=new THREE.Color(0xff8a1f).multiplyScalar(k); return c.getHex(); }};
+  C.push(knob);
+  function thermo(ctx,x,y,s,col){ ctx.strokeStyle=col; ctx.lineWidth=s*0.12; ctx.lineCap='round';
+    rr(ctx,x-s*0.16,y-s*0.6,s*0.32,s*0.85,s*0.16); ctx.stroke(); ctx.beginPath(); ctx.arc(x,y+s*0.38,s*0.26,0,Math.PI*2); ctx.stroke();
+    ctx.fillStyle=col; ctx.beginPath(); ctx.arc(x,y+s*0.38,s*0.12,0,Math.PI*2); ctx.fill(); ctx.fillRect(x-s*0.04,y-s*0.3,s*0.08,s*0.6); }
+  function clock(ctx,x,y,s,col){ ctx.strokeStyle=col; ctx.lineWidth=s*0.11; ctx.lineCap='round'; ctx.beginPath(); ctx.arc(x,y,s*0.48,0,Math.PI*2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x,y-s*0.3); ctx.moveTo(x,y); ctx.lineTo(x+s*0.22,y+s*0.12); ctx.stroke(); }
+  const display={x:14,y:18,w:152,h:74, draw(ctx,w,h){
+    const g=ctx.createLinearGradient(0,0,0,h); g.addColorStop(0,'#1c1e22'); g.addColorStop(1,'#0e0f11'); ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
+    const now=performance.now(), msg=st.msg&&now<st.msgUntil?st.msg:null;
+    const big=(icon,val,lab)=>{ icon(); txt(ctx,val,64,31,19,'#fff','left','500'); txt(ctx,lab,64,47,6.6,'#b9bec4','left','600'); };
+    if(st.rem!=null){ big(()=>clock(ctx,40,36,18,OR),fmtTime(st.rem),'RESTEREND'); return; }
+    if(st.ended){ big(()=>clock(ctx,40,36,18,OR),'KLAAR',''); return; }
+    if(!st.mode) big(()=>clock(ctx,40,36,18,'#6d7279'),'12:00','KIES EEN FUNCTIE');
+    else if(st.step==='tijd') big(()=>clock(ctx,40,36,18,OR),fmtTime(st.time),'TIJD');
+    else if(st.mode==='oven') big(()=>thermo(ctx,40,36,20,OR),st.temp+' °C','TEMPERATUUR');
+    else big(()=>ICONS.micro(ctx,40,36,18,OR),PWR[st.pi]+' W','VERMOGEN');
+    let hint=''; if(st.step==='param') hint='draai = wijzigen · druk = bevestigen'; else if(st.step==='tijd') hint='draai = tijd · druk = starten';
+    txt(ctx,msg||hint,w/2,64,5.6,msg?OR:'#7f858c','center','600');
+  }};
+  function drawPanel(ctx){
+    // geborsteld rvs
+    const g=ctx.createLinearGradient(0,0,PANEL_W,0); g.addColorStop(0,'#c9ccd0'); g.addColorStop(0.5,'#e2e4e7'); g.addColorStop(1,'#c4c7cb'); ctx.fillStyle=g; ctx.fillRect(0,0,PANEL_W,PANEL_H);
+    for(let y=0;y<PANEL_H;y+=0.7){ ctx.strokeStyle=`rgba(${Math.random()<0.5?255:90},${Math.random()<0.5?255:90},${Math.random()<0.5?255:90},${0.04+Math.random()*0.05})`; ctx.lineWidth=0.3; ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(PANEL_W,y); ctx.stroke(); }
+    ctx.fillStyle='#0a0b0c'; rr(ctx,11,15,158,80,7); ctx.fill();
+    ctx.fillStyle='#0a0b0c'; rr(ctx,11,101,158,42,7); ctx.fill();
+    // − / + pijlen rond de knop
+    const k={cx:90,cy:226,r:38}; ctx.strokeStyle='#2c2f33'; ctx.fillStyle='#2c2f33'; ctx.lineWidth=1.1;
+    const arc=(a0,a1,head)=>{ ctx.beginPath(); ctx.arc(k.cx,k.cy,k.r+9,a0,a1,a1<a0); ctx.stroke();
+      const a=head, x=k.cx+Math.cos(a)*(k.r+9), y=k.cy+Math.sin(a)*(k.r+9), dir=a1<a0?-1:1, tx=-Math.sin(a)*dir, ty=Math.cos(a)*dir;
+      ctx.beginPath(); ctx.moveTo(x+tx*3.5,y+ty*3.5); ctx.lineTo(x-ty*2.4-tx*0.5,y+tx*2.4-ty*0.5); ctx.lineTo(x+ty*2.4-tx*0.5,y-tx*2.4-ty*0.5); ctx.closePath(); ctx.fill(); };
+    arc(-Math.PI*0.62,-Math.PI*0.86,-Math.PI*0.86); arc(-Math.PI*0.38,-Math.PI*0.14,-Math.PI*0.14);
+    txt(ctx,'−',k.cx-k.r-6,k.cy-k.r-6,10,'#2c2f33','center','500'); txt(ctx,'+',k.cx+k.r+6,k.cy-k.r-6,10,'#2c2f33','center','500');
+  }
+  function knobLabel(){ if(st.step==='tijd') return fmtTime(st.time); if(st.mode==='oven') return st.temp+'°C'; if(st.mode==='micro') return PWR[st.pi]+'W'; return '-'; }
+  return {
+    name:'knop', controls:C, display, drawPanel, pressSound:SND.soft, knobSound:SND.tick, knobLabel,
+    press(id){ st.ended=false;
+      if(id.startsWith('seg_')){ const m=id.slice(4); if(st.mode!==m){ st.mode=m; st.step=m==='grill'?'tijd':'param'; } return; }
+      if(id==='knop'){ if(!st.mode){ flash('Kies eerst een functie'); return 'error'; }
+        if(st.step==='param'){ st.step='tijd'; return; } return 'start'; }
+    },
+    knob(id,d){ if(!st.mode){ flash('Kies eerst een functie'); return; }
+      if(st.step==='tijd'){ const s=d>0?(st.time<300?30:st.time<1800?60:300):(st.time<=300?30:st.time<=1800?60:300); st.time=clamp(st.time+d*s,0,5400); }
+      else if(st.mode==='oven') st.temp=clamp(st.temp+d*10,100,250);
+      else if(st.mode==='micro') st.pi=clamp(st.pi+d,0,PWR.length-1); },
+    getState(){ return {mode:st.mode, temp:st.mode==='oven'?st.temp:undefined, power:st.mode==='micro'?PWR[st.pi]:undefined, time:st.time}; },
+    canRun(){ return !!st.mode&&st.step==='tijd'&&st.time>0; },
+    setRemaining(sec,end){ st.rem=sec; if(end) st.ended=true; },
+    reject(){ flash(!st.mode?'Kies eerst een functie':'Stel eerst een tijd in'); }
+  };
+}
+
+const iface = ({oud:makeOud,standaard:makeStandaard,herontwerp:makeHerontwerp,modern:makeModern,knop:makeKnop})[UI]();
 
 /* ================================================================
    4. 3D-scène
@@ -531,8 +758,36 @@ function makeKnob(c){
   [cyl,fin,ptr].forEach(m=>{ m.userData.ctrl=c; g.add(m); pickables.push(m); });
   c.mesh=g; c.angle=c.detents[c.value]; setKnobAngle(c); mw.add(g);
 }
-function setKnobAngle(c){ c.mesh.rotation.z=-c.detents[c.value]*Math.PI/180; }
-iface.controls.forEach(c=>c.type==='knob'?makeKnob(c):makeButton(c));
+function setKnobAngle(c){ if(c.encoder){ c.spin.rotation.z=-c.angle*Math.PI/180; return; } c.mesh.rotation.z=-c.detents[c.value]*Math.PI/180; }
+// Eindeloze draaiknop (encoder) met LED-ring: draaien = iface.knob(id,±1), klikken = iface.press(id)
+function makeEncoder(c){
+  const r=c.r*U, d=c.style.depth, g=new THREE.Group(); g.position.set(wx(c.cx),wy(c.cy),PZ);
+  const spin=new THREE.Group(); g.add(spin);
+  const kn=makeCanvas(128,8,4); kn.ctx.fillStyle='#d9dcdf'; kn.ctx.fillRect(0,0,128,8);
+  for(let x=0;x<128;x+=2){ kn.ctx.fillStyle='#8f9398'; kn.ctx.fillRect(x,0,0.9,8); }
+  const knTex=canvasTex(kn.cv); knTex.wrapS=THREE.RepeatWrapping; knTex.repeat.set(4,1);
+  const cap=makeCanvas(64,64,6); const cg=cap.ctx.createRadialGradient(28,26,2,32,32,32); cg.addColorStop(0,'#f6f7f8'); cg.addColorStop(0.7,'#c5c9cd'); cg.addColorStop(1,'#a3a8ad');
+  cap.ctx.fillStyle=cg; cap.ctx.fillRect(0,0,64,64);
+  for(let i=4;i<32;i+=1.2){ cap.ctx.strokeStyle=`rgba(255,255,255,${0.05+Math.random()*0.08})`; cap.ctx.lineWidth=0.3; cap.ctx.beginPath(); cap.ctx.arc(32,32,i,0,Math.PI*2); cap.ctx.stroke(); }
+  const bodyMat=new THREE.MeshStandardMaterial({map:knTex,color:c.style.body,metalness:0.8,roughness:0.32});
+  const capMat=new THREE.MeshStandardMaterial({map:canvasTex(cap.cv),metalness:0.6,roughness:0.3});
+  const cylGeo=new THREE.CylinderGeometry(r*0.97,r,d,64); cylGeo.rotateX(Math.PI/2); cylGeo.translate(0,0,d/2);
+  const cyl=new THREE.Mesh(cylGeo,[bodyMat,capMat,bodyMat]); cyl.castShadow=true; spin.add(cyl);
+  const dot=new THREE.Mesh(new THREE.CircleGeometry(r*0.045,16),new THREE.MeshBasicMaterial({color:0x5b6066})); dot.position.set(0,r*0.9,d+0.002); spin.add(dot);
+  // vaste hand-/drukicoon in het midden
+  const hc=makeCanvas(64,64,6), h=hc.ctx; h.strokeStyle='#ffffff'; h.lineWidth=2.4; h.lineCap='round'; h.lineJoin='round';
+  h.beginPath(); h.moveTo(27,46); h.lineTo(27,22); h.arc(30.5,22,3.5,Math.PI,0); h.lineTo(34,36); h.stroke();
+  h.beginPath(); h.moveTo(34,32); h.arc(37.5,33,3.5,Math.PI,0); h.lineTo(41,35); h.arc(44.5,36,3.5,Math.PI,0); h.lineTo(48,46); h.quadraticCurveTo(47,54,40,55); h.lineTo(32,55); h.quadraticCurveTo(26,54,23,46); h.lineTo(20,40); h.stroke();
+  [[-0.9,9,14],[-1.57,30,11],[-2.2,44,14]].forEach(([a,x,y])=>{ h.beginPath(); h.moveTo(x+Math.cos(a+Math.PI)*0,y); h.lineTo(x+Math.cos(a)*-5,y+Math.sin(a)*5); h.stroke(); });
+  const hand=new THREE.Mesh(new THREE.PlaneGeometry(r*1.0,r*1.0),new THREE.MeshBasicMaterial({map:canvasTex(hc.cv),transparent:true,depthWrite:false,color:0x3a3e44}));
+  hand.position.z=d+0.003; g.add(hand);
+  const ringMat=new THREE.MeshBasicMaterial({color:0xff8a1f,toneMapped:false});
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(r*0.8,r*0.035,8,72),ringMat); ring.position.z=d+0.001; g.add(ring);
+  const bezel=new THREE.Mesh(new THREE.TorusGeometry(r*1.06,r*0.05,8,72),new THREE.MeshStandardMaterial({color:0x6f7378,metalness:0.7,roughness:0.35})); bezel.position.z=0.004; g.add(bezel);
+  [cyl,hand,ring].forEach(m=>{ m.userData.ctrl=c; pickables.push(m); });
+  c.mesh=g; c.spin=spin; c.angle=0; c.ringMat=ringMat; c.baseZ=PZ; c.depth=d; c.pressT=0; c.label=()=>iface.knobLabel?iface.knobLabel():''; mw.add(g);
+}
+iface.controls.forEach(c=>c.type==='knob'?(c.encoder?makeEncoder(c):makeKnob(c)):makeButton(c));
 redrawDisplay();
 
 function refresh(){ iface.controls.forEach(c=>{ if(c.type==='knob') setKnobAngle(c); else if(c.dynamic) drawFace(c); }); redrawDisplay(); }
@@ -614,11 +869,11 @@ function showDone(){
 }
 document.getElementById('againBtn').onclick=()=>location.reload();
 
-// opgeven (twee klikken)
-const gu=document.getElementById('giveup'); let guTimer=null;
-gu.onclick=()=>{ if(phase!=='task') return;
-  if(!gu.classList.contains('armed')){ gu.classList.add('armed'); gu.textContent='Klik nogmaals om over te slaan'; clearTimeout(guTimer);
-    guTimer=setTimeout(()=>{ gu.classList.remove('armed'); gu.textContent='Lukt niet / overslaan'; },3000); return; }
+// opgeven: knop + bevestigingsvenster (de taaktimer loopt door tot bevestigd)
+const gu=document.getElementById('giveup'), skipBox=document.getElementById('skipConfirm');
+gu.onclick=()=>{ if(phase!=='task') return; skipBox.classList.remove('hidden'); };
+document.getElementById('skipNo').onclick=()=>{ skipBox.classList.add('hidden'); canvas.focus(); };
+document.getElementById('skipYes').onclick=()=>{ if(phase!=='task') return; skipBox.classList.add('hidden');
   postResult(iface.getState(),true); phase='done'; gu.classList.add('hidden');
   document.getElementById('doneTitle').textContent='Taak overgeslagen';
   document.getElementById('doneText').textContent=EMBEDDED?'Geen probleem. Ga verder met de volgende vraag (pijl onderaan de pagina).':'Overgeslagen en geregistreerd.';
@@ -669,7 +924,8 @@ canvas.addEventListener('pointerdown',e=>{
   ensureAudio(); if(phase==='intro'||phase==='done') return;
   const c=interactive()?pick(e):null;
   try{ canvas.setPointerCapture(e.pointerId); }catch(err){}
-  if(c&&c.type==='knob'){ drag={kind:'knob',c,last:pointerAngle(c,e),acc:c.detents[c.value],startIdx:c.value}; }
+  if(c&&c.encoder){ drag={kind:'enc',c,last:pointerAngle(c,e),acc:0,steps:0,rot:0}; }
+  else if(c&&c.type==='knob'){ drag={kind:'knob',c,last:pointerAngle(c,e),acc:c.detents[c.value],startIdx:c.value}; }
   else if(c){ pressButton(c,false);
     if(c.repeat){ clearTimeout(repeatTimer); const rep=()=>{ pressButton(c,true); c.pressT=Math.max(c.pressT,0.6); repeatTimer=setTimeout(rep,130); }; repeatTimer=setTimeout(rep,480); }
     drag={kind:'button',c}; }
@@ -677,6 +933,11 @@ canvas.addEventListener('pointerdown',e=>{
 });
 canvas.addEventListener('pointermove',e=>{
   if(!drag){ const c=interactive()?pick(e):null; canvas.style.cursor=c?(c.type==='knob'?'grab':'pointer'):'default'; return; }
+  if(drag.kind==='enc'){ canvas.style.cursor='grabbing'; const c=drag.c, a=pointerAngle(c,e); let d=a-drag.last; if(d>180)d-=360; if(d<-180)d+=360; drag.last=a;
+    drag.rot+=Math.abs(d); drag.acc+=d; c.angle+=d; const STEP=c.step||20; let changed=false;
+    while(drag.acc>=STEP){ drag.acc-=STEP; drag.steps++; iface.knob(c.id,1); changed=true; }
+    while(drag.acc<=-STEP){ drag.acc+=STEP; drag.steps++; iface.knob(c.id,-1); changed=true; }
+    if(changed){ (iface.knobSound||SND.tick)(); refresh(); } else setKnobAngle(c); return; }
   if(drag.kind==='knob'){ canvas.style.cursor='grabbing'; const c=drag.c, a=pointerAngle(c,e); let d=a-drag.last; if(d>180)d-=360; if(d<-180)d+=360; drag.last=a;
     const lo=c.detents[0], hi=c.detents[c.detents.length-1]; drag.acc=Math.max(lo-20,Math.min(hi+20,drag.acc+d)); setKnob(c,nearestDetent(c,drag.acc)); }
   else if(drag.kind==='orbit'){ const dx=e.clientX-drag.x, dy=e.clientY-drag.y; drag.x=e.clientX; drag.y=e.clientY;
@@ -684,12 +945,17 @@ canvas.addEventListener('pointermove',e=>{
     cam.yaw=Math.max(-55,Math.min(60,cam.yaw-dx*0.25)); cam.pitch=Math.max(-4,Math.min(40,cam.pitch+dy*0.2)); camAnim=null; }
 });
 function endDrag(){
+  if(drag&&drag.kind==='enc'){ const c=drag.c;
+    if(drag.steps>0) act(c.id+'='+c.label());   // gedraaid
+    else if(drag.rot<10) pressButton(c,false);   // geklikt = indrukken
+  }
   if(drag&&drag.kind==='knob'&&drag.c.value!==drag.startIdx){ act(drag.c.id+'='+drag.c.label(drag.c.value)); }
   clearTimeout(repeatTimer); drag=null; canvas.style.cursor='default';
 }
 canvas.addEventListener('pointerup',endDrag); canvas.addEventListener('pointercancel',endDrag);
 canvas.addEventListener('wheel',e=>{ e.preventDefault(); if(phase==='intro'||phase==='done') return;
   const c=interactive()?pick(e):null;
+  if(c&&c.encoder){ const d=e.deltaY<0?1:-1; iface.knob(c.id,d); c.angle+=d*(c.step||20); (iface.knobSound||SND.tick)(); refresh(); act(c.id+'='+c.label()); return; }
   if(c&&c.type==='knob'){ const idx=Math.max(0,Math.min(c.detents.length-1,c.value+(e.deltaY<0?1:-1))); if(idx!==c.value){ setKnob(c,idx); act(c.id+'='+c.label(idx)); } return; }
   cam.dist=Math.max(3.5,Math.min(16,cam.dist*(e.deltaY>0?1.08:0.926))); camAnim=null;
 },{passive:false});
@@ -707,6 +973,10 @@ function loop(){
     if(c.pressT>0){ c.pressT=Math.max(0,c.pressT-dt*7); }
     c.mesh.position.z=c.baseZ-Math.sin(Math.min(1,c.pressT)*Math.PI/2)*c.depth*0.55;
     if(c.glow){ const g=c.glow(); if(g){ const s=0.18+0.14*Math.sin(t/260); c.capMat.emissive.setHex(g).multiplyScalar(s); } else c.capMat.emissive.setHex(0); } });
+  iface.controls.forEach(c=>{ if(!c.encoder) return;
+    if(c.pressT>0) c.pressT=Math.max(0,c.pressT-dt*6);
+    c.mesh.position.z=c.baseZ-Math.sin(Math.min(1,c.pressT)*Math.PI/2)*c.depth*0.25;
+    if(c.ring) c.ringMat.color.setHex(c.ring(t)); });
   if(running){ const k=(t-running.t0)/running.dur; const rem=Math.max(0,Math.round(running.total*(1-k)));
     iface.setRemaining(rem); turntable.rotation.y+=dt*1.3; cavLight.intensity=1.3+Math.sin(t/90)*0.08;
     if(iface.name==='oud') refresh();

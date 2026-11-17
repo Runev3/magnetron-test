@@ -17,6 +17,8 @@ zodat verschillen in de resultaten aan de interface toe te schrijven zijn.
 
 | `ui=` | Interface | Kenmerken (affordances) |
 |---|---|---|
+| `modern` | **Model 2** – modern zwart glazen touchpaneel | Rij van 10 functie-iconen zonder tekst (hetelucht plus, boven-/onderwarmte, bovenwarmte, microgolf, grill, grill+hetelucht, combi, ontdooien, Auto, extra), OLED-display, aanraaktoetsen ↶ ▼ ▲ OK, schuifbalk, ⏻ / MobileStart / favoriet / duur ⏱ / licht. Verloop: functie → waarde (▲▼ of schuifbalk, OK) → duur (OK = start). |
+| `knop` | **Model 3** – display + functiebalk + draai-/drukknop | Groot display (icoon, waarde, label), balk HETELUCHT / MICROGOLF / GRILL, één eindeloze draaiknop met oranje LED-ring: draaien = waarde wijzigen, drukken = bevestigen, daarna tijd draaien en drukken = start. |
 | `oud` | Mechanische draaiknoppen | 3 knoppen: functie (UIT/MICRO/GRILL/HETELUCHT), **dubbele schaal** W én °C op één knop, niet-lineaire timer (0–5 min per 30 s, daarna per minuut) + START. Geen display. |
 | `standaard` | Typisch digitaal membraanpaneel | Vlakke grijze knoppen met kleine labels, numeriek klavier. Vermogen/temperatuur kies je door de functieknop **herhaaldelijk** in te drukken (900→800→600 W… / 160→180→200 °C…), tijd typ je in (`1 0 0 0` = 10:00). START zonder iets = snelstart 30 s. |
 | `herontwerp` | Herontwerp | Grote reliëfknoppen met iconen + LED, genummerde stappen (1 Functie → 2 Instelling → 3 Tijd → 4 Start), display met feedforward (actieve stap gemarkeerd, “stel tijd in ↓”), aparte −/+ per instelling (vasthouden = herhalen), tijdknoppen +10 min / +1 min / +30 sec, START wordt pas groen en pulseert als alles klaar is. |
@@ -58,16 +60,17 @@ resultaat verstuurd en is de taak afgesloten. Er is dus één poging per taak.
 | `klikvolgorde` | volledige klikvolgorde, bv. `m_oven plus plus t10m start` (handig voor foutanalyse) |
 
 De deelnemer vult hier niets van in: het wordt op de achtergrond gemeten en als Embedded Data
-opgeslagen. In de export heten de kolommen **`<model>_<taak>_<veld>`**, met een vaste naam per interface:
+opgeslagen. De survey gebruikt **één taak (t1) per model**; in de export heten de kolommen
+**`<model>_<veld>`**, met een vaste naam per interface:
 
 | Model | Interface |
 |---|---|
-| `model1` | `oud` (draaiknoppen) |
-| `model2` | `standaard` (cijfertoetsen) |
-| `model3` | `herontwerp` |
+| `model1` | `oud` (mechanische draaiknoppen) |
+| `model2` | `modern` (zwart touchpaneel) |
+| `model3` | `knop` (display + draai-/drukknop) |
 
-Bv. `model1_taak1_kliks`, `model2_taak3_seconden`, `model3_taak2_juist`. Ook de vragen heten zo
-(`model1_taak1_seq`, `model1_sus_1` … `model1_sus_10`), en `model1_ronde` zegt in welke ronde (1–3)
+Bv. `model1_kliks`, `model2_seconden`, `model3_juist`. Ook de vragen heten zo
+(`model1_sus_1` … `model1_sus_10`), en `model1_ronde` zegt in welke ronde (1–3)
 die persoon model 1 zag.
 
 ## 1. Online zetten (nodig voor Qualtrics)
@@ -85,7 +88,7 @@ Test de link eerst in je browser, bv. `.../?ui=oud&task=t1&debug=1`.
 1. Maak een vraag van het type **Text / Graphic**.
 2. Klik in de vraagtekst op **HTML View** en plak:
    ```html
-   <iframe src="https://<gebruikersnaam>.github.io/magnetron-test/?ui=oud&task=t1&id=model1_taak1"
+   <iframe src="https://<gebruikersnaam>.github.io/magnetron-test/?ui=oud&task=t1&id=model1"
            style="width:100%;height:620px;border:0;border-radius:8px" allow="autoplay"></iframe>
    ```
 3. Vraag → **JavaScript toevoegen** → plak de inhoud van `qualtrics-vraag.js`.
@@ -113,7 +116,8 @@ Ronde 3: idem met ui_r3
 Block: Voorkeur + open vraag
 ```
 
-Elk modelblok bevat t1, t2, t3 (telkens gevolgd door SEQ) en daarna de SUS. Elke deelnemer ziet
+Elk modelblok bevat taak t1 en daarna de SUS (geherformuleerd voor microgolfovens; SEQ staat uit via `ASK_SEQ` in `maak_qsf.py`). (Meer taken: zet ze in `TASKS` in
+`maak_qsf.py`; de kolommen heten dan `model1_taak1_…`.) Elke deelnemer ziet
 de drie modellen dus in een **willekeurige volgorde** (6 volgordes, evenwichtig verdeeld), maar
 de resultaten landen altijd in dezelfde kolommen (`model1_…`, `model2_…`, `model3_…`). `volgorde`
 en `model1_ronde` … `model3_ronde` gebruik je als controlevariabelen.
@@ -122,15 +126,15 @@ en `model1_ronde` … `model3_ronde` gebruik je als controlevariabelen.
 
 ```
 stimulus_url volgorde model1_ronde model2_ronde model3_ronde
-model1_taak1_juist model1_taak1_seconden model1_taak1_kliks model1_taak1_fouten model1_taak1_opgegeven
-… idem voor model1–3 × taak1–3 …
-model1_taak1_klikvolgorde … model3_taak3_klikvolgorde
+model1_juist model1_seconden model1_kliks model1_fouten model1_opgegeven
+… idem voor model2 en model3 …
+model1_klikvolgorde model2_klikvolgorde model3_klikvolgorde
 ui_r1 ui_r2 ui_r3
 ```
 De volgorde waarin je ze declareert, is de volgorde van de kolommen in de export.
 
 > Gebruik je de nieuwe **Simple layout**? Dan werkt alleen `setJSEmbeddedData`, en heten de
-> velden `__js_model1_taak1_juist` enz. Declareer die namen dan in de Survey Flow.
+> velden `__js_model1_juist` enz. Declareer die namen dan in de Survey Flow.
 
 ## Methodologische aandachtspunten (voor je verslag/reflectie)
 

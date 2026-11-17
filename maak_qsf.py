@@ -1,4 +1,4 @@
-"""Genereert microgolf-ux-test.qsf: een Qualtrics-survey (within-subjects, 3 interfaces x 3 taken).
+"""Genereert microgolf-ux-test.qsf: een Qualtrics-survey (within-subjects, 3 interfaces, 1 taak per interface).
 
 Gebruik:  python maak_qsf.py [stimulus_url]
 De stimulus-URL staat ook als Embedded Data-veld `stimulus_url` bovenaan de Survey Flow,
@@ -12,12 +12,18 @@ HERE = Path(__file__).resolve().parent
 STIM_URL = sys.argv[1] if len(sys.argv) > 1 else "https://JOUW-GEBRUIKERSNAAM.github.io/magnetron-test/"
 SID = "SV_microgolfUX0001"
 
-UIS = ["oud", "standaard", "herontwerp"]
+UIS = ["oud", "modern", "knop"]
 # Vaste naam per interface, zodat de kolommen altijd hetzelfde model bevatten, ongeacht de volgorde
-MODEL = {"oud": "model1", "standaard": "model2", "herontwerp": "model3"}
-MODEL_DESC = {"oud": "draaiknoppen", "standaard": "cijfertoetsen", "herontwerp": "herontwerp"}
-TASKS = ["t1", "t2", "t3"]
+MODEL = {"oud": "model1", "modern": "model2", "knop": "model3"}
+MODEL_DESC = {"oud": "draaiknoppen", "modern": "touchpaneel", "knop": "draai-/drukknop"}
+# Eén taak per model (t2 en t3 bestaan nog in index.html en kunnen hier terug bij)
+TASKS = ["t1"]
 TAAK = {"t1": "taak1", "t2": "taak2", "t3": "taak3"}
+
+
+def pfx(ui, t):
+    """Prefix voor vragen en Embedded Data: model1 bij één taak, anders model1_taak1."""
+    return MODEL[ui] if len(TASKS) == 1 else f"{MODEL[ui]}_{TAAK[t]}"
 # Velden die qualtrics-vraag.js per taak opslaat (klikvolgorde komt achteraan in de export)
 RESULT_FIELDS = ["juist", "seconden", "kliks", "fouten", "opgegeven"]
 EXTRA_FIELDS = ["klikvolgorde"]
@@ -26,11 +32,10 @@ TASK_LABEL = {
     "t2": "Taak 2: microgolf 600 W, 2 min 30 s",
     "t3": "Taak 3: grill 15 minuten",
 }
-ORDERS = [
-    ("oud", "standaard", "herontwerp"), ("oud", "herontwerp", "standaard"),
-    ("standaard", "oud", "herontwerp"), ("standaard", "herontwerp", "oud"),
-    ("herontwerp", "oud", "standaard"), ("herontwerp", "standaard", "oud"),
-]
+# Alle 6 volgordes van de 3 modellen (volledig gecounterbalanced)
+from itertools import permutations
+ORDERS = list(permutations(UIS))
+ASK_SEQ = False   # SEQ-vraag na elke taak (uitgezet: na elke taak enkel de SUS)
 
 TASK_JS = (HERE / "qualtrics-vraag.js").read_text(encoding="utf-8")
 
@@ -145,10 +150,10 @@ q_consent = None
 text_q("BL_introBlok000001", "intro", (
     "<h2>Onderzoek naar bedieningspanelen van microgolfovens</h2>"
     "<p>Bedankt om deel te nemen! In dit onderzoek test je drie verschillende bedieningspanelen van een microgolfoven. "
-    "Je krijgt telkens een interactief 3D-model te zien en voert een paar korte taken uit, zoals de microgolf op een "
-    "bepaalde temperatuur en tijd zetten. Daarna beantwoord je enkele vragen.</p>"
-    "<p>Het onderzoek duurt ongeveer <b>10 minuten</b>. Gebruik bij voorkeur een <b>computer met muis</b>. "
-    "We meten hoe lang je over elke taak doet en welke knoppen je gebruikt. Je antwoorden worden anoniem verwerkt "
+    "Je krijgt telkens een interactief 3D-model te zien en voert een korte taak uit: de microgolf op een "
+    "bepaalde functie, temperatuur en tijd zetten. Daarna beantwoord je enkele vragen.</p>"
+    "<p>Het onderzoek duurt ongeveer <b>5 minuten</b>. Gebruik bij voorkeur een <b>computer met muis</b>. "
+    "We meten hoe lang je over de taak doet en welke knoppen je gebruikt. Je antwoorden worden anoniem verwerkt "
     "en enkel gebruikt voor een studieopdracht aan UGent. Je kan op elk moment stoppen.</p>"))
 q_consent = mc_q("BL_introBlok000001", "toestemming", "Ga je akkoord om deel te nemen aan dit onderzoek?",
                  ["Ja, ik ga akkoord", "Nee, ik wil niet deelnemen"])
@@ -164,17 +169,17 @@ mc_q("BL_demografie00001", "type_thuis", "Welk soort bediening heeft de microgol
       "Ik gebruik geen microgolf"])
 
 SEQ_SCALE = ["1<br>Zeer moeilijk", "2", "3", "4", "5", "6", "7<br>Zeer makkelijk"]
-SUS_ITEMS = [
-    "Ik denk dat ik deze microgolf graag regelmatig zou gebruiken.",
-    "Ik vond de bediening onnodig complex.",
-    "Ik vond de microgolf makkelijk te gebruiken.",
-    "Ik denk dat ik hulp van iemand met technische kennis nodig heb om deze microgolf te kunnen gebruiken.",
-    "Ik vond dat de verschillende functies van deze microgolf goed op elkaar aansloten.",
-    "Ik vond dat er te veel inconsistentie in de bediening zat.",
-    "Ik kan me voorstellen dat de meeste mensen zeer snel leren om deze microgolf te gebruiken.",
-    "Ik vond de bediening erg omslachtig.",
-    "Ik voelde me erg zeker tijdens het gebruik van deze microgolf.",
-    "Ik moest veel leren voordat ik met deze microgolf aan de slag kon.",
+SUS_ITEMS = [   # SUS, geherformuleerd voor deze context
+    "Ik denk dat ik deze microgolfoven regelmatig zou willen gebruiken.",
+    "Ik vond de interface onnodig complex.",
+    "Ik vond de microgolfoven eenvoudig in gebruik.",
+    "Ik denk dat ik hulp nodig zou hebben om deze microgolfoven te kunnen gebruiken.",
+    "Ik vond dat de verschillende functies van deze microgolfoven goed op elkaar waren afgestemd.",
+    "Ik vond dat er te veel inconsistenties waren in deze interface.",
+    "Ik kan me voorstellen dat de meeste mensen heel snel zouden leren hoe ze deze microgolfoven moeten gebruiken.",
+    "Ik vond de microgolfoven erg omslachtig in gebruik.",
+    "Ik voelde me zeer zelfverzekerd bij het gebruik van de microgolfoven.",
+    "Ik moest veel dingen leren voordat ik aan de slag kon met deze microgolfoven.",
 ]
 SUS_SCALE = ["Helemaal oneens", "Oneens", "Neutraal", "Eens", "Helemaal eens"]
 
@@ -182,25 +187,29 @@ for ui in UIS:
     b, m = MODEL_BLOCK[ui], MODEL[ui]
     text_q(b, f"{m}_intro", (
         f"<h2>Ronde ${{e://Field/{m}_ronde}} van 3</h2>"
-        "<p>Je krijgt zo dadelijk een microgolf met een <b>bedieningspaneel</b> te zien. Voer telkens de taak uit die "
-        "bovenaan staat en druk op <b>START</b> wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b> "
-        "per taak. Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken.</p>"
+        "<p>Je krijgt zo dadelijk een microgolfoven met een <b>bedieningspaneel</b> te zien. Eerst lees je de taak; "
+        "neem daar gerust je tijd voor. De taak start pas wanneer je op <b>Begin taak</b> klikt. Druk daarna op "
+        "<b>START</b> op de microgolfoven wanneer je denkt dat alles juist is ingesteld. Je hebt <b>één poging</b>. "
+        "Lukt het niet, dan kan je rechtsonder op <i>Lukt niet / overslaan</i> klikken en dat bevestigen.</p>"
         "<p>Tips: klik op knoppen, draai aan draaiknoppen door te slepen, en sleep naast het toestel om het te draaien.</p>"))
     for t in TASKS:
         page_break(b)
-        iframe = (f'<p style="margin:0 0 6px"><b>{TASK_LABEL[t].split(":")[0]}</b></p>'
-                  f'<iframe src="${{e://Field/stimulus_url}}?ui={ui}&amp;task={t}&amp;id={m}_{TAAK[t]}" '
+        label = "Taak" if len(TASKS) == 1 else TASK_LABEL[t].split(":")[0]
+        iframe = (f'<p style="margin:0 0 6px"><b>{label}</b></p>'
+                  f'<iframe src="${{e://Field/stimulus_url}}?ui={ui}&amp;task={t}&amp;id={pfx(ui, t)}" '
                   'style="width:100%;height:620px;border:0;border-radius:8px" allow="autoplay"></iframe>')
-        text_q(b, f"{m}_{TAAK[t]}_taak", iframe, js=TASK_JS)
-        page_break(b)
-        mc_q(b, f"{m}_{TAAK[t]}_seq", "Hoe moeilijk of makkelijk vond je deze taak?", SEQ_SCALE, horizontal=True)
+        text_q(b, f"{pfx(ui, t)}_taak", iframe, js=TASK_JS)
+        if ASK_SEQ:
+            page_break(b)
+            mc_q(b, f"{pfx(ui, t)}_seq", "Hoe moeilijk of makkelijk vond je deze taak?", SEQ_SCALE, horizontal=True)
     page_break(b)
     matrix_q(b, f"{m}_sus",
-             "Denk aan de microgolf die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
+             "Denk aan de microgolfoven die je net gebruikt hebt. In hoeverre ben je het eens met de volgende uitspraken?",
              SUS_ITEMS, SUS_SCALE)
 
 mc_q("BL_afsluiting00001", "voorkeur", "Welk bedieningspaneel vond je het prettigst om te gebruiken?",
-     ["De microgolf met draaiknoppen", "De microgolf met cijfertoetsen", "De microgolf met grote knoppen en genummerde stappen",
+     ["De microgolfoven met draaiknoppen", "De microgolfoven met het zwarte aanraakpaneel",
+      "De microgolfoven met het display en de draai-/drukknop",
       "Geen voorkeur"])
 te_q("BL_afsluiting00001", "waarom", "Waarom? En wat vond je het meest verwarrend aan de andere panelen?", multiline=True)
 text_q("BL_afsluiting00001", "bedankt", "<p>Bedankt voor je deelname! Klik op de pijl om je antwoorden te versturen.</p>")
@@ -218,11 +227,11 @@ declared += [(f"{MODEL[ui]}_ronde", "") for ui in UIS]
 for ui in UIS:
     for t in TASKS:
         for f in RESULT_FIELDS:
-            declared.append((f"{MODEL[ui]}_{TAAK[t]}_{f}", ""))
+            declared.append((f"{pfx(ui, t)}_{f}", ""))
 for ui in UIS:
     for t in TASKS:
         for f in EXTRA_FIELDS:
-            declared.append((f"{MODEL[ui]}_{TAAK[t]}_{f}", ""))
+            declared.append((f"{pfx(ui, t)}_{f}", ""))
 declared += [("ui_r1", ""), ("ui_r2", ""), ("ui_r3", "")]   # intern, voor de vertakking
 
 
